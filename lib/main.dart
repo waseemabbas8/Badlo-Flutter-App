@@ -1,4 +1,5 @@
 import 'package:badlo/presentation/core/theme/light_theme.dart';
+import 'package:badlo/presentation/page/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomePage(),
     );
   }
 }

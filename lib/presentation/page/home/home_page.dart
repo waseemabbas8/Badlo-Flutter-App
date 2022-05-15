@@ -65,8 +65,8 @@ class HomePage extends BasePage<HomeController> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: spacing16),
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: itemBuilder,
-                            separatorBuilder: itemSwappingSeparator,
+                            itemBuilder: itemSwappingBuilder,
+                            separatorBuilder: separatorBuilder,
                             itemCount: 5),
                       ),
                       const Padding(
@@ -85,7 +85,7 @@ class HomePage extends BasePage<HomeController> {
                                 horizontal: spacing16),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: itemAuctionBuilder,
-                            separatorBuilder: itemSwappingSeparator,
+                            separatorBuilder: separatorBuilder,
                             itemCount: 5),
                       ),
                       const SizedBox(
@@ -131,185 +131,191 @@ class HomePage extends BasePage<HomeController> {
   Widget itemAuctionBuilder(BuildContext context, int index) {
     return SizedBox(
       width: 158,
-      height: 227,
-      child: Card(
-        elevation: cardElevation,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: spacing8, vertical: spacing8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(cardRadius),
-                    child: Image.network(placeholderImage,
-                        width: Get.width, height: 144, fit: BoxFit.cover),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(spacing8),
-                    child: Row(
-                      children: [
-                        Image.asset(ImagesPath.accessTime),
-                        const SizedBox(
-                          width: spacing4,
-                        ),
-                        Text(
-                          "2h 34m left",
-                          style: Get.textTheme.bodyText1!
-                              .copyWith(fontSize: 10, color: Colors.black),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: spacing8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: spacing8),
-                child: Text(
-                  'Vespa',
-                  style: Get.textTheme.bodyText2!
-                      .copyWith(color: Colors.black, fontSize: 12),
-                ),
-              ),
-              const SizedBox(
-                height: spacing4,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: spacing8),
-                child: Text(
-                  'Current Bid: Rs. 78,000',
-                  style: Get.textTheme.bodyText2!
-                      .copyWith(color: colorPrimaryLight, fontSize: 10),
-                ),
-              ),
-              const SizedBox(
-                height: spacing8,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+      height: 237,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: spacing4),
+        child: Card(
+          elevation: cardElevation,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: spacing8, vertical: spacing8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Stack(
                   children: [
-                    const SizedBox(
-                      width: spacing8,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(cardRadius),
+                      child: Image.network(placeholderImage,
+                          width: Get.width, height: 144, fit: BoxFit.cover),
                     ),
-                    Image.asset(
-                      ImagesPath.bid,
-                      height: 14,
-                      width: 14,
-                      color: colorGreen,
-                    ),
-                    const SizedBox(
-                      width: spacing4,
-                    ),
-                    Text(
-                      'Bid Now',
-                      style: Get.textTheme.bodyText2!
-                          .copyWith(color: colorPrimary, fontSize: 10),
+                    Padding(
+                      padding: const EdgeInsets.all(spacing8),
+                      child: Row(
+                        children: [
+                          Image.asset(ImagesPath.accessTime),
+                          const SizedBox(
+                            width: spacing4,
+                          ),
+                          Text(
+                            "2h 34m left",
+                            style: Get.textTheme.bodyText1!
+                                .copyWith(fontSize: 10, color: Colors.black),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: spacing8,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: spacing8),
+                  child: Text(
+                    'Vespa',
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: Colors.black, fontSize: 12),
+                  ),
+                ),
+                const SizedBox(
+                  height: spacing4,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: spacing8),
+                  child: Text(
+                    'Current Bid: Rs. 78,000',
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: colorPrimaryLight, fontSize: 10),
+                  ),
+                ),
+                const SizedBox(
+                  height: spacing8,
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        width: spacing8,
+                      ),
+                      Image.asset(
+                        ImagesPath.bid,
+                        height: 14,
+                        width: 14,
+                        color: colorGreen,
+                      ),
+                      const SizedBox(
+                        width: spacing4,
+                      ),
+                      Text(
+                        'Bid Now',
+                        style: Get.textTheme.bodyText2!
+                            .copyWith(color: colorPrimary, fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget itemBuilder(BuildContext context, int index) {
+  Widget itemSwappingBuilder(BuildContext context, int index) {
     return SizedBox(
       width: 179,
-      height: 185,
-      child: Card(
-        elevation: cardElevation,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: spacing8, vertical: spacing8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(cardRadius),
-                child: Image.network(placeholderImage,
-                    width: Get.width, height: 102, fit: BoxFit.cover),
-              ),
-              const SizedBox(
-                height: spacing8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: spacing8),
-                child: Text(
-                  'Leather Sofa',
-                  style: Get.textTheme.bodyText2!
-                      .copyWith(color: Colors.black, fontSize: 12),
+      height: 195,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: spacing4),
+        child: Card(
+          elevation: cardElevation,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: spacing8, vertical: spacing8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(cardRadius),
+                  child: Image.network(placeholderImage,
+                      width: Get.width, height: 102, fit: BoxFit.cover),
                 ),
-              ),
-              const SizedBox(
-                height: spacing4,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: spacing8),
-                child: Text(
-                  'Worth PKR 18,000',
-                  style: Get.textTheme.bodyText2!
-                      .copyWith(color: colorPrimaryLight, fontSize: 10),
+                const SizedBox(
+                  height: spacing8,
                 ),
-              ),
-              const SizedBox(
-                height: spacing8,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      width: spacing8,
-                    ),
-                    Image.asset(
-                      ImagesPath.place,
-                      height: 14,
-                      width: 14,
-                      color: colorGreen,
-                    ),
-                    const SizedBox(
-                      width: spacing4,
-                    ),
-                    Text(
-                      '1.9 km away',
-                      style: Get.textTheme.bodyText2!
-                          .copyWith(color: colorGreen, fontSize: 10),
-                    ),
-                    Expanded(
-                        child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                                padding: const EdgeInsets.only(right: spacing4),
-                                child: Image.asset(ImagesPath.swapNow))))
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: spacing8),
+                  child: Text(
+                    'Leather Sofa',
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: Colors.black, fontSize: 12),
+                  ),
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: spacing4,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: spacing8),
+                  child: Text(
+                    'Worth PKR 18,000',
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: colorPrimaryLight, fontSize: 10),
+                  ),
+                ),
+                const SizedBox(
+                  height: spacing8,
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        width: spacing8,
+                      ),
+                      Image.asset(
+                        ImagesPath.place,
+                        height: 14,
+                        width: 14,
+                        color: colorGreen,
+                      ),
+                      const SizedBox(
+                        width: spacing4,
+                      ),
+                      Text(
+                        '1.9 km away',
+                        style: Get.textTheme.bodyText2!
+                            .copyWith(color: colorGreen, fontSize: 10),
+                      ),
+                      Expanded(
+                          child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(right: spacing4),
+                                  child: Image.asset(ImagesPath.swapNow))))
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget itemSwappingSeparator(BuildContext context, int index) =>
-      const SizedBox(
+  Widget separatorBuilder(BuildContext context, int index) => const SizedBox(
         width: spacing8,
       );
 

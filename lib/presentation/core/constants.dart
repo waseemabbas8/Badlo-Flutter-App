@@ -5,9 +5,12 @@ abstract class ImagesPath {
   static const search = '${imagesBasePath}search.png';
   static const tune = '${imagesBasePath}tune.png';
   static const greaterSymbol = '${imagesBasePath}greater.png';
+  static const chevronLeft = '${imagesBasePath}chevron_left.png';
+  static const chevronRight = '${imagesBasePath}chevron_right.png';
   static const swapNow = '${imagesBasePath}swap_now.png';
   static const bid = '${imagesBasePath}bid.png';
   static const accessTime = '${imagesBasePath}access_time.png';
+  static const bookmark = '${imagesBasePath}bookmark_border.png';
 }
 
 const placeholderImage =

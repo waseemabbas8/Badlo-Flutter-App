@@ -11,6 +11,7 @@ abstract class ImagesPath {
   static const bid = '${imagesBasePath}bid.png';
   static const accessTime = '${imagesBasePath}access_time.png';
   static const bookmark = '${imagesBasePath}bookmark_border.png';
+  static const star = '${imagesBasePath}star.png';
 }
 
 const placeholderImage =

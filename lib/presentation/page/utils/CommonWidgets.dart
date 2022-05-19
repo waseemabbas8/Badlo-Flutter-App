@@ -40,3 +40,45 @@ class ListHeaderBar extends StatelessWidget {
     );
   }
 }
+
+class PreferenceWidget extends StatelessWidget {
+  const PreferenceWidget(
+      {Key? key, required this.title, required this.preference})
+      : super(key: key);
+
+  final String title;
+  final String preference;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: spacing20),
+          child: Text(
+            title,
+            style: Get.textTheme.headline6!
+                .copyWith(color: colorPrimary, fontSize: 16),
+          ),
+        ),
+        const SizedBox(
+          height: spacing4,
+        ),
+        Container(
+            padding: const EdgeInsets.all(spacing12),
+            width: Get.width,
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: colorWindowBackground,
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(27)),
+                color: Colors.white),
+            child: Text(
+              preference,
+              style: Get.textTheme.bodyText2!.copyWith(color: colorGrey),
+            ))
+      ],
+    );
+  }
+}

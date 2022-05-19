@@ -1,11 +1,12 @@
 import 'package:badlo/presentation/core/constants.dart';
+import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
-import 'package:badlo/presentation/page/item_detail/item_detail_page.dart';
 import 'package:badlo/presentation/page/utils/CommonWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/base/base_page.dart';
+import '../e_product_detail/eproduct_detail_page.dart';
 import 'home_controller.dart';
 
 class HomePage extends BasePage<HomeController> {
@@ -231,7 +232,7 @@ class HomePage extends BasePage<HomeController> {
 
   Widget itemSwappingBuilder(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => _onTap(context),
+      onTap: _onTap,
       child: SizedBox(
         width: 179,
         height: 195,
@@ -319,11 +320,8 @@ class HomePage extends BasePage<HomeController> {
     );
   }
 
-  void _onTap(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ItemDetailPage()),
-    );
+  void _onTap() {
+    Get.toNamed(Routes.eProductDetail);
   }
 
   Widget separatorBuilder(BuildContext context, int index) => const SizedBox(

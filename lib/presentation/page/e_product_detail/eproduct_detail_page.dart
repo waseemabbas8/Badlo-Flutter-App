@@ -1,16 +1,16 @@
+import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/values/dimens.dart';
+import 'eproduct_detail_controller.dart';
 
-class ItemDetailPage extends StatelessWidget {
-  const ItemDetailPage({Key? key}) : super(key: key);
+class EProductDetailPage extends BasePage<EProductDetailController> {
+  const EProductDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _imageUrls = [placeholderImage, placeholderImage, placeholderImage];
-
     return Scaffold(
       body: Column(
         children: [
@@ -18,29 +18,45 @@ class ItemDetailPage extends StatelessWidget {
           const SizedBox(
             height: spacing16,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Leather Sofa',
-                style: Get.textTheme.bodyText2,
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: spacing16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Leather Sofa',
+                  style: Get.textTheme.headline6,
+                )
+              ],
+            ),
           )
         ],
       ),
     );
   }
 
-  Widget imageSlider() => SizedBox(
-        width: Get.width,
-        height: 419,
-        child: Stack(
+  Widget imageSlider() {
+    PageController pageController = PageController();
+    final _imageUrls = [placeholderImage, placeholderImage, placeholderImage];
+    return SizedBox(
+      width: Get.width,
+      height: 419,
+      child: Obx(
+        () => Stack(
           children: [
-            Container(
-              child: Image.network(
-                placeholderImage,
-                fit: BoxFit.fill,
+            PageView(
+              scrollDirection: Axis.horizontal,
+              controller: pageController,
+              onPageChanged: (index) {
+                controller.currentSliderIndex.value = index + 1;
+              },
+              children: List.generate(
+                _imageUrls.length,
+                (index) => Image.network(
+                  _imageUrls[index],
+                  fit: BoxFit.fill,
+                  height: 419,
+                ),
               ),
             ),
             Padding(
@@ -66,7 +82,7 @@ class ItemDetailPage extends StatelessWidget {
                       color: Colors.white,
                     ),
                     Text(
-                      '1',
+                      '${controller.currentSliderIndex.value}',
                       style: Get.textTheme.bodyText2!
                           .copyWith(color: Colors.white, fontSize: 16),
                     ),
@@ -80,5 +96,7 @@ class ItemDetailPage extends StatelessWidget {
             )
           ],
         ),
-      );
+      ),
+    );
+  }
 }

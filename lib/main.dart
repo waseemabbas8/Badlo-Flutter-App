@@ -1,4 +1,7 @@
+import 'package:badlo/presentation/core/route/pages.dart';
+import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/theme/light_theme.dart';
+import 'package:badlo/presentation/page/home/home_bindings.dart';
 import 'package:badlo/presentation/page/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,10 +22,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      home: const HomePage(),
+      initialRoute: Routes.home,
+      initialBinding: HomeBindings(),
+      getPages: AppPages.pages,
     );
   }
 }

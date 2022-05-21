@@ -1,10 +1,12 @@
 import 'package:badlo/presentation/core/constants.dart';
+import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/page/utils/CommonWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/base/base_page.dart';
+import '../e_product_detail/eproduct_detail_page.dart';
 import 'home_controller.dart';
 
 class HomePage extends BasePage<HomeController> {
@@ -229,90 +231,97 @@ class HomePage extends BasePage<HomeController> {
   }
 
   Widget itemSwappingBuilder(BuildContext context, int index) {
-    return SizedBox(
-      width: 179,
-      height: 195,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: spacing4),
-        child: Card(
-          elevation: cardElevation,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: spacing8, vertical: spacing8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(cardRadius),
-                  child: Image.network(placeholderImage,
-                      width: Get.width, height: 102, fit: BoxFit.cover),
-                ),
-                const SizedBox(
-                  height: spacing8,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: spacing8),
-                  child: Text(
-                    'Leather Sofa',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: Colors.black, fontSize: 12),
+    return GestureDetector(
+      onTap: _onTap,
+      child: SizedBox(
+        width: 179,
+        height: 195,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: spacing4),
+          child: Card(
+            elevation: cardElevation,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: spacing8, vertical: spacing8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(cardRadius),
+                    child: Image.network(placeholderImage,
+                        width: Get.width, height: 102, fit: BoxFit.cover),
                   ),
-                ),
-                const SizedBox(
-                  height: spacing4,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: spacing8),
-                  child: Text(
-                    'Worth PKR 18,000',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: colorPrimaryLight, fontSize: 10),
+                  const SizedBox(
+                    height: spacing8,
                   ),
-                ),
-                const SizedBox(
-                  height: spacing8,
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        width: spacing8,
-                      ),
-                      Image.asset(
-                        ImagesPath.place,
-                        height: 14,
-                        width: 14,
-                        color: colorGreen,
-                      ),
-                      const SizedBox(
-                        width: spacing4,
-                      ),
-                      Text(
-                        '1.9 km away',
-                        style: Get.textTheme.bodyText2!
-                            .copyWith(color: colorGreen, fontSize: 10),
-                      ),
-                      Expanded(
-                          child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(right: spacing4),
-                                  child: Image.asset(ImagesPath.swapNow))))
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: spacing8),
+                    child: Text(
+                      'Leather Sofa',
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: Colors.black, fontSize: 12),
+                    ),
                   ),
-                )
-              ],
+                  const SizedBox(
+                    height: spacing4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: spacing8),
+                    child: Text(
+                      'Worth PKR 18,000',
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: colorPrimaryLight, fontSize: 10),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: spacing8,
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          width: spacing8,
+                        ),
+                        Image.asset(
+                          ImagesPath.place,
+                          height: 14,
+                          width: 14,
+                          color: colorGreen,
+                        ),
+                        const SizedBox(
+                          width: spacing4,
+                        ),
+                        Text(
+                          '1.9 km away',
+                          style: Get.textTheme.bodyText2!
+                              .copyWith(color: colorGreen, fontSize: 10),
+                        ),
+                        Expanded(
+                            child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(right: spacing4),
+                                    child: Image.asset(ImagesPath.swapNow))))
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _onTap() {
+    Get.toNamed(Routes.eProductDetail);
   }
 
   Widget separatorBuilder(BuildContext context, int index) => const SizedBox(

@@ -118,6 +118,6 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
   }
 
   void gotoHome() {
-    Get.offAllNamed(Routes.home);
+    Get.offAllNamed(Routes.signUp);
   }
 }

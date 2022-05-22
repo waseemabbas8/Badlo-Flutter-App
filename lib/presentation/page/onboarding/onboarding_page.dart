@@ -22,7 +22,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             Align(
               alignment: Alignment.bottomRight,
               child: GestureDetector(
-                onTap: () => Get.toNamed(Routes.home),
+                onTap: () => gotoHome(),
                 child: Padding(
                     padding: const EdgeInsets.all(spacing16),
                     child: Text(
@@ -94,7 +94,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                       : "Next"),
                   onPressed: () {
                     if (controller.currentIndex == contents.length - 1) {
-                      Get.toNamed(Routes.home);
+                      gotoHome();
                     }
                     _controller.nextPage(
                       duration: const Duration(milliseconds: 100),
@@ -113,5 +113,9 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
         ),
       ),
     );
+  }
+
+  void gotoHome() {
+    Get.offAllNamed(Routes.home);
   }
 }

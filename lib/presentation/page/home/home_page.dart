@@ -196,7 +196,7 @@ class HomePage extends BasePage<HomeController> {
                   ),
                 ),
                 const SizedBox(
-                  height: spacing8,
+                  height: spacing4,
                 ),
                 Expanded(
                   child: Row(
@@ -278,7 +278,7 @@ class HomePage extends BasePage<HomeController> {
                     ),
                   ),
                   const SizedBox(
-                    height: spacing8,
+                    height: spacing4,
                   ),
                   Expanded(
                     child: Row(

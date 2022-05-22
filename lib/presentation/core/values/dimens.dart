@@ -16,3 +16,4 @@ const pageMargin = spacing20;
 
 const cardElevation = spacing4;
 const cardRadius = spacing16;
+const buttonRadius = spacing30;

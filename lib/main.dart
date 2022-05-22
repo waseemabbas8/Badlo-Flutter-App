@@ -1,8 +1,7 @@
 import 'package:badlo/presentation/core/route/pages.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/theme/light_theme.dart';
-import 'package:badlo/presentation/page/home/home_bindings.dart';
-import 'package:badlo/presentation/page/home/home_page.dart';
+import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
@@ -25,8 +24,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      initialRoute: Routes.home,
-      initialBinding: HomeBindings(),
+      initialRoute: Routes.onBoarding,
+      initialBinding: OnBoardingBindings(),
       getPages: AppPages.pages,
     );
   }

@@ -12,6 +12,9 @@ abstract class ImagesPath {
   static const accessTime = '${imagesBasePath}access_time.png';
   static const bookmark = '${imagesBasePath}bookmark_border.png';
   static const star = '${imagesBasePath}star.png';
+  static const quality = '${imagesBasePath}quality.svg';
+  static const reward = '${imagesBasePath}reward.svg';
+  static const delivery = '${imagesBasePath}delevery.svg';
 }
 
 const placeholderImage =

@@ -5,6 +5,7 @@ import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   _initDependencies();
@@ -21,12 +22,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: lightTheme,
-      initialRoute: Routes.onBoarding,
-      initialBinding: OnBoardingBindings(),
-      getPages: AppPages.pages,
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: lightTheme,
+        initialRoute: Routes.onBoarding,
+        initialBinding: OnBoardingBindings(),
+        getPages: AppPages.pages,
+      );
+    });
   }
 }

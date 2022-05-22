@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import 'onboarding_content_model.dart';
 
 class OnBoardingPage extends BasePage<OnBoardingController> {
@@ -18,6 +19,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
     return SafeArea(
       child: Scaffold(
         body: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Align(
               alignment: Alignment.bottomRight,
@@ -28,7 +30,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                     child: Text(
                       "Skip",
                       style: Get.textTheme.headline6!
-                          .copyWith(color: Colors.black),
+                          .copyWith(color: Colors.black,fontSize: 14.sp),
                     )),
               ),
             ),
@@ -41,7 +43,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                 },
                 itemBuilder: (_, i) {
                   return Padding(
-                    padding: const EdgeInsets.all(40),
+                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
                     child: Column(
                       children: [
                         SvgPicture.asset(
@@ -51,14 +53,14 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                         Text(
                           contents[i].title,
                           style: Get.textTheme.headline4!
-                              .copyWith(color: Colors.black),
+                              .copyWith(color: Colors.black,fontSize: 16.sp),
                         ),
                         const SizedBox(height: spacing16),
                         Text(
                           contents[i].description,
                           textAlign: TextAlign.center,
                           style: Get.textTheme.bodyText1!
-                              .copyWith(color: colorGrey, fontSize: 18),
+                              .copyWith(color: colorGrey, fontSize: 12.sp),
                         )
                       ],
                     ),
@@ -85,7 +87,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             ),
             Obx(
               () => Container(
-                height: 60,
+                height: 7.5.h,
                 margin: const EdgeInsets.all(spacing40),
                 width: double.infinity,
                 child: ElevatedButton(

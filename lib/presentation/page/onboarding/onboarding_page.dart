@@ -87,7 +87,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             ),
             Obx(
               () => Container(
-                height: 7.5.h,
+                height: 7.0.h,
                 margin: const EdgeInsets.all(spacing40),
                 width: double.infinity,
                 child: ElevatedButton(

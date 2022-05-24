@@ -1,17 +1,16 @@
 import 'package:badlo/presentation/core/base/base_page.dart';
-import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
 import 'onboarding_content_model.dart';
 
 class OnBoardingPage extends BasePage<OnBoardingController> {
   late PageController _controller;
+
+  OnBoardingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +23,13 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             Align(
               alignment: Alignment.bottomRight,
               child: GestureDetector(
-                onTap: () => gotoHome(),
+                onTap: controller.onSkipButtonPressed,
                 child: Padding(
                     padding: const EdgeInsets.all(spacing16),
                     child: Text(
                       "Skip",
                       style: Get.textTheme.headline6!
-                          .copyWith(color: Colors.black,fontSize: 14.sp),
+                          .copyWith(color: Colors.black, fontSize: 14),
                     )),
               ),
             ),
@@ -43,7 +42,8 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                 },
                 itemBuilder: (_, i) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Column(
                       children: [
                         SvgPicture.asset(
@@ -52,15 +52,15 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                         ),
                         Text(
                           contents[i].title,
-                          style: Get.textTheme.headline4!
-                              .copyWith(color: Colors.black,fontSize: 16.sp),
+                          style: Get.textTheme.headline6,
                         ),
                         const SizedBox(height: spacing16),
                         Text(
                           contents[i].description,
                           textAlign: TextAlign.center,
-                          style: Get.textTheme.bodyText1!
-                              .copyWith(color: colorGrey, fontSize: 12.sp),
+                          style: Get.textTheme.bodyText2!.copyWith(
+                            color: colorGrey,
+                          ),
                         )
                       ],
                     ),
@@ -87,7 +87,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             ),
             Obx(
               () => Container(
-                height: 7.0.h,
+                height: 45,
                 margin: const EdgeInsets.all(spacing40),
                 width: double.infinity,
                 child: ElevatedButton(
@@ -96,7 +96,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                       : "Next"),
                   onPressed: () {
                     if (controller.currentIndex == contents.length - 1) {
-                      gotoHome();
+                      controller.onSkipButtonPressed();
                     }
                     _controller.nextPage(
                       duration: const Duration(milliseconds: 100),
@@ -115,9 +115,5 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
         ),
       ),
     );
-  }
-
-  void gotoHome() {
-    Get.offAllNamed(Routes.signUp);
   }
 }

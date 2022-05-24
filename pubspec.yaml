@@ -40,7 +40,6 @@ dependencies:
   retrofit: ^3.0.1+1
   retrofit_generator: ^4.0.1
   flutter_svg: ^1.0.3
-  sizer:
   flutter_signin_button: ^2.0.0
 
 dev_dependencies:

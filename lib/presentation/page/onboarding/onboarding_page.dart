@@ -1,4 +1,5 @@
 import 'package:badlo/presentation/core/base/base_page.dart';
+import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_controller.dart';
@@ -28,8 +29,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                     padding: const EdgeInsets.all(spacing16),
                     child: Text(
                       "Skip",
-                      style: Get.textTheme.headline6!
-                          .copyWith(color: Colors.black, fontSize: 14),
+                      style: Get.textTheme.headline6!.copyWith(color: Colors.black, fontSize: 14),
                     )),
               ),
             ),
@@ -42,13 +42,12 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                 },
                 itemBuilder: (_, i) {
                   return Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Column(
                       children: [
                         SvgPicture.asset(
                           contents[i].image,
-                          height: 300,
+                          height: 300.toHeight,
                         ),
                         Text(
                           contents[i].title,
@@ -87,13 +86,12 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             ),
             Obx(
               () => Container(
-                height: 45,
+                height: 45.toHeight,
                 margin: const EdgeInsets.all(spacing40),
                 width: double.infinity,
                 child: ElevatedButton(
-                  child: Text(controller.currentIndex == contents.length - 1
-                      ? "Get Started"
-                      : "Next"),
+                  child:
+                      Text(controller.currentIndex == contents.length - 1 ? "Get Started" : "Next"),
                   onPressed: () {
                     if (controller.currentIndex == contents.length - 1) {
                       controller.onSkipButtonPressed();

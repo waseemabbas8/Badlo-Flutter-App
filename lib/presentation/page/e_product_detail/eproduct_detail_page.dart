@@ -1,7 +1,7 @@
 import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/constants.dart';
+import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
-import 'package:badlo/presentation/page/utils/CommonWidgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,8 +34,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                   ),
                   Text(
                     'Worth PKR 18,000',
-                    style:
-                        Get.textTheme.headline6!.copyWith(color: colorPrimary),
+                    style: Get.textTheme.headline6!.copyWith(color: colorPrimary),
                   )
                 ],
               ),
@@ -59,24 +58,21 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(
-                  title: 'Preference 1', preference: 'Lorem ipsum'),
+              child: PreferenceWidget(title: 'Preference 1', preference: 'Lorem ipsum'),
             ),
             const SizedBox(
               height: spacing10,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(
-                  title: 'Preference 2', preference: 'Lorem ipsum'),
+              child: PreferenceWidget(title: 'Preference 2', preference: 'Lorem ipsum'),
             ),
             const SizedBox(
               height: spacing10,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(
-                  title: 'Preference 3', preference: 'Lorem ipsum'),
+              child: PreferenceWidget(title: 'Preference 3', preference: 'Lorem ipsum'),
             ),
             const SizedBox(
               height: spacing40,
@@ -97,8 +93,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
             children: [
               const CircleAvatar(
                 radius: 30.0,
-                backgroundImage:
-                    NetworkImage('https://via.placeholder.com/150'),
+                backgroundImage: NetworkImage('https://via.placeholder.com/150'),
                 backgroundColor: Colors.transparent,
               ),
               const SizedBox(
@@ -109,16 +104,14 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                 children: [
                   Text(
                     "Abid Ali",
-                    style:
-                        Get.textTheme.headline6!.copyWith(color: Colors.black),
+                    style: Get.textTheme.headline6!.copyWith(color: Colors.black),
                   ),
                   const SizedBox(
                     height: 2,
                   ),
                   Text(
                     "See Your Profile",
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: colorPrimaryLight),
+                    style: Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight),
                   ),
                 ],
               )
@@ -180,14 +173,10 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: spacing16, vertical: spacing40),
+              padding: const EdgeInsets.symmetric(horizontal: spacing16, vertical: spacing40),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(ImagesPath.menu),
-                  Image.asset(ImagesPath.bookmark)
-                ],
+                children: [Image.asset(ImagesPath.menu), Image.asset(ImagesPath.bookmark)],
               ),
             ),
             Align(
@@ -203,8 +192,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                     ),
                     Text(
                       '${controller.currentSliderIndex.value}',
-                      style: Get.textTheme.bodyText2!
-                          .copyWith(color: Colors.white, fontSize: 16),
+                      style: Get.textTheme.bodyText2!.copyWith(color: Colors.white, fontSize: 16),
                     ),
                     Image.asset(
                       ImagesPath.chevronRight,

@@ -1,6 +1,7 @@
 import 'package:badlo/presentation/core/route/pages.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/theme/light_theme.dart';
+import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ void main() {
 
 _initDependencies() {
   Get.lazyPut(() => Dio(), fenix: true);
+  ScreenUtil.init(allowFontScaling: true);
 }
 
 class MyApp extends StatelessWidget {

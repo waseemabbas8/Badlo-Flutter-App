@@ -1,12 +1,11 @@
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
+import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
-import 'package:badlo/presentation/page/utils/CommonWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/base/base_page.dart';
-import '../e_product_detail/eproduct_detail_page.dart';
 import 'home_controller.dart';
 
 class HomePage extends BasePage<HomeController> {
@@ -15,8 +14,7 @@ class HomePage extends BasePage<HomeController> {
   @override
   Widget build(BuildContext context) {
     final topMenuBar = Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: pageMargin, vertical: spacing16),
+      padding: const EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -53,38 +51,32 @@ class HomePage extends BasePage<HomeController> {
                     children: [
                       getSearchBarUI(),
                       const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: pageMargin, vertical: spacing20),
-                        child: ListHeaderBar(
-                            textTitle: 'Swapping Marketplace',
-                            itemCount: '17 ads'),
+                        padding: EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing20),
+                        child:
+                            ListHeaderBar(textTitle: 'Swapping Marketplace', itemCount: '17 ads'),
                       ),
                       SizedBox(
                         width: Get.width,
                         height: 185,
                         child: ListView.separated(
                             shrinkWrap: true,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: spacing16),
+                            padding: const EdgeInsets.symmetric(horizontal: spacing16),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: itemSwappingBuilder,
                             separatorBuilder: separatorBuilder,
                             itemCount: 5),
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: pageMargin, vertical: spacing20),
-                        child: ListHeaderBar(
-                            textTitle: 'Auction Marketplace',
-                            itemCount: '12 items'),
+                        padding: EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing20),
+                        child:
+                            ListHeaderBar(textTitle: 'Auction Marketplace', itemCount: '12 items'),
                       ),
                       SizedBox(
                         width: Get.width,
                         height: 227,
                         child: ListView.separated(
                             shrinkWrap: true,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: spacing16),
+                            padding: const EdgeInsets.symmetric(horizontal: spacing16),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: itemAuctionBuilder,
                             separatorBuilder: separatorBuilder,
@@ -94,23 +86,20 @@ class HomePage extends BasePage<HomeController> {
                         height: spacing16,
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: pageMargin),
+                        padding: const EdgeInsets.symmetric(horizontal: pageMargin),
                         child: Stack(
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(cardRadius),
                               child: Image.network(placeholderImage,
-                                  width: Get.width,
-                                  height: 184,
-                                  fit: BoxFit.cover),
+                                  width: Get.width, height: 184, fit: BoxFit.cover),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(spacing16),
                               child: Text(
                                 "Donate Now",
-                                style: Get.textTheme.headline6!.copyWith(
-                                    color: Colors.black, fontSize: 18),
+                                style: Get.textTheme.headline6!
+                                    .copyWith(color: Colors.black, fontSize: 18),
                               ),
                             )
                           ],
@@ -142,8 +131,7 @@ class HomePage extends BasePage<HomeController> {
             borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: spacing8, vertical: spacing8),
+            padding: const EdgeInsets.symmetric(horizontal: spacing8, vertical: spacing8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -180,8 +168,7 @@ class HomePage extends BasePage<HomeController> {
                   padding: const EdgeInsets.only(left: spacing8),
                   child: Text(
                     'Vespa',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: Colors.black, fontSize: 12),
+                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
                   ),
                 ),
                 const SizedBox(
@@ -191,8 +178,8 @@ class HomePage extends BasePage<HomeController> {
                   padding: const EdgeInsets.only(left: spacing8),
                   child: Text(
                     'Current Bid: Rs. 78,000',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: colorPrimaryLight, fontSize: 10),
+                    style:
+                        Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
                   ),
                 ),
                 const SizedBox(
@@ -216,8 +203,7 @@ class HomePage extends BasePage<HomeController> {
                       ),
                       Text(
                         'Bid Now',
-                        style: Get.textTheme.bodyText2!
-                            .copyWith(color: colorPrimary, fontSize: 10),
+                        style: Get.textTheme.bodyText2!.copyWith(color: colorPrimary, fontSize: 10),
                       ),
                     ],
                   ),
@@ -244,8 +230,7 @@ class HomePage extends BasePage<HomeController> {
               borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: spacing8, vertical: spacing8),
+              padding: const EdgeInsets.symmetric(horizontal: spacing8, vertical: spacing8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -262,8 +247,7 @@ class HomePage extends BasePage<HomeController> {
                     padding: const EdgeInsets.only(left: spacing8),
                     child: Text(
                       'Leather Sofa',
-                      style: Get.textTheme.bodyText2!
-                          .copyWith(color: Colors.black, fontSize: 12),
+                      style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
                     ),
                   ),
                   const SizedBox(
@@ -273,8 +257,8 @@ class HomePage extends BasePage<HomeController> {
                     padding: const EdgeInsets.only(left: spacing8),
                     child: Text(
                       'Worth PKR 18,000',
-                      style: Get.textTheme.bodyText2!
-                          .copyWith(color: colorPrimaryLight, fontSize: 10),
+                      style:
+                          Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
                     ),
                   ),
                   const SizedBox(
@@ -298,15 +282,13 @@ class HomePage extends BasePage<HomeController> {
                         ),
                         Text(
                           '1.9 km away',
-                          style: Get.textTheme.bodyText2!
-                              .copyWith(color: colorGreen, fontSize: 10),
+                          style: Get.textTheme.bodyText2!.copyWith(color: colorGreen, fontSize: 10),
                         ),
                         Expanded(
                             child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(right: spacing4),
+                                    padding: const EdgeInsets.only(right: spacing4),
                                     child: Image.asset(ImagesPath.swapNow))))
                       ],
                     ),
@@ -354,8 +336,8 @@ class HomePage extends BasePage<HomeController> {
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: spacing10, right: spacing10, top: 0, bottom: 5),
+                    padding:
+                        const EdgeInsets.only(left: spacing10, right: spacing10, top: 0, bottom: 5),
                     child: TextField(
                       onChanged: (String txt) {},
                       style: const TextStyle(

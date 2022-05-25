@@ -2,14 +2,12 @@ import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_controller.dart';
-import 'package:badlo/presentation/page/utils/extensions/strings_ext.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_builder.dart';
 import 'package:get/get.dart';
-import '../../../../data/utils/response.dart';
 import '../../../core/values/dimens.dart';
 import '../../../core/values/strings.dart';
+import 'package:badlo/presentation/core/utils/extensions/strings_ext.dart';
 
 class SignUpPage extends BasePage<SignUpController> {
   SignUpPage({Key? key}) : super(key: key);
@@ -33,8 +31,7 @@ class SignUpPage extends BasePage<SignUpController> {
                   ),
                   Text(
                     'Email or Phone Number',
-                    style:
-                        Get.textTheme.bodyText1!.copyWith(color: Colors.black),
+                    style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                   ),
                   const SizedBox(
                     height: spacing12,
@@ -45,8 +42,7 @@ class SignUpPage extends BasePage<SignUpController> {
                       border: OutlineInputBorder(),
                     ),
                     controller: controller.emailController,
-                    validator: (input) =>
-                        input.isValidEmail() ? null : msgInvalidEmail,
+                    validator: (input) => input.isValidEmail() ? null : msgInvalidEmail,
                     style: Get.textTheme.bodyText1,
                   ),
                   const SizedBox(
@@ -54,16 +50,14 @@ class SignUpPage extends BasePage<SignUpController> {
                   ),
                   Text(
                     'Ex: 081234567890',
-                    style:
-                        Get.textTheme.bodyText2!.copyWith(color: Colors.black),
+                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.black),
                   ),
                   const SizedBox(
                     height: spacing30,
                   ),
                   Text(
                     'Password',
-                    style:
-                        Get.textTheme.bodyText1!.copyWith(color: Colors.black),
+                    style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                   ),
                   const SizedBox(
                     height: spacing12,
@@ -75,8 +69,7 @@ class SignUpPage extends BasePage<SignUpController> {
                     style: Get.textTheme.bodyText1,
                     obscureText: true,
                     controller: controller.passwordController,
-                    validator: (input) =>
-                        input.isNotNullOrEmpty() ? null : 'Field Cant be empty',
+                    validator: (input) => input.isNotNullOrEmpty() ? null : 'Field Cant be empty',
                   ),
                   const SizedBox(
                     height: spacing40,
@@ -98,8 +91,7 @@ class SignUpPage extends BasePage<SignUpController> {
                   Center(
                     child: Text(
                       'Login with Social Account',
-                      style: Get.textTheme.bodyText1!
-                          .copyWith(color: Colors.black),
+                      style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                   ),
                   const SizedBox(

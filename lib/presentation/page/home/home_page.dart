@@ -4,6 +4,8 @@ import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
+import 'package:badlo/presentation/core/values/strings.dart';
+import 'package:badlo/presentation/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/base/base_page.dart';
@@ -15,7 +17,8 @@ class HomePage extends BasePage<HomeController> {
   @override
   Widget build(BuildContext context) {
     final topMenuBar = Padding(
-      padding: const EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing16),
+      padding: const EdgeInsets.symmetric(
+          horizontal: pageMargin, vertical: spacing16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -52,7 +55,8 @@ class HomePage extends BasePage<HomeController> {
                       Padding(
                         padding: Margin.all20,
                         child: const ListHeaderBar(
-                            textTitle: 'Swapping Marketplace', itemCount: '17 ads'),
+                            textTitle: 'Swapping Marketplace',
+                            itemCount: '17 ads'),
                       ),
                       SizedBox(
                         width: Get.width,
@@ -68,7 +72,8 @@ class HomePage extends BasePage<HomeController> {
                       Padding(
                         padding: Margin.all20,
                         child: const ListHeaderBar(
-                            textTitle: 'Auction Marketplace', itemCount: '12 items'),
+                            textTitle: 'Auction Marketplace',
+                            itemCount: '12 items'),
                       ),
                       SizedBox(
                         width: Get.width,
@@ -90,14 +95,16 @@ class HomePage extends BasePage<HomeController> {
                             ClipRRect(
                               borderRadius: BorderRadii.all16,
                               child: Image.network(placeholderImage,
-                                  width: Get.width, height: 184.toHeight, fit: BoxFit.cover),
+                                  width: Get.width,
+                                  height: 184.toHeight,
+                                  fit: BoxFit.cover),
                             ),
                             Padding(
                               padding: Margin.all16,
                               child: Text(
                                 "Donate Now",
-                                style: Get.textTheme.headline6!
-                                    .copyWith(color: Colors.black, fontSize: 18.toFont),
+                                style: Get.textTheme.headline6!.copyWith(
+                                    color: Colors.black, fontSize: 18.toFont),
                               ),
                             )
                           ],
@@ -108,6 +115,13 @@ class HomePage extends BasePage<HomeController> {
                   ),
                 )),
               ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                  padding: Margin.b20,
+                  child:
+                      ContainedButton(text: labelPostAnAdd, onPressed: () {})),
             ),
           ],
         ),
@@ -137,7 +151,9 @@ class HomePage extends BasePage<HomeController> {
                     ClipRRect(
                       borderRadius: BorderRadii.all16,
                       child: Image.network(placeholderImage,
-                          width: Get.width, height: 144.toHeight, fit: BoxFit.cover),
+                          width: Get.width,
+                          height: 144.toHeight,
+                          fit: BoxFit.cover),
                     ),
                     Padding(
                       padding: Margin.all8,
@@ -147,8 +163,8 @@ class HomePage extends BasePage<HomeController> {
                           Spacing.h8,
                           Text(
                             "2h 34m left",
-                            style: Get.textTheme.bodyText1!
-                                .copyWith(fontSize: 10.toFont, color: Colors.black),
+                            style: Get.textTheme.bodyText1!.copyWith(
+                                fontSize: 10.toFont, color: Colors.black),
                           )
                         ],
                       ),
@@ -160,7 +176,8 @@ class HomePage extends BasePage<HomeController> {
                   padding: Margin.l8,
                   child: Text(
                     'Vespa',
-                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: Colors.black, fontSize: 12),
                   ),
                 ),
                 Spacing.v4,
@@ -168,8 +185,8 @@ class HomePage extends BasePage<HomeController> {
                   padding: Margin.l8,
                   child: Text(
                     'Current Bid: Rs. 78,000',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: colorPrimaryLight, fontSize: 10.toFont),
+                    style: Get.textTheme.bodyText2!.copyWith(
+                        color: colorPrimaryLight, fontSize: 10.toFont),
                   ),
                 ),
                 Spacing.v4,
@@ -230,7 +247,8 @@ class HomePage extends BasePage<HomeController> {
                     padding: Margin.l8,
                     child: Text(
                       'Leather Sofa',
-                      style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: Colors.black, fontSize: 12),
                     ),
                   ),
                   Spacing.v4,
@@ -238,8 +256,8 @@ class HomePage extends BasePage<HomeController> {
                     padding: Margin.l8,
                     child: Text(
                       'Worth PKR 18,000',
-                      style:
-                          Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: colorPrimaryLight, fontSize: 10),
                     ),
                   ),
                   Spacing.v4,
@@ -257,13 +275,15 @@ class HomePage extends BasePage<HomeController> {
                         Spacing.h4,
                         Text(
                           '1.9 km away',
-                          style: Get.textTheme.bodyText2!.copyWith(color: colorGreen, fontSize: 10),
+                          style: Get.textTheme.bodyText2!
+                              .copyWith(color: colorGreen, fontSize: 10),
                         ),
                         Expanded(
                             child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Padding(
-                                    padding: const EdgeInsets.only(right: spacing4),
+                                    padding:
+                                        const EdgeInsets.only(right: spacing4),
                                     child: Image.asset(ImagesPath.swapNow))))
                       ],
                     ),
@@ -311,8 +331,8 @@ class HomePage extends BasePage<HomeController> {
                     ],
                   ),
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: spacing10, right: spacing10, top: 0, bottom: 5),
+                    padding: const EdgeInsets.only(
+                        left: spacing10, right: spacing10, top: 0, bottom: 5),
                     child: TextField(
                       onChanged: (String txt) {},
                       style: const TextStyle(

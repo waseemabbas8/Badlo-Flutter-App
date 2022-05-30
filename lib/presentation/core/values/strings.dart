@@ -8,3 +8,4 @@ const labelDescription = 'Description';
 const labelCondition = 'Condition';
 const labelItemWorth = 'Item Worth';
 const labelMakeOffer = 'Make an Offer';
+const labelPostAnAdd = 'Post an Add';

@@ -20,6 +20,8 @@ const cardElevation = spacing4;
 const cardRadius = spacing16;
 const buttonRadius = spacing30;
 
+const imagePickerHeight = 242.0;
+
 class Margin {
   Margin._();
 
@@ -27,13 +29,16 @@ class Margin {
   static final all16 = EdgeInsets.all(16.toWidth);
   static final all20 = EdgeInsets.all(20.toWidth);
   static final all40 = EdgeInsets.all(40.toWidth);
+  static final top40 = EdgeInsets.only(top: 40.toHeight);
   static final b4 = EdgeInsets.only(bottom: 4.toHeight);
   static final b10 = EdgeInsets.only(bottom: 10.toHeight);
   static final l8 = EdgeInsets.only(left: 8.toWidth);
   static final h16 = EdgeInsets.symmetric(horizontal: 16.toWidth);
   static final h20 = EdgeInsets.symmetric(horizontal: 20.toWidth);
-  static final h16v8 = EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);
-  static final h8v32 = EdgeInsets.symmetric(horizontal: 8.toWidth, vertical: 32.toHeight);
+  static final h16v8 =
+      EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);
+  static final h8v32 =
+      EdgeInsets.symmetric(horizontal: 8.toWidth, vertical: 32.toHeight);
   static final v16 = EdgeInsets.symmetric(vertical: 16.toHeight);
 }
 

@@ -5,4 +5,5 @@ class Routes {
   static const String eProductDetail = '/eProductDetail';
   static const String onBoarding = '/on_boarding';
   static const String signUp = '/sign_up';
+  static const String placeAnOffer = '/place_an_offer';
 }

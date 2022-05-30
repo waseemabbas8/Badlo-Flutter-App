@@ -1,4 +1,5 @@
 import 'package:badlo/presentation/core/utils/screen_util.dart';
+import 'package:badlo/presentation/core/values/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,6 +7,7 @@ final lightTheme = ThemeData(
   brightness: Brightness.light,
   fontFamily: GoogleFonts.inter().fontFamily,
   textTheme: _textTheme,
+  elevatedButtonTheme: _elevatedButtonTheme,
 );
 
 final _textTheme = TextTheme(
@@ -20,3 +22,7 @@ final _textTheme = TextTheme(
   overline: TextStyle(fontSize: 9.5.toFont, fontWeight: FontWeight.w500),
   button: TextStyle(fontSize: 16.toFont, fontWeight: FontWeight.w500),
 );
+
+ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
+      style: ButtonStyles.elevatedButtonStyle,
+    );

@@ -3,19 +3,17 @@ import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_controller.dart';
+import 'package:badlo/presentation/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'onboarding_content_model.dart';
 
 class OnBoardingPage extends BasePage<OnBoardingController> {
-  late PageController _controller;
-
-  OnBoardingPage({Key? key}) : super(key: key);
+  const OnBoardingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    _controller = PageController(initialPage: 0);
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -26,7 +24,7 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
               child: GestureDetector(
                 onTap: controller.onSkipButtonPressed,
                 child: Padding(
-                    padding: const EdgeInsets.all(spacing16),
+                    padding: Margin.all16,
                     child: Text(
                       "Skip",
                       style: Get.textTheme.headline6!.copyWith(color: Colors.black, fontSize: 14),
@@ -35,14 +33,14 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
             ),
             Expanded(
               child: PageView.builder(
-                controller: _controller,
+                controller: controller.pageViewController,
                 itemCount: contents.length,
                 onPageChanged: (int index) {
                   controller.updateIndexValue(index);
                 },
                 itemBuilder: (_, i) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: Margin.h16v8,
                     child: Column(
                       children: [
                         SvgPicture.asset(
@@ -73,11 +71,11 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
                 children: List.generate(
                   contents.length,
                   (index) => Container(
-                    height: 10,
+                    height: 10.toHeight,
                     width: controller.currentIndex == index ? 25 : 10,
                     margin: const EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadii.all20,
                       color: colorPrimary,
                     ),
                   ),
@@ -85,28 +83,12 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
               ),
             ),
             Obx(
-              () => Container(
-                height: 45.toHeight,
-                margin: const EdgeInsets.all(spacing40),
+              () => ContainedButton(
                 width: double.infinity,
-                child: ElevatedButton(
-                  child:
-                      Text(controller.currentIndex == contents.length - 1 ? "Get Started" : "Next"),
-                  onPressed: () {
-                    if (controller.currentIndex == contents.length - 1) {
-                      controller.onSkipButtonPressed();
-                    }
-                    _controller.nextPage(
-                      duration: const Duration(milliseconds: 100),
-                      curve: Curves.bounceIn,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(buttonRadius),
-                      ),
-                      primary: colorPrimary),
-                ),
+                height: 45.toHeight,
+                margin: Margin.all40,
+                text: controller.buttonText,
+                onPressed: controller.onNextButtonPressed,
               ),
             )
           ],

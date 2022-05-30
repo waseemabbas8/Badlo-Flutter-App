@@ -1,5 +1,6 @@
 import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
+import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_controller.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +27,12 @@ class SignUpPage extends BasePage<SignUpController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: spacing50,
-                  ),
+                  Spacing.v50,
                   Text(
                     'Email or Phone Number',
                     style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                   ),
-                  const SizedBox(
-                    height: spacing12,
-                  ),
+                  Spacing.v12,
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
@@ -45,23 +42,17 @@ class SignUpPage extends BasePage<SignUpController> {
                     validator: (input) => input.isValidEmail() ? null : msgInvalidEmail,
                     style: Get.textTheme.bodyText1,
                   ),
-                  const SizedBox(
-                    height: spacing8,
-                  ),
+                  Spacing.v8,
                   Text(
                     'Ex: 081234567890',
                     style: Get.textTheme.bodyText2!.copyWith(color: Colors.black),
                   ),
-                  const SizedBox(
-                    height: spacing30,
-                  ),
+                  Spacing.v30,
                   Text(
                     'Password',
                     style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                   ),
-                  const SizedBox(
-                    height: spacing12,
-                  ),
+                  Spacing.v12,
                   TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -71,12 +62,10 @@ class SignUpPage extends BasePage<SignUpController> {
                     controller: controller.passwordController,
                     validator: (input) => input.isNotNullOrEmpty() ? null : 'Field Cant be empty',
                   ),
-                  const SizedBox(
-                    height: spacing40,
-                  ),
+                  Spacing.v40,
                   SizedBox(
                     width: Get.width,
-                    height: spacing50,
+                    height: 50.toHeight,
                     child: ElevatedButton(
                       onPressed: () {
                         _onLoginPress();
@@ -85,21 +74,17 @@ class SignUpPage extends BasePage<SignUpController> {
                       style: ElevatedButton.styleFrom(primary: colorGrey),
                     ),
                   ),
-                  const SizedBox(
-                    height: spacing20,
-                  ),
+                  Spacing.v20,
                   Center(
                     child: Text(
                       'Login with Social Account',
                       style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                   ),
-                  const SizedBox(
-                    height: spacing20,
-                  ),
+                  Spacing.v20,
                   SizedBox(
                     width: Get.width,
-                    height: spacing50,
+                    height: 50.toHeight,
                     child: SignInButtonBuilder(
                       text: 'Login with Facebook',
                       icon: Icons.facebook,
@@ -107,12 +92,10 @@ class SignUpPage extends BasePage<SignUpController> {
                       backgroundColor: colorGrey,
                     ),
                   ),
-                  const SizedBox(
-                    height: spacing16,
-                  ),
+                  Spacing.v16,
                   SizedBox(
                     width: Get.width,
-                    height: spacing50,
+                    height: 50.toHeight,
                     child: SignInButtonBuilder(
                       text: 'Login with Google',
                       icon: Icons.email,

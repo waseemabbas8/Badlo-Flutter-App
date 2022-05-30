@@ -1,8 +1,8 @@
 import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
+import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/values/dimens.dart';
@@ -20,11 +20,9 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             imageSlider(),
-            const SizedBox(
-              height: spacing16,
-            ),
+            Spacing.v16,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: spacing16),
+              padding: Margin.h16,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -39,44 +37,32 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: spacing16,
-            ),
+            Spacing.v16,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: spacing16),
+              padding: Margin.h16,
               child: Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
                 style: Get.textTheme.bodyText2!.copyWith(color: colorGrey),
               ),
             ),
-            const SizedBox(
-              height: spacing16,
-            ),
+            Spacing.v16,
             profileBar(),
-            const SizedBox(
-              height: spacing20,
+            Spacing.v20,
+            Padding(
+              padding: Margin.h16,
+              child: const PreferenceWidget(title: 'Preference 1', preference: 'Lorem ipsum'),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(title: 'Preference 1', preference: 'Lorem ipsum'),
+            Spacing.v10,
+            Padding(
+              padding: Margin.h16,
+              child: const PreferenceWidget(title: 'Preference 2', preference: 'Lorem ipsum'),
             ),
-            const SizedBox(
-              height: spacing10,
+            Spacing.v10,
+            Padding(
+              padding: Margin.h16,
+              child: const PreferenceWidget(title: 'Preference 3', preference: 'Lorem ipsum'),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(title: 'Preference 2', preference: 'Lorem ipsum'),
-            ),
-            const SizedBox(
-              height: spacing10,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: spacing16),
-              child: PreferenceWidget(title: 'Preference 3', preference: 'Lorem ipsum'),
-            ),
-            const SizedBox(
-              height: spacing40,
-            ),
+            Spacing.v40,
           ],
         ),
       ),
@@ -85,7 +71,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
 
   Widget profileBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: spacing16),
+      padding: Margin.h16,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -96,9 +82,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                 backgroundImage: NetworkImage('https://via.placeholder.com/150'),
                 backgroundColor: Colors.transparent,
               ),
-              const SizedBox(
-                width: spacing16,
-              ),
+              Spacing.h16,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -106,9 +90,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                     "Abid Ali",
                     style: Get.textTheme.headline6!.copyWith(color: Colors.black),
                   ),
-                  const SizedBox(
-                    height: 2,
-                  ),
+                  Spacing.v2,
                   Text(
                     "See Your Profile",
                     style: Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight),
@@ -120,23 +102,17 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
           Row(
             children: [
               Image.asset(ImagesPath.star),
-              const SizedBox(
-                width: spacing4,
-              ),
+              Spacing.h4,
               Text(
                 '4.5/5',
                 style: Get.textTheme.bodyText2!.copyWith(color: colorGreen),
               ),
-              const SizedBox(
-                width: spacing8,
-              ),
+              Spacing.h8,
               Image.asset(
                 ImagesPath.accessTime,
                 color: colorGreen,
               ),
-              const SizedBox(
-                width: spacing4,
-              ),
+              Spacing.h4,
               Text(
                 'Lorem',
                 style: Get.textTheme.bodyText2!.copyWith(color: colorGreen),
@@ -153,7 +129,7 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
     final _imageUrls = [placeholderImage, placeholderImage, placeholderImage];
     return SizedBox(
       width: Get.width,
-      height: 419,
+      height: 419.toHeight,
       child: Obx(
         () => Stack(
           children: [
@@ -168,21 +144,18 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                 (index) => Image.network(
                   _imageUrls[index],
                   fit: BoxFit.fill,
-                  height: 419,
+                  height: 419.toHeight,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: spacing16, vertical: spacing40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Image.asset(ImagesPath.menu), Image.asset(ImagesPath.bookmark)],
-              ),
+              padding: Margin.h8v32,
+              child: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: spacing10),
+                padding: Margin.b10,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -192,7 +165,8 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                     ),
                     Text(
                       '${controller.currentSliderIndex.value}',
-                      style: Get.textTheme.bodyText2!.copyWith(color: Colors.white, fontSize: 16),
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: Colors.white, fontSize: 16.toFont),
                     ),
                     Image.asset(
                       ImagesPath.chevronRight,

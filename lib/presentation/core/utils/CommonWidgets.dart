@@ -9,8 +9,7 @@ class ListHeaderBar extends StatelessWidget {
   final String textTitle;
   final String itemCount;
 
-  const ListHeaderBar(
-      {Key? key, required this.textTitle, required this.itemCount})
+  const ListHeaderBar({Key? key, required this.textTitle, required this.itemCount})
       : super(key: key);
 
   @override
@@ -20,19 +19,16 @@ class ListHeaderBar extends StatelessWidget {
       children: [
         Text(
           textTitle,
-          style: Get.textTheme.headline6!.copyWith(
-              color: Colors.black, fontWeight: FontWeight.w600, fontSize: 18),
+          style: Get.textTheme.headline6!
+              .copyWith(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 18),
         ),
         Row(
           children: [
             Text(
               itemCount,
-              style: Get.textTheme.bodyText2!
-                  .copyWith(color: colorPrimary, fontSize: 14),
+              style: Get.textTheme.bodyText2!.copyWith(color: colorPrimary, fontSize: 14),
             ),
-            const SizedBox(
-              width: spacing8,
-            ),
+            Spacing.h8,
             Image.asset(ImagesPath.greaterSymbol),
           ],
         )
@@ -42,8 +38,7 @@ class ListHeaderBar extends StatelessWidget {
 }
 
 class PreferenceWidget extends StatelessWidget {
-  const PreferenceWidget(
-      {Key? key, required this.title, required this.preference})
+  const PreferenceWidget({Key? key, required this.title, required this.preference})
       : super(key: key);
 
   final String title;
@@ -58,13 +53,10 @@ class PreferenceWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: spacing20),
           child: Text(
             title,
-            style: Get.textTheme.headline6!
-                .copyWith(color: colorPrimary, fontSize: 16),
+            style: Get.textTheme.headline6!.copyWith(color: colorPrimary, fontSize: 16),
           ),
         ),
-        const SizedBox(
-          height: spacing4,
-        ),
+        Spacing.v4,
         Container(
             padding: const EdgeInsets.all(spacing12),
             width: Get.width,

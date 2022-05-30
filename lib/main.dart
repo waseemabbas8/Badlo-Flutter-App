@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.onBoarding,
       initialBinding: OnBoardingBindings(),
       getPages: AppPages.pages,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

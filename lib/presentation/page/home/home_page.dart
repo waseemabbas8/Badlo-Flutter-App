@@ -1,6 +1,7 @@
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
+import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +23,7 @@ class HomePage extends BasePage<HomeController> {
           Row(
             children: [
               Image.asset(ImagesPath.place),
-              const SizedBox(
-                width: spacing4,
-              ),
+              Spacing.h4,
               Text(
                 'Karachi',
                 style: Get.textTheme.bodyText2!.copyWith(color: Colors.black),
@@ -50,64 +49,61 @@ class HomePage extends BasePage<HomeController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       getSearchBarUI(),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing20),
-                        child:
-                            ListHeaderBar(textTitle: 'Swapping Marketplace', itemCount: '17 ads'),
+                      Padding(
+                        padding: Margin.all20,
+                        child: const ListHeaderBar(
+                            textTitle: 'Swapping Marketplace', itemCount: '17 ads'),
                       ),
                       SizedBox(
                         width: Get.width,
-                        height: 185,
+                        height: 185.toHeight,
                         child: ListView.separated(
                             shrinkWrap: true,
-                            padding: const EdgeInsets.symmetric(horizontal: spacing16),
+                            padding: Margin.h16,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: itemSwappingBuilder,
                             separatorBuilder: separatorBuilder,
                             itemCount: 5),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: pageMargin, vertical: spacing20),
-                        child:
-                            ListHeaderBar(textTitle: 'Auction Marketplace', itemCount: '12 items'),
+                      Padding(
+                        padding: Margin.all20,
+                        child: const ListHeaderBar(
+                            textTitle: 'Auction Marketplace', itemCount: '12 items'),
                       ),
                       SizedBox(
                         width: Get.width,
-                        height: 227,
+                        height: 227.toHeight,
                         child: ListView.separated(
-                            shrinkWrap: true,
-                            padding: const EdgeInsets.symmetric(horizontal: spacing16),
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: itemAuctionBuilder,
-                            separatorBuilder: separatorBuilder,
-                            itemCount: 5),
+                          shrinkWrap: true,
+                          padding: Margin.h16,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: itemAuctionBuilder,
+                          separatorBuilder: separatorBuilder,
+                          itemCount: 5,
+                        ),
                       ),
-                      const SizedBox(
-                        height: spacing16,
-                      ),
+                      Spacing.v16,
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: pageMargin),
+                        padding: Margin.h20,
                         child: Stack(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(cardRadius),
+                              borderRadius: BorderRadii.all16,
                               child: Image.network(placeholderImage,
-                                  width: Get.width, height: 184, fit: BoxFit.cover),
+                                  width: Get.width, height: 184.toHeight, fit: BoxFit.cover),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(spacing16),
+                              padding: Margin.all16,
                               child: Text(
                                 "Donate Now",
                                 style: Get.textTheme.headline6!
-                                    .copyWith(color: Colors.black, fontSize: 18),
+                                    .copyWith(color: Colors.black, fontSize: 18.toFont),
                               ),
                             )
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: spacing16,
-                      )
+                      Spacing.v16,
                     ],
                   ),
                 )),
@@ -121,17 +117,17 @@ class HomePage extends BasePage<HomeController> {
 
   Widget itemAuctionBuilder(BuildContext context, int index) {
     return SizedBox(
-      width: 158,
-      height: 237,
+      width: 158.toWidth,
+      height: 237.toHeight,
       child: Padding(
         padding: const EdgeInsets.only(bottom: spacing4),
         child: Card(
           elevation: cardElevation,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadii.all16,
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: spacing8, vertical: spacing8),
+            padding: Margin.all8,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -139,71 +135,60 @@ class HomePage extends BasePage<HomeController> {
                 Stack(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(cardRadius),
+                      borderRadius: BorderRadii.all16,
                       child: Image.network(placeholderImage,
-                          width: Get.width, height: 144, fit: BoxFit.cover),
+                          width: Get.width, height: 144.toHeight, fit: BoxFit.cover),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(spacing8),
+                      padding: Margin.all8,
                       child: Row(
                         children: [
                           Image.asset(ImagesPath.accessTime),
-                          const SizedBox(
-                            width: spacing4,
-                          ),
+                          Spacing.h8,
                           Text(
                             "2h 34m left",
                             style: Get.textTheme.bodyText1!
-                                .copyWith(fontSize: 10, color: Colors.black),
+                                .copyWith(fontSize: 10.toFont, color: Colors.black),
                           )
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: spacing8,
-                ),
+                Spacing.v8,
                 Padding(
-                  padding: const EdgeInsets.only(left: spacing8),
+                  padding: Margin.l8,
                   child: Text(
                     'Vespa',
                     style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
                   ),
                 ),
-                const SizedBox(
-                  height: spacing4,
-                ),
+                Spacing.v4,
                 Padding(
-                  padding: const EdgeInsets.only(left: spacing8),
+                  padding: Margin.l8,
                   child: Text(
                     'Current Bid: Rs. 78,000',
-                    style:
-                        Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: colorPrimaryLight, fontSize: 10.toFont),
                   ),
                 ),
-                const SizedBox(
-                  height: spacing4,
-                ),
+                Spacing.v4,
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        width: spacing8,
-                      ),
+                      Spacing.h8,
                       Image.asset(
                         ImagesPath.bid,
-                        height: 14,
-                        width: 14,
+                        height: 14.toWidth,
+                        width: 14.toWidth,
                         color: colorGreen,
                       ),
-                      const SizedBox(
-                        width: spacing4,
-                      ),
+                      Spacing.h4,
                       Text(
                         'Bid Now',
-                        style: Get.textTheme.bodyText2!.copyWith(color: colorPrimary, fontSize: 10),
+                        style: Get.textTheme.bodyText2!
+                            .copyWith(color: colorPrimary, fontSize: 10.toFont),
                       ),
                     ],
                   ),
@@ -220,17 +205,17 @@ class HomePage extends BasePage<HomeController> {
     return GestureDetector(
       onTap: _onTap,
       child: SizedBox(
-        width: 179,
-        height: 195,
+        width: 179.toWidth,
+        height: 195.toHeight,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: spacing4),
+          padding: Margin.b4,
           child: Card(
             elevation: cardElevation,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadii.all16,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: spacing8, vertical: spacing8),
+              padding: Margin.all8,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -240,46 +225,36 @@ class HomePage extends BasePage<HomeController> {
                     child: Image.network(placeholderImage,
                         width: Get.width, height: 102, fit: BoxFit.cover),
                   ),
-                  const SizedBox(
-                    height: spacing8,
-                  ),
+                  Spacing.v8,
                   Padding(
-                    padding: const EdgeInsets.only(left: spacing8),
+                    padding: Margin.l8,
                     child: Text(
                       'Leather Sofa',
                       style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
                     ),
                   ),
-                  const SizedBox(
-                    height: spacing4,
-                  ),
+                  Spacing.v4,
                   Padding(
-                    padding: const EdgeInsets.only(left: spacing8),
+                    padding: Margin.l8,
                     child: Text(
                       'Worth PKR 18,000',
                       style:
                           Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
                     ),
                   ),
-                  const SizedBox(
-                    height: spacing4,
-                  ),
+                  Spacing.v4,
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const SizedBox(
-                          width: spacing8,
-                        ),
+                        Spacing.h8,
                         Image.asset(
                           ImagesPath.place,
-                          height: 14,
-                          width: 14,
+                          height: 14.toWidth,
+                          width: 14.toWidth,
                           color: colorGreen,
                         ),
-                        const SizedBox(
-                          width: spacing4,
-                        ),
+                        Spacing.h4,
                         Text(
                           '1.9 km away',
                           style: Get.textTheme.bodyText2!.copyWith(color: colorGreen, fontSize: 10),

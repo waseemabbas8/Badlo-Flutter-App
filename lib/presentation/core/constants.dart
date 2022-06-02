@@ -1,20 +1,22 @@
 abstract class ImagesPath {
-  static const imagesBasePath = 'assets/images/';
-  static const menu = '${imagesBasePath}menu.png';
-  static const place = '${imagesBasePath}place.png';
-  static const search = '${imagesBasePath}search.png';
-  static const tune = '${imagesBasePath}tune.png';
-  static const greaterSymbol = '${imagesBasePath}greater.png';
-  static const chevronLeft = '${imagesBasePath}chevron_left.png';
-  static const chevronRight = '${imagesBasePath}chevron_right.png';
-  static const swapNow = '${imagesBasePath}swap_now.png';
-  static const bid = '${imagesBasePath}bid.png';
-  static const accessTime = '${imagesBasePath}access_time.png';
-  static const bookmark = '${imagesBasePath}bookmark_border.png';
-  static const star = '${imagesBasePath}star.png';
-  static const quality = '${imagesBasePath}quality.svg';
-  static const reward = '${imagesBasePath}reward.svg';
-  static const delivery = '${imagesBasePath}delevery.svg';
+  static const basePath = 'assets/images/';
+  static const menu = '${basePath}menu.png';
+  static const place = '${basePath}place.png';
+  static const search = '${basePath}search.png';
+  static const tune = '${basePath}tune.png';
+  static const greaterSymbol = '${basePath}greater.png';
+  static const chevronLeft = '${basePath}chevron_left.png';
+  static const chevronRight = '${basePath}chevron_right.png';
+  static const swapNow = '${basePath}swap_now.png';
+  static const bid = '${basePath}bid.png';
+  static const accessTime = '${basePath}access_time.png';
+  static const bookmark = '${basePath}bookmark_border.png';
+  static const star = '${basePath}star.png';
+  static const quality = '${basePath}quality.svg';
+  static const reward = '${basePath}reward.svg';
+  static const delivery = '${basePath}delevery.svg';
+  static const facebook = '${basePath}ic_facebook.png';
+  static const google = '${basePath}ic_google.png';
 }
 
 const placeholderImage =

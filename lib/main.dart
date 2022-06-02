@@ -19,7 +19,9 @@ _initDependencies() {
   ScreenUtil.init(allowFontScaling: true);
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: colorWindowBackground, // transparent status bar
+    statusBarColor: colorWindowBackground,
+    statusBarBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark, // transparent status bar
   ));
 }
 

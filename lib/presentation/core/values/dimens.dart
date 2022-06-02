@@ -36,18 +36,17 @@ class Margin {
   static final l8 = EdgeInsets.only(left: 8.toWidth);
   static final h16 = EdgeInsets.symmetric(horizontal: 16.toWidth);
   static final h20 = EdgeInsets.symmetric(horizontal: 20.toWidth);
-  static final h16v8 =
-      EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);
-  static final h8v32 =
-      EdgeInsets.symmetric(horizontal: 8.toWidth, vertical: 32.toHeight);
+  static final h16v8 = EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);
+  static final h8v32 = EdgeInsets.symmetric(horizontal: 8.toWidth, vertical: 32.toHeight);
   static final v16 = EdgeInsets.symmetric(vertical: 16.toHeight);
 }
 
 class BorderRadii {
   BorderRadii._();
 
-  static final all20 = BorderRadius.circular(20);
   static final all16 = BorderRadius.circular(16);
+  static final all20 = BorderRadius.circular(20);
+  static final all27 = BorderRadius.circular(27);
 }
 
 class Spacing {
@@ -56,6 +55,7 @@ class Spacing {
   static final h4 = SizedBox(width: 4.toWidth);
   static final h8 = SizedBox(width: 8.toWidth);
   static final h16 = SizedBox(width: 16.toWidth);
+  static final h30 = SizedBox(width: 30.toWidth);
   static final v2 = SizedBox(height: 2.toHeight);
   static final v4 = SizedBox(height: 4.toHeight);
   static final v8 = SizedBox(height: 8.toHeight);

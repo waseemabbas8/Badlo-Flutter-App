@@ -1,4 +1,5 @@
 import 'package:badlo/presentation/core/utils/screen_util.dart';
+import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,8 @@ final lightTheme = ThemeData(
   fontFamily: GoogleFonts.inter().fontFamily,
   textTheme: _textTheme,
   elevatedButtonTheme: _elevatedButtonTheme,
+  scaffoldBackgroundColor: colorWindowBackground,
+  appBarTheme: _appBarTheme,
 );
 
 final _textTheme = TextTheme(
@@ -25,4 +28,17 @@ final _textTheme = TextTheme(
 
 ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
       style: ButtonStyles.elevatedButtonStyle,
+    );
+
+AppBarTheme get _appBarTheme => AppBarTheme(
+      backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: colorAppBarTitle),
+      actionsIconTheme: IconThemeData(color: colorAppBarTitle),
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: colorAppBarTitle,
+        fontSize: 18.toFont,
+        fontWeight: FontWeight.w500,
+      ),
     );

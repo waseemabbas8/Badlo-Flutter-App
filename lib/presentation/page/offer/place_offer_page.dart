@@ -13,7 +13,6 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWindowBackground,
       body: Column(
         children: [
           Spacing.v40,
@@ -29,9 +28,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                 labelPlaceOffer,
                 style: Get.textTheme.button!.copyWith(color: Colors.black),
               ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.person_outline_sharp)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.person_outline_sharp)),
             ],
           ),
           Expanded(
@@ -45,13 +42,10 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                       width: Get.width,
                       height: imagePickerHeight,
                       decoration: const BoxDecoration(
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(cardRadius)),
+                        borderRadius: BorderRadius.all(Radius.circular(cardRadius)),
                         color: colorGrey,
                       ),
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.add_a_photo)),
+                      child: IconButton(onPressed: () {}, icon: const Icon(Icons.add_a_photo)),
                     ),
                     Spacing.v30,
                     Row(
@@ -71,8 +65,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                     Spacing.v30,
                     Text(
                       labelItemName,
-                      style: Get.textTheme.bodyText1!
-                          .copyWith(color: Colors.black),
+                      style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                     Spacing.v12,
                     TextFormField(
@@ -85,8 +78,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                     Spacing.v20,
                     Text(
                       labelDescription,
-                      style: Get.textTheme.bodyText1!
-                          .copyWith(color: Colors.black),
+                      style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                     Spacing.v12,
                     TextFormField(
@@ -98,8 +90,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                     Spacing.v20,
                     Text(
                       labelCondition,
-                      style: Get.textTheme.bodyText1!
-                          .copyWith(color: Colors.black),
+                      style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                     Spacing.v12,
                     TextFormField(
@@ -111,8 +102,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                     Spacing.v20,
                     Text(
                       labelItemWorth,
-                      style: Get.textTheme.bodyText1!
-                          .copyWith(color: Colors.black),
+                      style: Get.textTheme.bodyText1!.copyWith(color: Colors.black),
                     ),
                     Spacing.v12,
                     TextFormField(
@@ -122,9 +112,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                       style: Get.textTheme.bodyText1,
                     ),
                     Spacing.v40,
-                    Center(
-                        child: ContainedButton(
-                            text: labelMakeOffer, onPressed: () {})),
+                    Center(child: ContainedButton(text: labelMakeOffer, onPressed: () {})),
                   ],
                 ),
               ),

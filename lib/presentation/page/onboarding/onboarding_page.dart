@@ -14,85 +14,84 @@ class OnBoardingPage extends BasePage<OnBoardingController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Align(
-              alignment: Alignment.bottomRight,
-              child: GestureDetector(
-                onTap: controller.onSkipButtonPressed,
-                child: Padding(
-                    padding: Margin.all16,
-                    child: Text(
-                      "Skip",
-                      style: Get.textTheme.headline6!.copyWith(color: Colors.black, fontSize: 14),
-                    )),
-              ),
+    return Scaffold(
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(height: Get.mediaQuery.viewPadding.top),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: GestureDetector(
+              onTap: controller.onSkipButtonPressed,
+              child: Padding(
+                  padding: Margin.all16,
+                  child: Text(
+                    "Skip",
+                    style: Get.textTheme.headline6!.copyWith(color: Colors.black, fontSize: 14),
+                  )),
             ),
-            Expanded(
-              child: PageView.builder(
-                controller: controller.pageViewController,
-                itemCount: contents.length,
-                onPageChanged: (int index) {
-                  controller.updateIndexValue(index);
-                },
-                itemBuilder: (_, i) {
-                  return Padding(
-                    padding: Margin.h16v8,
-                    child: Column(
-                      children: [
-                        SvgPicture.asset(
-                          contents[i].image,
-                          height: 300.toHeight,
+          ),
+          Expanded(
+            child: PageView.builder(
+              controller: controller.pageViewController,
+              itemCount: contents.length,
+              onPageChanged: (int index) {
+                controller.updateIndexValue(index);
+              },
+              itemBuilder: (_, i) {
+                return Padding(
+                  padding: Margin.h16v8,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                        contents[i].image,
+                        height: 300.toHeight,
+                      ),
+                      Text(
+                        contents[i].title,
+                        style: Get.textTheme.headline6,
+                      ),
+                      const SizedBox(height: spacing16),
+                      Text(
+                        contents[i].description,
+                        textAlign: TextAlign.center,
+                        style: Get.textTheme.bodyText2!.copyWith(
+                          color: colorGrey,
                         ),
-                        Text(
-                          contents[i].title,
-                          style: Get.textTheme.headline6,
-                        ),
-                        const SizedBox(height: spacing16),
-                        Text(
-                          contents[i].description,
-                          textAlign: TextAlign.center,
-                          style: Get.textTheme.bodyText2!.copyWith(
-                            color: colorGrey,
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
+                      )
+                    ],
+                  ),
+                );
+              },
             ),
-            Obx(
-              () => Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  contents.length,
-                  (index) => Container(
-                    height: 10.toHeight,
-                    width: controller.currentIndex == index ? 25 : 10,
-                    margin: const EdgeInsets.only(right: 5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadii.all20,
-                      color: colorPrimary,
-                    ),
+          ),
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                contents.length,
+                (index) => Container(
+                  height: 10.toHeight,
+                  width: controller.currentIndex == index ? 25 : 10,
+                  margin: const EdgeInsets.only(right: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadii.all20,
+                    color: colorPrimary,
                   ),
                 ),
               ),
             ),
-            Obx(
-              () => ContainedButton(
-                width: double.infinity,
-                height: 45.toHeight,
-                margin: Margin.all40,
-                text: controller.buttonText,
-                onPressed: controller.onNextButtonPressed,
-              ),
-            )
-          ],
-        ),
+          ),
+          Obx(
+            () => ContainedButton(
+              width: double.infinity,
+              height: 45.toHeight,
+              margin: Margin.all40,
+              text: controller.buttonText,
+              onPressed: controller.onNextButtonPressed,
+            ),
+          )
+        ],
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_controller.dart';
+import 'package:badlo/presentation/widget/app_bar_widget.dart';
 import 'package:badlo/presentation/widget/button.dart';
 import 'package:badlo/presentation/widget/text_field.dart';
 import 'package:flutter/material.dart';
@@ -15,32 +16,31 @@ class SignUpPage extends BasePage<SignUpController> {
 
   @override
   Widget build(BuildContext context) {
-    final appbar = AppBar(
-      leading: Icon(Icons.arrow_back),
-      title: Text('Create Account'),
-    );
-    return SafeArea(
-      child: Scaffold(
-        appBar: appbar,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: SizedBox(
-              height: Get.height - Get.statusBarHeight,
-              child: Padding(
-                padding: Margin.h20,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: _loginForm,
-                    ),
-                    Expanded(
-                      child: _buttons,
-                    ),
-                  ],
+    return Scaffold(
+      body: Padding(
+        padding: Margin.h20,
+        child: Column(
+          children: [
+            Spacing.statusBarHeight,
+            AppbarWidget(title: 'Create Account'),
+            Expanded(
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: Get.height - Get.mediaQuery.viewPadding.top - 10.toHeight - 50.toHeight,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: _loginForm,
+                      ),
+                      Expanded(
+                        child: _buttons,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

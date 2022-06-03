@@ -1,5 +1,6 @@
 import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const spacing10 = 10.0;
 const spacing12 = 12.0;
@@ -66,4 +67,6 @@ class Spacing {
   static final v30 = SizedBox(height: 30.toHeight);
   static final v40 = SizedBox(height: 40.toHeight);
   static final v50 = SizedBox(height: 50.toHeight);
+
+  static final statusBarHeight = SizedBox(height: Get.mediaQuery.viewPadding.top + 10.toHeight);
 }

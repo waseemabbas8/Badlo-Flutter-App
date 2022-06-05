@@ -12,27 +12,30 @@ class AppbarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: onBackPress,
-          child: Icon(
-            Icons.arrow_back,
-            color: colorAppBarTitle,
+    return Padding(
+      padding: Margin.h20,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: onBackPress,
+            child: Icon(
+              Icons.arrow_back,
+              color: colorAppBarTitle,
+            ),
           ),
-        ),
-        Spacing.h16,
-        Expanded(
-          child: Text(
-            title,
-            style: Get.textTheme.headline6?.copyWith(color: colorAppBarTitle),
-            textAlign: TextAlign.center,
+          Spacing.h16,
+          Expanded(
+            child: Text(
+              title,
+              style: Get.textTheme.headline6?.copyWith(color: colorAppBarTitle),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
-        Spacing.h16,
-        leading ?? Container(),
-      ],
+          Spacing.h16,
+          leading ?? Container(),
+        ],
+      ),
     );
   }
 }

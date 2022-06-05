@@ -8,6 +8,7 @@ abstract class _TextField extends StatelessWidget {
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final TextInputAction? textInputAction;
+  final Widget? suffixIcon;
   final String? hint;
   final bool obscureText;
 
@@ -17,6 +18,7 @@ abstract class _TextField extends StatelessWidget {
     this.controller,
     this.validator,
     this.textInputAction,
+    this.suffixIcon,
     this.hint,
     this.obscureText = false,
   }) : super(key: key);
@@ -31,6 +33,7 @@ class LabeledTextField extends _TextField {
     TextEditingController? controller,
     FormFieldValidator<String>? validator,
     TextInputAction? textInputAction,
+    Widget? suffixIcon,
     bool obscureText = false,
     String? hint,
     required this.label,
@@ -40,6 +43,7 @@ class LabeledTextField extends _TextField {
           controller: controller,
           validator: validator,
           textInputAction: textInputAction,
+          suffixIcon: suffixIcon,
           hint: hint,
           obscureText: obscureText,
         );
@@ -62,6 +66,7 @@ class LabeledTextField extends _TextField {
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hint,
+            suffixIcon: suffixIcon,
           ),
           controller: controller,
           validator: validator,

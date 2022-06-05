@@ -1,6 +1,8 @@
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_bindings.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_page.dart';
+import 'package:badlo/presentation/page/chat/owner_contact_bindings.dart';
+import 'package:badlo/presentation/page/chat/owner_contact_page.dart';
 import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_bindings.dart';
 import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_page.dart';
 import 'package:badlo/presentation/page/home/home_bindings.dart';
@@ -42,6 +44,11 @@ class AppPages {
       name: Routes.placeAnOffer,
       page: () => PlaceOfferPage(),
       binding: PlaceOfferBindings(),
+    ),
+    GetPage(
+      name: Routes.ownerContact,
+      page: () => OwnerContactPage(),
+      binding: OwnerContactBindings(),
     ),
   ];
 }

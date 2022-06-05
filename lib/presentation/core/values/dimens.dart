@@ -35,6 +35,7 @@ class Margin {
   static final b10 = EdgeInsets.only(bottom: 10.toHeight);
   static final b20 = EdgeInsets.only(bottom: 20.toHeight);
   static final l8 = EdgeInsets.only(left: 8.toWidth);
+  static final h8 = EdgeInsets.symmetric(horizontal: 8.toWidth);
   static final h16 = EdgeInsets.symmetric(horizontal: 16.toWidth);
   static final h20 = EdgeInsets.symmetric(horizontal: 20.toWidth);
   static final h16v8 = EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);

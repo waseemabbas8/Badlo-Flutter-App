@@ -19,11 +19,7 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                  onPressed: () {
-                    controller.onBackPressed();
-                  },
-                  icon: const Icon(Icons.arrow_back)),
+              IconButton(onPressed: controller.onBackPressed, icon: const Icon(Icons.arrow_back)),
               Text(
                 labelPlaceOffer,
                 style: Get.textTheme.button!.copyWith(color: Colors.black),
@@ -56,9 +52,12 @@ class PlaceOfferPage extends BasePage<PlaceOfferController> {
                           elevation: cardElevation,
                         ),
                         Spacing.h16,
-                        const Chip(
-                          label: Text(labelContactOwner),
-                          elevation: cardElevation,
+                        GestureDetector(
+                          child: const Chip(
+                            label: Text(labelContactOwner),
+                            elevation: cardElevation,
+                          ),
+                          onTap: controller.onContactButtonPressed,
                         ),
                       ],
                     ),

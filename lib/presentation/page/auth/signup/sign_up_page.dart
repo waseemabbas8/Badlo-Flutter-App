@@ -17,31 +17,29 @@ class SignUpPage extends BasePage<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: Margin.h20,
-        child: Column(
-          children: [
-            Spacing.statusBarHeight,
-            AppbarWidget(title: 'Create Account'),
-            Expanded(
-              child: SingleChildScrollView(
-                child: SizedBox(
-                  height: Get.height - Get.mediaQuery.viewPadding.top - 10.toHeight - 50.toHeight,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: _loginForm,
-                      ),
-                      Expanded(
-                        child: _buttons,
-                      ),
-                    ],
-                  ),
+      body: Column(
+        children: [
+          Spacing.statusBarHeight,
+          AppbarWidget(title: 'Create Account'),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                height: Get.height - Get.mediaQuery.viewPadding.top - 10.toHeight - 50.toHeight,
+                margin: Margin.h20,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: _loginForm,
+                    ),
+                    Expanded(
+                      child: _buttons,
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

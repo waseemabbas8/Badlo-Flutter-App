@@ -7,4 +7,5 @@ class Routes {
   static const String signUp = '/sign_up';
   static const String placeAnOffer = '/place_an_offer';
   static const String ownerContact = '/owner_contact';
+  static const String chat = '/chat';
 }

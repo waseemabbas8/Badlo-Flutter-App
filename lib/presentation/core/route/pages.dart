@@ -1,6 +1,8 @@
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_bindings.dart';
 import 'package:badlo/presentation/page/auth/signup/sign_up_page.dart';
+import 'package:badlo/presentation/page/chat/chat_bindings.dart';
+import 'package:badlo/presentation/page/chat/chat_page.dart';
 import 'package:badlo/presentation/page/chat/owner_contact_bindings.dart';
 import 'package:badlo/presentation/page/chat/owner_contact_page.dart';
 import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_bindings.dart';
@@ -32,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.onBoarding,
-      page: () => OnBoardingPage(),
+      page: () => const OnBoardingPage(),
       binding: OnBoardingBindings(),
     ),
     GetPage(
@@ -42,13 +44,18 @@ class AppPages {
     ),
     GetPage(
       name: Routes.placeAnOffer,
-      page: () => PlaceOfferPage(),
+      page: () => const PlaceOfferPage(),
       binding: PlaceOfferBindings(),
     ),
     GetPage(
       name: Routes.ownerContact,
-      page: () => OwnerContactPage(),
+      page: () => const OwnerContactPage(),
       binding: OwnerContactBindings(),
+    ),
+    GetPage(
+      name: Routes.chat,
+      page: () => const ChatPage(),
+      binding: ChatBindings(),
     ),
   ];
 }

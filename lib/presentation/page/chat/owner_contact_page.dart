@@ -27,7 +27,7 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
             child: Column(
               children: [
                 _buildOptionsWidget('Place your offer directly'),
-                _buildOptionsWidget('Contact the Owner'),
+                _buildOptionsWidget('Contact the Owner', onTap: controller.onContactOwnerClick),
                 Spacing.v30,
                 Row(
                   children: [
@@ -45,6 +45,22 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
                     onPressed: controller.onSendMessageButtonPressed,
                   ),
                 ),
+                Spacing.v30,
+                Row(
+                  children: [
+                    Icon(Icons.call, size: 18.toWidth),
+                    Spacing.h16,
+                    Text('Call', style: Get.textTheme.subtitle1),
+                  ],
+                ),
+                Spacing.v16,
+                SizedBox(
+                  width: Get.width,
+                  child: Text(
+                    '+92 334 6236284',
+                    style: Get.textTheme.bodyText1?.copyWith(color: Colors.black),
+                  ),
+                ),
               ],
             ),
           )
@@ -53,8 +69,8 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
     );
   }
 
-  Widget _buildOptionsWidget(String text) => InkWell(
-        onTap: () {},
+  Widget _buildOptionsWidget(String text, {VoidCallback? onTap}) => InkWell(
+        onTap: onTap,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

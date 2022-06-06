@@ -19,4 +19,10 @@ class ChatRepositoryImpl extends ChatRepository {
     // TODO: implement sendMessage
     throw UnimplementedError();
   }
+
+  @override
+  Future<List<String>> getSuggestedMessages() async {
+    Future.delayed(const Duration(seconds: 1));
+    return ['Hi, is available?', 'Can it be delivered today', 'Thank you', 'Any variations?'];
+  }
 }

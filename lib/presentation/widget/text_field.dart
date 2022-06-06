@@ -9,6 +9,7 @@ abstract class _TextField extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final TextInputAction? textInputAction;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final String? hint;
   final bool obscureText;
 
@@ -19,6 +20,7 @@ abstract class _TextField extends StatelessWidget {
     this.validator,
     this.textInputAction,
     this.suffixIcon,
+    this.prefixIcon,
     this.hint,
     this.obscureText = false,
   }) : super(key: key);
@@ -34,6 +36,7 @@ class LabeledTextField extends _TextField {
     FormFieldValidator<String>? validator,
     TextInputAction? textInputAction,
     Widget? suffixIcon,
+    Widget? prefixIcon,
     bool obscureText = false,
     String? hint,
     required this.label,
@@ -44,6 +47,7 @@ class LabeledTextField extends _TextField {
           validator: validator,
           textInputAction: textInputAction,
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           hint: hint,
           obscureText: obscureText,
         );
@@ -67,6 +71,7 @@ class LabeledTextField extends _TextField {
           decoration: InputDecoration(
             hintText: hint,
             suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
           ),
           controller: controller,
           validator: validator,
@@ -75,6 +80,47 @@ class LabeledTextField extends _TextField {
           textInputAction: textInputAction,
         ),
       ],
+    );
+  }
+}
+
+class CustomTextField extends _TextField {
+  const CustomTextField({
+    Key? key,
+    TextInputType? keyboardType,
+    TextEditingController? controller,
+    FormFieldValidator<String>? validator,
+    TextInputAction? textInputAction,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
+    bool obscureText = false,
+    String? hint,
+  }) : super(
+          key: key,
+          keyboardType: keyboardType,
+          controller: controller,
+          validator: validator,
+          textInputAction: textInputAction,
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          hint: hint,
+          obscureText: obscureText,
+        );
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        hintText: hint,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+      ),
+      controller: controller,
+      validator: validator,
+      style: Get.textTheme.bodyText1,
+      obscureText: obscureText,
+      textInputAction: textInputAction,
     );
   }
 }

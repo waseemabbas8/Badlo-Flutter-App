@@ -13,14 +13,16 @@ import 'package:badlo/presentation/page/offer/place_offer_bindings.dart';
 import 'package:badlo/presentation/page/offer/place_offer_page.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_page.dart';
+import 'package:badlo/presentation/page/splash/splash_bindings.dart';
+import 'package:badlo/presentation/page/splash/splash_page.dart';
 import 'package:get/get.dart';
 
 class AppPages {
   static final pages = [
     GetPage(
       name: Routes.launch,
-      page: () => const HomePage(),
-      binding: HomeBindings(),
+      page: () => const SplashPage(),
+      binding: SplashBindings(),
     ),
     GetPage(
       name: Routes.home,

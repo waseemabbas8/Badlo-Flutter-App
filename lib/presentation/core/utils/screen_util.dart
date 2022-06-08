@@ -117,12 +117,12 @@ extension ScreenUtilsExtension on num {
   double get toFont => ScreenUtil().setSp(this) as double;
 }
 
-class MafEdgeInsets {
-  MafEdgeInsets._privateConstructor();
+class CustomEdgeInsets {
+  CustomEdgeInsets._privateConstructor();
 
-  static final MafEdgeInsets instance = MafEdgeInsets._privateConstructor();
+  static final CustomEdgeInsets instance = CustomEdgeInsets._privateConstructor();
 
-  factory MafEdgeInsets() {
+  factory CustomEdgeInsets() {
     return instance;
   }
 
@@ -141,8 +141,4 @@ class MafEdgeInsets {
 
   EdgeInsets fromLTRB(double left, double top, double right, double bottom) =>
       EdgeInsets.fromLTRB(left.toWidth, top.toHeight, right.toWidth, bottom.toHeight);
-}
-
-extension CustomTextFontExtension on TextStyle {
-  TextStyle get convertFontSize => copyWith(fontSize: fontSize?.toFont);
 }

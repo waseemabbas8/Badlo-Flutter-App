@@ -25,6 +25,22 @@ class ScreenUtil {
     return _instance!;
   }
 
+  static Future<void> ensureScreenSize([
+    FlutterWindow? window,
+    Duration duration = const Duration(milliseconds: 10),
+  ]) async {
+    final binding = WidgetsFlutterBinding.ensureInitialized();
+    window ??= binding.window;
+
+    if (window.viewConfiguration.geometry.isEmpty) {
+      return Future.delayed(duration, () async {
+        binding.deferFirstFrame();
+        await ensureScreenSize(window, duration);
+        return binding.allowFirstFrame();
+      });
+    }
+  }
+
   static void init(
       {num width = defaultWidth, num height = defaultHeight, bool allowFontScaling = false}) {
     _instance ??= ScreenUtil._();
@@ -101,12 +117,12 @@ extension ScreenUtilsExtension on num {
   double get toFont => ScreenUtil().setSp(this) as double;
 }
 
-class MafEdgeInsets {
-  MafEdgeInsets._privateConstructor();
+class CustomEdgeInsets {
+  CustomEdgeInsets._privateConstructor();
 
-  static final MafEdgeInsets instance = MafEdgeInsets._privateConstructor();
+  static final CustomEdgeInsets instance = CustomEdgeInsets._privateConstructor();
 
-  factory MafEdgeInsets() {
+  factory CustomEdgeInsets() {
     return instance;
   }
 
@@ -125,8 +141,4 @@ class MafEdgeInsets {
 
   EdgeInsets fromLTRB(double left, double top, double right, double bottom) =>
       EdgeInsets.fromLTRB(left.toWidth, top.toHeight, right.toWidth, bottom.toHeight);
-}
-
-extension CustomTextFontExtension on TextStyle {
-  TextStyle get convertFontSize => copyWith(fontSize: fontSize?.toFont);
 }

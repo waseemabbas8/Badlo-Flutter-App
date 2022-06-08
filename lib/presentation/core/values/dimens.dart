@@ -5,43 +5,34 @@ import 'package:get/get.dart';
 const spacing10 = 10.0;
 const spacing12 = 12.0;
 const spacing8 = 8.0;
-const spacing5 = 5.0;
 const spacing4 = 4.0;
-const spacing15 = 15.0;
 const spacing16 = 16.0;
 const spacing20 = 20.0;
-const spacing25 = 25.0;
-const spacing30 = 30.0;
-const spacing35 = 35.0;
-const spacing40 = 40.0;
-const spacing50 = 50.0;
 const pageMargin = spacing20;
 
 const cardElevation = spacing4;
 const cardRadius = spacing16;
-const buttonRadius = spacing30;
 
 const imagePickerHeight = 242.0;
 
 class Margin {
   Margin._();
 
-  static final all8 = EdgeInsets.all(8.toWidth);
-  static final all16 = EdgeInsets.all(16.toWidth);
-  static final all20 = EdgeInsets.all(20.toWidth);
-  static final all40 = EdgeInsets.all(40.toWidth);
-  static final top40 = EdgeInsets.only(top: 40.toHeight);
-  static final b4 = EdgeInsets.only(bottom: 4.toHeight);
-  static final b10 = EdgeInsets.only(bottom: 10.toHeight);
-  static final b20 = EdgeInsets.only(bottom: 20.toHeight);
-  static final l8 = EdgeInsets.only(left: 8.toWidth);
-  static final h8 = EdgeInsets.symmetric(horizontal: 8.toWidth);
-  static final h16 = EdgeInsets.symmetric(horizontal: 16.toWidth);
-  static final h20 = EdgeInsets.symmetric(horizontal: 20.toWidth);
-  static final h16v8 = EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 8.toHeight);
-  static final h16v16 = EdgeInsets.symmetric(horizontal: 16.toWidth, vertical: 16.toHeight);
-  static final h8v32 = EdgeInsets.symmetric(horizontal: 8.toWidth, vertical: 32.toHeight);
-  static final v16 = EdgeInsets.symmetric(vertical: 16.toHeight);
+  static final all8 = CustomEdgeInsets().all(8);
+  static final all16 = CustomEdgeInsets().all(16);
+  static final all20 = CustomEdgeInsets().all(20);
+  static final all40 = CustomEdgeInsets().all(40);
+  static final top40 = CustomEdgeInsets().only(top: 40);
+  static final b4 = CustomEdgeInsets().only(bottom: 4);
+  static final b10 = CustomEdgeInsets().only(bottom: 10);
+  static final b20 = CustomEdgeInsets().only(bottom: 20);
+  static final l8 = CustomEdgeInsets().only(left: 8);
+  static final h8 = CustomEdgeInsets().symmetric(horizontal: 8);
+  static final h16 = CustomEdgeInsets().symmetric(horizontal: 16);
+  static final h20 = CustomEdgeInsets().symmetric(horizontal: 20);
+  static final h16v8 = CustomEdgeInsets().symmetric(horizontal: 16, vertical: 8);
+  static final h8v32 = CustomEdgeInsets().symmetric(horizontal: 8, vertical: 32);
+  static final v16 = CustomEdgeInsets().symmetric(vertical: 16);
 }
 
 class BorderRadii {

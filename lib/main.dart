@@ -10,8 +10,7 @@ import 'package:dio/dio.dart';
 
 void main() async {
   _initDependencies();
-  await Future.delayed(const Duration(microseconds: 500));
-  ScreenUtil.init(allowFontScaling: true);
+  await ScreenUtil.ensureScreenSize();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarBrightness: Brightness.light,
@@ -30,6 +29,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(allowFontScaling: true);
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,

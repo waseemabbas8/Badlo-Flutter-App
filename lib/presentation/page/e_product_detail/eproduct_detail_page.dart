@@ -33,7 +33,8 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                   ),
                   Text(
                     'Worth PKR 18,000',
-                    style: Get.textTheme.headline6!.copyWith(color: colorPrimary),
+                    style:
+                        Get.textTheme.headline6!.copyWith(color: colorPrimary),
                   )
                 ],
               ),
@@ -51,17 +52,20 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
             Spacing.v20,
             Padding(
               padding: Margin.h16,
-              child: const PreferenceWidget(title: 'Preference 1', preference: 'Lorem ipsum'),
+              child: const PreferenceWidget(
+                  title: 'Preference 1', preference: 'Lorem ipsum'),
             ),
             Spacing.v10,
             Padding(
               padding: Margin.h16,
-              child: const PreferenceWidget(title: 'Preference 2', preference: 'Lorem ipsum'),
+              child: const PreferenceWidget(
+                  title: 'Preference 2', preference: 'Lorem ipsum'),
             ),
             Spacing.v10,
             Padding(
               padding: Margin.h16,
-              child: const PreferenceWidget(title: 'Preference 3', preference: 'Lorem ipsum'),
+              child: const PreferenceWidget(
+                  title: 'Preference 3', preference: 'Lorem ipsum'),
             ),
             Spacing.v40,
             Center(
@@ -88,7 +92,8 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
             children: [
               const CircleAvatar(
                 radius: 30.0,
-                backgroundImage: NetworkImage('https://via.placeholder.com/150'),
+                backgroundImage:
+                    NetworkImage('https://via.placeholder.com/150'),
                 backgroundColor: Colors.transparent,
               ),
               Spacing.h16,
@@ -97,12 +102,14 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
                 children: [
                   Text(
                     "Abid Ali",
-                    style: Get.textTheme.headline6!.copyWith(color: Colors.black),
+                    style:
+                        Get.textTheme.headline6!.copyWith(color: Colors.black),
                   ),
                   Spacing.v2,
                   Text(
                     "See Your Profile",
-                    style: Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight),
+                    style: Get.textTheme.bodyText2!
+                        .copyWith(color: colorPrimaryLight),
                   ),
                 ],
               )
@@ -159,7 +166,8 @@ class EProductDetailPage extends BasePage<EProductDetailController> {
             ),
             Padding(
               padding: Margin.h8v32,
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+              child: IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.arrow_back)),
             ),
             Align(
               alignment: Alignment.bottomCenter,

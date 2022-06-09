@@ -18,16 +18,20 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
         children: [
           Spacing.statusBarHeight,
           AppbarWidget(
-            title: 'Contact Owner',
-            leading: Icon(Icons.person_outline_outlined, size: 24.toWidth),
-          ),
+              title: 'Contact Owner',
+              leading: Icon(Icons.person_outline_outlined, size: 24.toWidth),
+              onBackPress: controller.onBackPressed),
           Spacing.v30,
           Padding(
             padding: Margin.h20,
             child: Column(
               children: [
-                _buildOptionsWidget('Place your offer directly'),
-                _buildOptionsWidget('Contact the Owner', onTap: controller.onContactOwnerClick),
+                _buildOptionsWidget(
+                  'Place your offer directly',
+                  onTap: controller.onViewAllOfferClick,
+                ),
+                _buildOptionsWidget('Contact the Owner',
+                    onTap: controller.onContactOwnerClick),
                 Spacing.v30,
                 Row(
                   children: [
@@ -58,7 +62,8 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
                   width: Get.width,
                   child: Text(
                     '+92 334 6236284',
-                    style: Get.textTheme.bodyText1?.copyWith(color: Colors.black),
+                    style:
+                        Get.textTheme.bodyText1?.copyWith(color: Colors.black),
                   ),
                 ),
               ],
@@ -79,7 +84,8 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
               children: [
                 Expanded(
                     child: Text(text,
-                        style: Get.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.bold))),
+                        style: Get.textTheme.subtitle1
+                            ?.copyWith(fontWeight: FontWeight.bold))),
                 Icon(Icons.arrow_forward_ios, size: 12.toWidth),
               ],
             ),

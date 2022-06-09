@@ -11,6 +11,8 @@ import 'package:badlo/presentation/page/home/home_bindings.dart';
 import 'package:badlo/presentation/page/home/home_page.dart';
 import 'package:badlo/presentation/page/offer/place_offer_bindings.dart';
 import 'package:badlo/presentation/page/offer/place_offer_page.dart';
+import 'package:badlo/presentation/page/offer/view_offer/view_offer_bindings.dart';
+import 'package:badlo/presentation/page/offer/view_offer/view_offer_page.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_page.dart';
 import 'package:badlo/presentation/page/splash/splash_bindings.dart';
@@ -58,6 +60,11 @@ class AppPages {
       name: Routes.chat,
       page: () => const ChatPage(),
       binding: ChatBindings(),
+    ),
+    GetPage(
+      name: Routes.viewAllOffer,
+      page: () => const ViewOfferPage(),
+      binding: ViewOfferBindings(),
     ),
   ];
 }

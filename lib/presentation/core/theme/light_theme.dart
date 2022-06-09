@@ -29,6 +29,7 @@ final _textTheme = TextTheme(
   button: TextStyle(fontSize: 16.toFont, fontWeight: FontWeight.w500),
 );
 
+
 ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
       style: ButtonStyles.elevatedButtonStyle,
     );
@@ -51,7 +52,8 @@ InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
         borderRadius: BorderRadii.all27,
         borderSide: BorderSide.none,
       ),
-      contentPadding: const EdgeInsets.only(left: 20, right: 20, top: 11, bottom: 10),
+      contentPadding:
+          const EdgeInsets.only(left: 20, right: 20, top: 11, bottom: 10),
       filled: true,
       fillColor: Colors.white,
     );

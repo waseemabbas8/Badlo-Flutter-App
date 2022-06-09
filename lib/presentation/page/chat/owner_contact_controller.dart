@@ -12,5 +12,9 @@ class OwnerContactController extends BaseController {
     Get.toNamed(Routes.chat);
   }
 
+  void onViewAllOfferClick() {
+    Get.toNamed(Routes.viewAllOffer);
+  }
+
   void onSendMessageButtonPressed() {}
 }

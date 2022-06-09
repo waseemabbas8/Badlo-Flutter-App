@@ -8,4 +8,5 @@ class Routes {
   static const String placeAnOffer = '/place_an_offer';
   static const String ownerContact = '/owner_contact';
   static const String chat = '/chat';
+  static const String viewAllOffer = '/view_all_offer';
 }

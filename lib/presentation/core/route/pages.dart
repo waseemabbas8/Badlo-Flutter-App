@@ -9,6 +9,8 @@ import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_binding
 import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_page.dart';
 import 'package:badlo/presentation/page/home/home_bindings.dart';
 import 'package:badlo/presentation/page/home/home_page.dart';
+import 'package:badlo/presentation/page/inspection/packages/inspection_packages_bindings.dart';
+import 'package:badlo/presentation/page/inspection/packages/inspection_packages_page.dart';
 import 'package:badlo/presentation/page/offer/place_offer_bindings.dart';
 import 'package:badlo/presentation/page/offer/place_offer_page.dart';
 import 'package:badlo/presentation/page/offer/result/offer_result_bindings.dart';
@@ -72,6 +74,11 @@ class AppPages {
       name: Routes.offerResult,
       page: () => const OfferResultPage(),
       binding: OfferResultBindings(),
+    ),
+    GetPage(
+      name: Routes.inspectionPackages,
+      page: () => const InspectionPackagesPage(),
+      binding: InspectionPackagesBindings(),
     ),
   ];
 }

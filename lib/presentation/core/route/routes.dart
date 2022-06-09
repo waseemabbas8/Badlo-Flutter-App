@@ -10,4 +10,5 @@ class Routes {
   static const String chat = '/chat';
   static const String viewAllOffer = '/view_all_offer';
   static const String offerResult = '/offer_result';
+  static const String inspectionPackages = '/inspection_packages';
 }

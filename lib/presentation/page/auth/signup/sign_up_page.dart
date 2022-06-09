@@ -20,7 +20,7 @@ class SignUpPage extends BasePage<SignUpController> {
       body: Column(
         children: [
           Spacing.statusBarHeight,
-          AppbarWidget(title: 'Create Account'),
+          const AppbarWidget(title: 'Create Account'),
           Expanded(
             child: SingleChildScrollView(
               child: Container(

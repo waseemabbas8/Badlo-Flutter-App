@@ -19,7 +19,7 @@ class AppbarWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: onBackPress,
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back,
               color: colorAppBarTitle,
             ),

@@ -16,5 +16,9 @@ class OwnerContactController extends BaseController {
     Get.toNamed(Routes.viewAllOffer);
   }
 
+  void onViewInspectionsClick() {
+    Get.toNamed(Routes.inspectionPackages);
+  }
+
   void onSendMessageButtonPressed() {}
 }

@@ -32,6 +32,10 @@ class OwnerContactPage extends BasePage<OwnerContactController> {
                 ),
                 _buildOptionsWidget('Contact the Owner',
                     onTap: controller.onContactOwnerClick),
+                _buildOptionsWidget(
+                  'Inspection Packages',
+                  onTap: controller.onViewInspectionsClick,
+                ),
                 Spacing.v30,
                 Row(
                   children: [

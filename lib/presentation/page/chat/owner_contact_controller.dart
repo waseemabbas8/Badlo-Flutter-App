@@ -13,7 +13,7 @@ class OwnerContactController extends BaseController {
   }
 
   void onViewAllOfferClick() {
-    Get.toNamed(Routes.viewAllOffer);
+    Get.toNamed(Routes.inspectionPackages);
   }
 
   void onSendMessageButtonPressed() {}

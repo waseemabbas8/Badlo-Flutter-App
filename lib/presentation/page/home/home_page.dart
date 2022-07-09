@@ -125,7 +125,6 @@ class HomePage extends BasePage<HomeController> {
   Widget itemAuctionBuilder(BuildContext context, int index) {
     return SizedBox(
       width: 158.toWidth,
-      height: 237.toHeight,
       child: Padding(
         padding: const EdgeInsets.only(bottom: spacing4),
         child: Card(
@@ -200,6 +199,7 @@ class HomePage extends BasePage<HomeController> {
                     ],
                   ),
                 ),
+
               ],
             ),
           ),

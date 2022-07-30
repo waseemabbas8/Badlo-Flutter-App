@@ -1,5 +1,5 @@
 class DataConstants {
   DataConstants._();
 
-  static const restApiBaseUrl = 'https://badlo.com/api/v1';
+  static const restApiBaseUrl = 'https://admin.learnnex.net/api/';
 }

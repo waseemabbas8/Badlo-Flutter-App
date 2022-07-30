@@ -1,7 +1,6 @@
 import 'package:badlo/data/utils/data_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
 part 'auth_client.g.dart';
 
 @RestApi(baseUrl: DataConstants.restApiBaseUrl)

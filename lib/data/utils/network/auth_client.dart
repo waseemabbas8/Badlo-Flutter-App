@@ -12,9 +12,8 @@ abstract class AuthClient {
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
   @POST('Auths/SignIn')
-  @FormUrlEncoded()
   Future<HttpResponse<UserProfile?>> login(
-    @Field('Email') String email,
-    @Field('Password') String password,
+    @Query('Email') String email,
+    @Query('Password') String password,
   );
 }

@@ -1,4 +1,6 @@
+import 'package:badlo/presentation/core/constants.dart';
 import 'package:retrofit/retrofit.dart';
+import 'dart:developer' as dev_log;
 
 class Result {
   Result._();
@@ -53,16 +55,14 @@ abstract class ResponseHandler {
       final httpResponse = await apiRequest.call();
       if (httpResponse.response.statusCode == ResponseCode.ok) {
         return GenericResponse<T>(
-            result: Result.success('Success', ResponseCode.error),
-            data: httpResponse.data);
+            result: Result.success('Success', ResponseCode.error), data: httpResponse.data);
       }
       return GenericResponse<T>(
-          result: Result.error(
-              'Error', httpResponse.response.statusCode ?? ResponseCode.error),
+          result: Result.error('Error', httpResponse.response.statusCode ?? ResponseCode.error),
           data: null);
     } catch (e) {
-      return GenericResponse<T>(
-          result: Result.error('Error', ResponseCode.error), data: null);
+      dev_log.log(e.toString(), name: AppLogs.networkLogs);
+      return GenericResponse<T>(result: Result.error('Error', ResponseCode.error), data: null);
     }
   }
 }

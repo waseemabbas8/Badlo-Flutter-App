@@ -20,7 +20,13 @@ void main() async {
 }
 
 _initDependencies() {
-  Get.lazyPut(() => Dio(), fenix: true);
+  Get.lazyPut(_createDio, fenix: true);
+}
+
+Dio _createDio() {
+  final dio = Dio();
+  dio.options.headers['content-Type'] = 'application/json';
+  return dio;
 }
 
 class MyApp extends StatelessWidget {

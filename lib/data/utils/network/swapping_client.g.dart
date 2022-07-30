@@ -10,7 +10,7 @@ part of 'swapping_client.dart';
 
 class _SwappingClient implements SwappingClient {
   _SwappingClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://badlo.com/api/v1';
+    baseUrl ??= 'https://admin.learnnex.net/api/';
   }
 
   final Dio _dio;

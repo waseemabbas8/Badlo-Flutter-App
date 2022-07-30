@@ -10,7 +10,7 @@ part of 'auth_client.dart';
 
 class _AuthClient implements AuthClient {
   _AuthClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://badlo.com/api/v1';
+    baseUrl ??= 'https://admin.learnnex.net/api/';
   }
 
   final Dio _dio;
@@ -18,21 +18,22 @@ class _AuthClient implements AuthClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<String>> login(email, password) async {
+  Future<HttpResponse<UserProfile?>> login(email, password) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {'email': email, 'password': password};
-    final _result = await _dio.fetch<String>(
-        _setStreamType<HttpResponse<String>>(Options(
+    final _data = {'Email': email, 'Password': password};
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<HttpResponse<UserProfile>>(Options(
                 method: 'POST',
                 headers: _headers,
                 extra: _extra,
                 contentType: 'application/x-www-form-urlencoded')
-            .compose(_dio.options, 'user/login',
+            .compose(_dio.options, 'Auths/SignIn',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data!;
+    final value =
+        _result.data == null ? null : UserProfile.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

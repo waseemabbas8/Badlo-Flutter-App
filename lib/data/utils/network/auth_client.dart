@@ -1,6 +1,8 @@
 import 'package:badlo/data/utils/data_constants.dart';
+import 'package:badlo/domain/entity/user_profile.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+
 part 'auth_client.g.dart';
 
 @RestApi(baseUrl: DataConstants.restApiBaseUrl)
@@ -9,10 +11,10 @@ abstract class AuthClient {
 
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
-  @POST('user/login')
+  @POST('Auths/SignIn')
   @FormUrlEncoded()
-  Future<HttpResponse<String>> login(
-    @Field('email') String email,
-    @Field('password') String password,
+  Future<HttpResponse<UserProfile?>> login(
+    @Field('Email') String email,
+    @Field('Password') String password,
   );
 }

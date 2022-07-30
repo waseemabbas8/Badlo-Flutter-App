@@ -10,7 +10,7 @@ part of 'chat_client.dart';
 
 class _ChatClient implements ChatClient {
   _ChatClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://badlo.com/api/v1';
+    baseUrl ??= 'https://admin.learnnex.net/api/';
   }
 
   final Dio _dio;

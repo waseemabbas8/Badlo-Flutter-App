@@ -1,16 +1,31 @@
+import 'package:badlo/domain/repository/auth_repository.dart';
 import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class SignUpController extends BaseController {
+  final AuthRepository _authRepository;
+
+  final RxString responseMessage = ''.obs;
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  void onContinueButtonClick() {
+  SignUpController(this._authRepository);
+
+  void onContinueButtonClick() async {
     if (formKey.currentState?.validate() == true) {
-      Get.offAllNamed(Routes.home);
+      isLoading = true;
+      final response = await _authRepository.signIn(
+          emailController.text, passwordController.text);
+      if (response.data != null) {
+        Get.offAllNamed(Routes.home);
+      } else {
+        responseMessage.value = 'Invalid Email & Password';
+      }
+      isLoading = false;
     }
   }
 

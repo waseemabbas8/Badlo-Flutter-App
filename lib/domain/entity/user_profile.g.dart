@@ -21,14 +21,14 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => UserProfile(
 
 Map<String, dynamic> _$UserProfileToJson(UserProfile instance) =>
     <String, dynamic>{
-      'AuthId': instance.AuthId,
-      'Profiles': instance.Profiles,
-      'UserRoles': instance.UserRoles,
-      'UserName': instance.UserName,
-      'Password': instance.Password,
-      'CreationDate': instance.CreationDate,
-      'UpdateDate': instance.UpdateDate,
-      'IsActive': instance.IsActive,
-      'IsLogedin': instance.IsLogedin,
-      'Email': instance.Email,
+      'AuthId': instance.authId,
+      'Profiles': instance.profiles,
+      'UserRoles': instance.userRoles,
+      'UserName': instance.userName,
+      'Password': instance.password,
+      'CreationDate': instance.creationDate,
+      'UpdateDate': instance.updateDate,
+      'IsActive': instance.isActive,
+      'IsLogedin': instance.isLogedin,
+      'Email': instance.email,
     };

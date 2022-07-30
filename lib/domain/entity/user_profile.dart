@@ -4,22 +4,31 @@ part 'user_profile.g.dart';
 
 @JsonSerializable()
 class UserProfile {
-  final int AuthId;
-  final dynamic Profiles;
-  final dynamic UserRoles;
-  final String UserName;
-  final String Password;
-  final String CreationDate;
-  final String UpdateDate;
-  final bool IsActive;
-  final bool IsLogedin;
-  final String Email;
+  @JsonKey(name: 'AuthId')
+  final int authId;
+  @JsonKey(name: 'Profiles')
+  final dynamic profiles;
+  @JsonKey(name: 'UserRoles')
+  final dynamic userRoles;
+  @JsonKey(name: 'UserName')
+  final String userName;
+  @JsonKey(name: 'Password')
+  final String password;
+  @JsonKey(name: 'CreationDate')
+  final String creationDate;
+  @JsonKey(name: 'UpdateDate')
+  final String updateDate;
+  @JsonKey(name: 'IsActive')
+  final bool isActive;
+  @JsonKey(name: 'IsLogedin')
+  final bool isLogedin;
+  @JsonKey(name: 'Email')
+  final String email;
 
-  factory UserProfile.fromJson(Map<String, dynamic> json) =>
-      _$UserProfileFromJson(json);
+  factory UserProfile.fromJson(Map<String, dynamic> json) => _$UserProfileFromJson(json);
 
-  UserProfile(this.AuthId, this.UserName, this.Password, this.CreationDate,
-      this.UpdateDate, this.IsActive, this.IsLogedin, this.Email, this.Profiles, this.UserRoles);
+  UserProfile(this.authId, this.userName, this.password, this.creationDate, this.updateDate,
+      this.isActive, this.isLogedin, this.email, this.profiles, this.userRoles);
 
   Map<String, dynamic> toJson() => _$UserProfileToJson(this);
 }

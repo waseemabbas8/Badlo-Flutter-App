@@ -11,7 +11,9 @@ abstract class AuthClient {
 
   factory AuthClient(Dio dio, {String baseUrl}) = _AuthClient;
 
-  @POST('Auths/SignIn')
+  static const _apiModule = 'Auths';
+
+  @POST('$_apiModule/SignIn')
   Future<HttpResponse<UserProfile?>> login(
     @Query('Email') String email,
     @Query('Password') String password,

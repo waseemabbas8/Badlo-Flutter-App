@@ -22,7 +22,7 @@ abstract class ProductClient {
     @Query('id') int id,
   );
 
-  @PUT('$_apiModule/Add')
+  @POST('$_apiModule/Add')
   Future<HttpResponse<String>> addProduct(
     @Body() EProduct product,
   );

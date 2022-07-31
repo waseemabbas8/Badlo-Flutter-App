@@ -6,7 +6,12 @@ part 'e_product.g.dart';
 
 @JsonSerializable()
 class EProduct {
+  @JsonKey(name: 'ID')
   final int id;
+  @JsonKey(name: 'CategoryId')
+  final int categoryId;
+  @JsonKey(name: 'ProfileID')
+  final int profileID;
   final String name;
   final double price;
   final String currency;
@@ -26,8 +31,7 @@ class EProduct {
     this.market,
   );
 
-  factory EProduct.fromJson(Map<String, dynamic> json) =>
-      _$EProductFromJson(json);
+  factory EProduct.fromJson(Map<String, dynamic> json) => _$EProductFromJson(json);
 
   Map<String, dynamic> toJson() => _$EProductToJson(this);
 

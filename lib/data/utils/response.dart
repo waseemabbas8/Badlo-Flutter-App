@@ -55,7 +55,7 @@ abstract class ResponseHandler {
       final httpResponse = await apiRequest.call();
       if (httpResponse.response.statusCode == ResponseCode.ok) {
         return GenericResponse<T>(
-            result: Result.success('Success', ResponseCode.error), data: httpResponse.data);
+            result: Result.success('Success', ResponseCode.ok), data: httpResponse.data);
       }
       return GenericResponse<T>(
           result: Result.error('Error', httpResponse.response.statusCode ?? ResponseCode.error),

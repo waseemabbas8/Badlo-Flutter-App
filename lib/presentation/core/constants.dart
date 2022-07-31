@@ -26,10 +26,3 @@ class AppLogs {
   AppLogs._();
   static const networkLogs = 'network_logs';
 }
-
-class MarketPlace {
-  MarketPlace._();
-  static const swapping = 1;
-  static const auction = 2;
-  static const donation = 3;
-}

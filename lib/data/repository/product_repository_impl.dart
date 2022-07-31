@@ -17,8 +17,8 @@ class ProductRepositoryImpl extends ProductRepository {
       ResponseHandler.handle(_productRemoteDataSource.getProducts);
 
   @override
-  Future<GenericResponse<List<EProduct>>> getProductsByCategory(int categoryId) =>
-      ResponseHandler.handle(() => _productRemoteDataSource.getProductsByCategory(categoryId));
+  Future<GenericResponse<List<EProduct>>> getProductById(int id) =>
+      ResponseHandler.handle(() => _productRemoteDataSource.getProductById(id));
 
   @override
   Future<GenericResponse<String>> updateProduct(EProduct product) =>

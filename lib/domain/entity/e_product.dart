@@ -12,13 +12,34 @@ class EProduct {
   final int categoryId;
   @JsonKey(name: 'ProfileID')
   final int profileID;
+  @JsonKey(name: 'ProductName')
   final String name;
+  @JsonKey(name: 'Price')
   final double price;
+  @JsonKey(name: 'Currency')
   final String currency;
+  @JsonKey(name: 'ProdImages')
   final List<String> images;
+  @JsonKey(name: 'Description')
   final String description;
+  @JsonKey(name: 'Owner')
   final ProductOwner owner;
+  @JsonKey(name: 'MarketPlace')
   final int market;
+  @JsonKey(name: 'Address')
+  final String address;
+  @JsonKey(name: 'BiddingTimeLimit')
+  final String biddingEndTime;
+  @JsonKey(name: 'InspectionStatus')
+  final String inspectionStatus;
+  @JsonKey(name: 'IsInspection')
+  final bool isInspection;
+  @JsonKey(name: 'Latitude')
+  final String latitude;
+  @JsonKey(name: 'longitude')
+  final String longitude;
+  @JsonKey(name: 'PostingDate')
+  final String postingDate;
 
   EProduct(
     this.id,
@@ -29,6 +50,15 @@ class EProduct {
     this.description,
     this.owner,
     this.market,
+    this.categoryId,
+    this.profileID,
+    this.address,
+    this.biddingEndTime,
+    this.inspectionStatus,
+    this.isInspection,
+    this.latitude,
+    this.longitude,
+    this.postingDate,
   );
 
   factory EProduct.fromJson(Map<String, dynamic> json) => _$EProductFromJson(json);

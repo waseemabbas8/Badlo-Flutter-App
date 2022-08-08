@@ -5,8 +5,6 @@ import 'package:badlo/presentation/page/chat/chat_bindings.dart';
 import 'package:badlo/presentation/page/chat/chat_page.dart';
 import 'package:badlo/presentation/page/chat/owner_contact_bindings.dart';
 import 'package:badlo/presentation/page/chat/owner_contact_page.dart';
-import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_bindings.dart';
-import 'package:badlo/presentation/page/e_product_detail/eproduct_detail_page.dart';
 import 'package:badlo/presentation/page/home/home_bindings.dart';
 import 'package:badlo/presentation/page/home/home_page.dart';
 import 'package:badlo/presentation/page/inspection/packages/inspection_packages_bindings.dart';
@@ -19,6 +17,8 @@ import 'package:badlo/presentation/page/offer/view_offer/view_offer_bindings.dar
 import 'package:badlo/presentation/page/offer/view_offer/view_offer_page.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_page.dart';
+import 'package:badlo/presentation/page/product/detail/product_detail_bindings.dart';
+import 'package:badlo/presentation/page/product/detail/product_detail_page.dart';
 import 'package:badlo/presentation/page/splash/splash_bindings.dart';
 import 'package:badlo/presentation/page/splash/splash_page.dart';
 import 'package:get/get.dart';
@@ -37,8 +37,8 @@ class AppPages {
     ),
     GetPage(
       name: Routes.eProductDetail,
-      page: () => const EProductDetailPage(),
-      binding: EProductDetailBindings(),
+      page: () => const ProductDetailPage(),
+      binding: ProductDetailBindings(),
     ),
     GetPage(
       name: Routes.onBoarding,

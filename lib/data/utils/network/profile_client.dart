@@ -28,6 +28,11 @@ abstract class ProfileClient {
     @Query('id') int id,
   );
 
+  @GET('$_apiModule/ProfileByAuthId')
+  Future<HttpResponse<UserProfile?>> getByAuthId(
+    @Query('authId') int authId,
+  );
+
   @GET('$_apiModule/ProfileList')
   Future<HttpResponse<List<UserProfile>>> getProfiles();
 }

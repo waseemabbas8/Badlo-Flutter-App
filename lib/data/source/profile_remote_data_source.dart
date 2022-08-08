@@ -14,5 +14,7 @@ class ProfileRemoteDataSource extends DataSource {
 
   Future<HttpResponse<UserProfile?>> get(int profileId) => _profileClient.get(profileId);
 
+  Future<HttpResponse<UserProfile?>> getBuyAuthId(int authId) => _profileClient.getByAuthId(authId);
+
   Future<HttpResponse<List<UserProfile>>> getProfiles() => _profileClient.getProfiles();
 }

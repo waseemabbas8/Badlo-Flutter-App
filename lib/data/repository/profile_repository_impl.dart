@@ -21,6 +21,10 @@ class ProfileRepositoryImpl extends ProfileRepository {
       ResponseHandler.handle(() => _profileRemoteDataSource.get(profileId));
 
   @override
+  Future<GenericResponse<UserProfile?>> getByAuthId(int authId) =>
+      ResponseHandler.handle(() => _profileRemoteDataSource.getBuyAuthId(authId));
+
+  @override
   Future<GenericResponse<List<UserProfile>>> getProfiles() =>
       ResponseHandler.handle(() => _profileRemoteDataSource.getProfiles());
 }

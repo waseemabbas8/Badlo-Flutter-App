@@ -5,5 +5,6 @@ abstract class ProfileRepository {
   Future<GenericResponse<UserProfile?>> add(UserProfile profile);
   Future<GenericResponse<UserProfile?>> edit(UserProfile profile);
   Future<GenericResponse<UserProfile?>> get(int profileId);
+  Future<GenericResponse<UserProfile?>> getByAuthId(int authId);
   Future<GenericResponse<List<UserProfile>>> getProfiles();
 }

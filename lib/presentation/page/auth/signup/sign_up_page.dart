@@ -13,7 +13,7 @@ import '../../../core/values/strings.dart';
 import 'package:badlo/presentation/core/utils/extensions/strings_ext.dart';
 
 class SignUpPage extends BasePage<SignUpController> {
-  SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,7 @@ class SignUpPage extends BasePage<SignUpController> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Container(
-                    height: Get.height -
-                        Get.mediaQuery.viewPadding.top -
-                        10.toHeight -
-                        50.toHeight,
+                    height: Get.height - Get.mediaQuery.viewPadding.top - 10.toHeight - 50.toHeight,
                     margin: Margin.h20,
                     child: Column(
                       children: [
@@ -72,8 +69,7 @@ class SignUpPage extends BasePage<SignUpController> {
               keyboardType: TextInputType.emailAddress,
               controller: controller.emailController,
               textInputAction: TextInputAction.next,
-              validator: (input) =>
-                  input.isValidEmail() ? null : msgInvalidEmail,
+              validator: (input) => input.isValidEmail() ? null : msgInvalidEmail,
             ),
             Spacing.v40,
             LabeledTextField(
@@ -81,15 +77,12 @@ class SignUpPage extends BasePage<SignUpController> {
               hint: 'type a password',
               controller: controller.passwordController,
               obscureText: true,
-              validator: (input) =>
-                  input.isNotNullOrEmpty() ? null : 'Field Cant be empty',
+              validator: (input) => input.isNotNullOrEmpty() ? null : 'Field Cant be empty',
             ),
             Spacing.v4,
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(onPressed: () {}, child: Text('Forgot Password?'))
-              ],
+              children: [TextButton(onPressed: () {}, child: Text('Forgot Password?'))],
             )
           ],
         ),
@@ -98,8 +91,7 @@ class SignUpPage extends BasePage<SignUpController> {
   Widget get _buttons => Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          ContainedButton(
-              text: 'Continue', onPressed: controller.onContinueButtonClick),
+          ContainedButton(text: 'Continue', onPressed: controller.onContinueButtonClick),
           Spacing.v30,
           Text('or', style: Get.textTheme.bodyText1),
           Spacing.v30,
@@ -108,14 +100,12 @@ class SignUpPage extends BasePage<SignUpController> {
             children: [
               GestureDetector(
                 onTap: controller.onFacebookButtonClick,
-                child: Image.asset(ImagesPath.facebook,
-                    width: 40.toWidth, height: 40.toHeight),
+                child: Image.asset(ImagesPath.facebook, width: 40.toWidth, height: 40.toHeight),
               ),
               Spacing.h30,
               GestureDetector(
                 onTap: controller.onGoogleButtonClick,
-                child: Image.asset(ImagesPath.google,
-                    width: 40.toWidth, height: 40.toHeight),
+                child: Image.asset(ImagesPath.google, width: 40.toWidth, height: 40.toHeight),
               ),
             ],
           ),

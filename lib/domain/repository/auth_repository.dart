@@ -1,6 +1,6 @@
-import 'package:badlo/domain/entity/user_profile.dart';
+import 'package:badlo/domain/entity/user.dart';
 import '../../data/utils/response.dart';
 
 abstract class AuthRepository {
-  Future<GenericResponse<UserProfile?>> signIn(String email, String password);
+  Future<GenericResponse<User?>> signIn(String email, String password);
 }

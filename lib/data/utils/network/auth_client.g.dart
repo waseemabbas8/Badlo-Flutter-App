@@ -18,7 +18,7 @@ class _AuthClient implements AuthClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<UserProfile?>> login(email, password) async {
+  Future<HttpResponse<User?>> login(email, password) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'Email': email,
@@ -27,13 +27,12 @@ class _AuthClient implements AuthClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<UserProfile>>(
+        _setStreamType<HttpResponse<User>>(
             Options(method: 'POST', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'Auths/SignIn',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        _result.data == null ? null : UserProfile.fromJson(_result.data!);
+    final value = _result.data == null ? null : User.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

@@ -10,7 +10,7 @@ class ProductRemoteDataSource extends DataSource {
 
   Future<HttpResponse<List<EProduct>>> getProducts() => _productClient.getProducts();
 
-  Future<HttpResponse<List<EProduct>>> getProductById(int id) => _productClient.getProductById(id);
+  Future<HttpResponse<EProduct>> getProductById(int id) => _productClient.getProductById(id);
 
   Future<HttpResponse<String>> addProduct(EProduct product) => _productClient.addProduct(product);
 

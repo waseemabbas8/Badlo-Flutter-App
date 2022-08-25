@@ -18,7 +18,7 @@ abstract class ProductClient {
   Future<HttpResponse<List<EProduct>>> getProducts();
 
   @GET('$_apiModule/ProductbyId')
-  Future<HttpResponse<List<EProduct>>> getProductById(
+  Future<HttpResponse<EProduct>> getProductById(
     @Query('id') int id,
   );
 

@@ -37,20 +37,18 @@ class _ProductClient implements ProductClient {
   }
 
   @override
-  Future<HttpResponse<List<EProduct>>> getProductById(id) async {
+  Future<HttpResponse<EProduct>> getProductById(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<EProduct>>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<EProduct>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'Product/ProductbyId',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => EProduct.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = EProduct.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

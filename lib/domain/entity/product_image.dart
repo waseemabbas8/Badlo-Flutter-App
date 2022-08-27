@@ -8,8 +8,8 @@ class ProductImage {
   final int id;
   @JsonKey(name: 'ProductId')
   final int productId;
-  @JsonKey(name: 'Url')
-  final int url;
+  @JsonKey(name: 'ImageURL')
+  final String url;
 
   ProductImage(this.id, this.productId, this.url);
 

@@ -1,3 +1,4 @@
+import 'package:badlo/domain/entity/product_image.dart';
 import 'package:badlo/domain/entity/product_owner.dart';
 import 'package:badlo/domain/utils/constants.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -16,14 +17,12 @@ class EProduct {
   final String name;
   @JsonKey(name: 'Price')
   final double price;
-  @JsonKey(name: 'Currency')
-  final String currency;
   @JsonKey(name: 'ProdImages')
-  final List<String> images;
+  final List<ProductImage> images;
   @JsonKey(name: 'Description')
   final String description;
   @JsonKey(name: 'Owner')
-  final ProductOwner owner;
+  final ProductOwner? owner;
   @JsonKey(name: 'MarketPlace')
   final int market;
   @JsonKey(name: 'Address')
@@ -45,7 +44,6 @@ class EProduct {
     this.id,
     this.name,
     this.price,
-    this.currency,
     this.images,
     this.description,
     this.owner,

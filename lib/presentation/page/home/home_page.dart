@@ -114,7 +114,8 @@ class HomePage extends BasePage<HomeController> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                   padding: Margin.b20,
-                  child: ContainedButton(text: labelPostAnAdd, onPressed: () {})),
+                  child:
+                      ContainedButton(text: labelPostAnAdd, onPressed: controller.onPostAddClick)),
             ),
           ],
         ),
@@ -199,7 +200,6 @@ class HomePage extends BasePage<HomeController> {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),

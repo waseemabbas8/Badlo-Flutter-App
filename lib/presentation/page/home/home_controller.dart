@@ -51,4 +51,6 @@ class HomeController extends BaseController {
     dev_log.log(auctionProducts.toString(), name: AppLogs.dataLogs);
     dev_log.log(donationProducts.toString(), name: AppLogs.dataLogs);
   }
+
+  void onPostAddClick() {}
 }

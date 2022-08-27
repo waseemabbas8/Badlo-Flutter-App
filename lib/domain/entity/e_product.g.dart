@@ -10,10 +10,13 @@ EProduct _$EProductFromJson(Map<String, dynamic> json) => EProduct(
       json['ID'] as int,
       json['ProductName'] as String,
       (json['Price'] as num).toDouble(),
-      json['Currency'] as String,
-      (json['ProdImages'] as List<dynamic>).map((e) => e as String).toList(),
+      (json['ProdImages'] as List<dynamic>)
+          .map((e) => ProductImage.fromJson(e as Map<String, dynamic>))
+          .toList(),
       json['Description'] as String,
-      ProductOwner.fromJson(json['Owner'] as Map<String, dynamic>),
+      json['Owner'] == null
+          ? null
+          : ProductOwner.fromJson(json['Owner'] as Map<String, dynamic>),
       json['MarketPlace'] as int,
       json['CategoryId'] as int,
       json['ProfileID'] as int,
@@ -32,7 +35,6 @@ Map<String, dynamic> _$EProductToJson(EProduct instance) => <String, dynamic>{
       'ProfileID': instance.profileID,
       'ProductName': instance.name,
       'Price': instance.price,
-      'Currency': instance.currency,
       'ProdImages': instance.images,
       'Description': instance.description,
       'Owner': instance.owner,

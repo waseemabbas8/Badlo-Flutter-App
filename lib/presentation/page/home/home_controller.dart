@@ -3,6 +3,7 @@ import 'package:badlo/domain/entity/e_product.dart';
 import 'package:badlo/domain/repository/product_repository.dart';
 import 'package:badlo/domain/utils/constants.dart';
 import 'package:badlo/presentation/core/constants.dart';
+import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:get/get.dart';
 import 'dart:developer' as dev_log;
 
@@ -52,5 +53,7 @@ class HomeController extends BaseController {
     dev_log.log(donationProducts.toString(), name: AppLogs.dataLogs);
   }
 
-  void onPostAddClick() {}
+  void onPostAddClick() {
+    Get.toNamed(Routes.addEditProduct);
+  }
 }

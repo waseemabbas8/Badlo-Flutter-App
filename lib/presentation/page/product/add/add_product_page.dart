@@ -7,7 +7,6 @@ class AddProductPage extends BasePage<AddProductController> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container();
   }
 }

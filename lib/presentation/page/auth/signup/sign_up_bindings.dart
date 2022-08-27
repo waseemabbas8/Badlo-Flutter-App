@@ -8,10 +8,9 @@ import 'package:get/get.dart';
 class SignUpBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => AuthClient.create(Get.find()), fenix: true);
+    Get.lazyPut(() => AuthClient.create(Get.find()));
     Get.lazyPut(() => AuthDataSource(Get.find()), fenix: true);
-    Get.lazyPut<AuthRepository>(() => AuthRepositoryImpl(Get.find()),
-        fenix: true);
+    Get.lazyPut<AuthRepository>(() => AuthRepositoryImpl(Get.find(), Get.find()));
     Get.lazyPut(() => SignUpController(Get.find()));
   }
 }

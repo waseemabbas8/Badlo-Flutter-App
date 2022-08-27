@@ -25,4 +25,5 @@ const placeholderImage =
 class AppLogs {
   AppLogs._();
   static const networkLogs = 'network_logs';
+  static const dataLogs = 'data_logs';
 }

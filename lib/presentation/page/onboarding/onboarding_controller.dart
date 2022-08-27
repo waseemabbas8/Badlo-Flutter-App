@@ -1,3 +1,4 @@
+import 'package:badlo/domain/repository/preference_repository.dart';
 import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +7,13 @@ import 'package:get/get.dart';
 import 'onboarding_content_model.dart';
 
 class OnBoardingController extends BaseController {
+  final PreferenceRepository _preferenceRepository;
+
   late PageController pageViewController;
 
   final RxInt _currentIndex = 0.obs;
+
+  OnBoardingController(this._preferenceRepository);
 
   int get currentIndex => _currentIndex.value;
 
@@ -25,7 +30,8 @@ class OnBoardingController extends BaseController {
   String get buttonText => currentIndex == contents.length - 1 ? "Get Started" : "Next";
 
   void onSkipButtonPressed() {
-    Get.offAllNamed(Routes.signUp);
+    _preferenceRepository.setOnboardingVisited();
+    Get.offNamed(Routes.signUp);
   }
 
   void onNextButtonPressed() {

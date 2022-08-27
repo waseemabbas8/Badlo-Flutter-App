@@ -8,10 +8,6 @@ part 'user.g.dart';
 class User {
   @JsonKey(name: 'AuthId')
   final int authId;
-  @JsonKey(name: 'Profiles')
-  final List<UserProfile> profiles;
-  @JsonKey(name: 'UserRoles')
-  final List<Role> userRoles;
   @JsonKey(name: 'UserName')
   final String userName;
   @JsonKey(name: 'Password')
@@ -29,8 +25,16 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  User(this.authId, this.userName, this.password, this.creationDate, this.updateDate, this.isActive,
-      this.isLogedin, this.email, this.profiles, this.userRoles);
+  User(
+    this.authId,
+    this.userName,
+    this.password,
+    this.creationDate,
+    this.updateDate,
+    this.isActive,
+    this.isLogedin,
+    this.email,
+  );
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }

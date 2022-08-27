@@ -3,14 +3,17 @@ import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/theme/light_theme.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
+import 'package:badlo/presentation/page/splash/splash_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
+import 'package:get_storage/get_storage.dart';
 
 void main() async {
   _initDependencies();
   await ScreenUtil.ensureScreenSize();
+  await GetStorage.init();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarBrightness: Brightness.light,
@@ -39,8 +42,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      initialRoute: Routes.onBoarding,
-      initialBinding: OnBoardingBindings(),
+      initialRoute: Routes.launch,
+      initialBinding: SplashBindings(),
       getPages: AppPages.pages,
       debugShowCheckedModeBanner: false,
     );

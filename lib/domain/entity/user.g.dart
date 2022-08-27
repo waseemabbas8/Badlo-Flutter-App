@@ -15,18 +15,10 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       json['IsActive'] as bool,
       json['IsLogedin'] as bool,
       json['Email'] as String,
-      (json['Profiles'] as List<dynamic>)
-          .map((e) => UserProfile.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      (json['UserRoles'] as List<dynamic>)
-          .map((e) => Role.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'AuthId': instance.authId,
-      'Profiles': instance.profiles,
-      'UserRoles': instance.userRoles,
       'UserName': instance.userName,
       'Password': instance.password,
       'CreationDate': instance.creationDate,

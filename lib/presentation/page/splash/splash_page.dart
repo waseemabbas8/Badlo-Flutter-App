@@ -7,6 +7,7 @@ class SplashPage extends BasePage<SplashController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.initiate();
     return Scaffold(
       body: Container(),
     );

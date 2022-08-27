@@ -2,7 +2,9 @@ import 'package:badlo/data/utils/response.dart';
 import 'package:badlo/domain/entity/e_product.dart';
 import 'package:badlo/domain/repository/product_repository.dart';
 import 'package:badlo/domain/utils/constants.dart';
+import 'package:badlo/presentation/core/constants.dart';
 import 'package:get/get.dart';
+import 'dart:developer' as dev_log;
 
 import '../../core/base/base_controller.dart';
 
@@ -43,5 +45,10 @@ class HomeController extends BaseController {
       ///TODO handle error
     }
     isLoading = false;
+
+    //print logs
+    dev_log.log(swappingProducts.toString(), name: AppLogs.dataLogs);
+    dev_log.log(auctionProducts.toString(), name: AppLogs.dataLogs);
+    dev_log.log(donationProducts.toString(), name: AppLogs.dataLogs);
   }
 }

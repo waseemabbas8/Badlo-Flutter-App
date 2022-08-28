@@ -12,4 +12,5 @@ class Routes {
   static const String viewAllOffer = '/view_all_offer';
   static const String offerResult = '/offer_result';
   static const String inspectionPackages = '/inspection_packages';
+  static const String selectAddress = 'select_address';
 }

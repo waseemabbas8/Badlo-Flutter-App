@@ -1,3 +1,4 @@
+import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class AppbarWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: onBackPress,
+            onTap: onBackPress ?? _onBackPressed,
             child: const Icon(
               Icons.arrow_back,
               color: colorAppBarTitle,
@@ -37,5 +38,9 @@ class AppbarWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _onBackPressed() {
+    Get.back();
   }
 }

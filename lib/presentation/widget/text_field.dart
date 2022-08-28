@@ -12,6 +12,7 @@ abstract class _TextField extends StatelessWidget {
   final Widget? prefixIcon;
   final String? hint;
   final bool obscureText;
+  final bool enabled;
 
   const _TextField({
     Key? key,
@@ -23,6 +24,7 @@ abstract class _TextField extends StatelessWidget {
     this.prefixIcon,
     this.hint,
     this.obscureText = false,
+    this.enabled = true,
   }) : super(key: key);
 }
 
@@ -39,6 +41,7 @@ class LabeledTextField extends _TextField {
     Widget? prefixIcon,
     bool obscureText = false,
     String? hint,
+    bool enabled = true,
     required this.label,
   }) : super(
           key: key,
@@ -49,6 +52,7 @@ class LabeledTextField extends _TextField {
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           hint: hint,
+          enabled: enabled,
           obscureText: obscureText,
         );
 
@@ -67,6 +71,7 @@ class LabeledTextField extends _TextField {
         ),
         Spacing.v4,
         TextFormField(
+          enabled: enabled,
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hint,
@@ -110,6 +115,7 @@ class CustomTextField extends _TextField {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: enabled,
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hint,

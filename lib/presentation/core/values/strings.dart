@@ -1,5 +1,5 @@
-
 const msgInvalidEmail = 'Invalid Email Address';
+const msgEmptyField = 'This field cannot be empty';
 const labelPlaceOffer = 'Place An Offer';
 const labelSwapNow = 'Swap Now';
 const labelContactOwner = 'Contact Owner';

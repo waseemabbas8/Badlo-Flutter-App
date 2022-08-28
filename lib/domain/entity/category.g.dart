@@ -10,7 +10,7 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
       json['CategoryId'] as int,
       json['Name'] as String,
       json['Date'] as String,
-      json['IsActive'] as String,
+      json['IsActive'] as bool,
     );
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{

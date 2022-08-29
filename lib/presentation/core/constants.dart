@@ -22,8 +22,11 @@ abstract class ImagesPath {
 const placeholderImage =
     'https://media.istockphoto.com/photos/pakistan-monument-islamabad-picture-id535695503?k=20&m=535695503&s=612x612&w=0&h=S16wHXc-b3AkL7YMrcFkR2pDGFJA1bRsPmAfQlfrwkc=';
 
+const profileImageSize = 85.0;
+
 class AppLogs {
   AppLogs._();
+
   static const networkLogs = 'network_logs';
   static const dataLogs = 'data_logs';
 }

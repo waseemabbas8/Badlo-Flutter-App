@@ -1,4 +1,3 @@
-import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,9 @@ class AppbarWidget extends StatelessWidget {
   final VoidCallback? onBackPress;
   final String title;
   final Widget? leading;
-  const AppbarWidget({Key? key, this.onBackPress, this.leading, required this.title})
+
+  const AppbarWidget(
+      {Key? key, this.onBackPress, this.leading, required this.title})
       : super(key: key);
 
   @override

@@ -36,12 +36,15 @@ class HomeController extends BaseController {
     isLoading = true;
     final response = await _productsRepository.getProducts();
     if (response.result is SuccessResult) {
-      _swappingProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.swapping).toList();
-      _auctionProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.auction).toList();
-      _donationProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.donation).toList();
+      _swappingProducts.value = response.data!
+          .where((element) => element.marketType == MarketType.swapping)
+          .toList();
+      _auctionProducts.value = response.data!
+          .where((element) => element.marketType == MarketType.auction)
+          .toList();
+      _donationProducts.value = response.data!
+          .where((element) => element.marketType == MarketType.donation)
+          .toList();
     } else {
       ///TODO handle error
     }
@@ -55,5 +58,9 @@ class HomeController extends BaseController {
 
   void onPostAddClick() {
     Get.toNamed(Routes.addEditProduct);
+  }
+
+  void onProfileClick() {
+    Get.toNamed(Routes.profile);
   }
 }

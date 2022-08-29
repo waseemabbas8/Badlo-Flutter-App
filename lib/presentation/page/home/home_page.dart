@@ -32,9 +32,12 @@ class HomePage extends BasePage<HomeController> {
                 style: Get.textTheme.bodyText2!.copyWith(color: Colors.black),
               ),
               Spacing.h16,
-              const Icon(
-                Icons.account_circle_outlined,
-                color: colorPrimary,
+              GestureDetector(
+                onTap: controller.onProfileClick,
+                child: const Icon(
+                  Icons.account_circle_outlined,
+                  color: colorPrimary,
+                ),
               ),
             ],
           )

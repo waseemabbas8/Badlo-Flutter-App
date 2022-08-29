@@ -1,5 +1,6 @@
 class Routes {
   Routes._();
+
   static const String launch = '/';
   static const String home = '/home';
   static const String eProductDetail = '/eProductDetail';
@@ -13,4 +14,5 @@ class Routes {
   static const String offerResult = '/offer_result';
   static const String inspectionPackages = '/inspection_packages';
   static const String selectAddress = 'select_address';
+  static const String profile = '/profile';
 }

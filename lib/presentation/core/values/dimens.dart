@@ -59,6 +59,7 @@ class Spacing {
   static final v12 = SizedBox(height: 12.toHeight);
   static final v16 = SizedBox(height: 16.toHeight);
   static final v20 = SizedBox(height: 20.toHeight);
+  static final v25 = SizedBox(height: 25.toHeight);
   static final v30 = SizedBox(height: 30.toHeight);
   static final v40 = SizedBox(height: 40.toHeight);
   static final v50 = SizedBox(height: 50.toHeight);

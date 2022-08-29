@@ -27,3 +27,8 @@ class AppLogs {
   static const networkLogs = 'network_logs';
   static const dataLogs = 'data_logs';
 }
+
+class ApiKeys {
+  ApiKeys._();
+  static const googleMapsApiKey = 'AIzaSyBqdfChtWLTPePhNPVPdLPC8Pl9thGTag4';
+}

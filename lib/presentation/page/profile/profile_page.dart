@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/utils/extensions/strings_ext.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
@@ -35,15 +37,31 @@ class ProfilePage extends BasePage<ProfileController> {
         children: [
           Spacing.statusBarHeight,
           const AppbarWidget(title: 'Profile'),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Spacing.v30,
-                  profileImage,
-                  Spacing.v16,
-                  _buildForm()
-                ],
+          Obx(
+            () => Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Spacing.v30,
+                    controller.image.path != ""
+                        ? GestureDetector(
+                            onTap: controller.onImagePick,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.file(
+                                controller.image,
+                                fit: BoxFit.cover,
+                                width: profileImageSize,
+                                height: profileImageSize,
+                              ),
+                            ),
+                          )
+                        : GestureDetector(
+                            onTap: controller.onImagePick, child: profileImage),
+                    Spacing.v16,
+                    _buildForm()
+                  ],
+                ),
               ),
             ),
           )

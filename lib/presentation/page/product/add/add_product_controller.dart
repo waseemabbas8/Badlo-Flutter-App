@@ -10,6 +10,7 @@ import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddProductController extends BaseController {
@@ -32,6 +33,7 @@ class AddProductController extends BaseController {
   TextEditingController priceTextController = TextEditingController();
   TextEditingController addressTextController = TextEditingController();
   TextEditingController bidingDateTextController = TextEditingController();
+  LatLng? selectedPosition;
 
   final Rx<Category?> _selectedCategory = Rx(null);
   Category? get selectedCategory => _selectedCategory.value;

@@ -43,7 +43,8 @@ dependencies:
   flutter_signin_button: ^2.0.0
   get_storage: ^2.0.3
   image_picker: ^0.8.5+3
-  google_maps_place_picker: ^2.1.0-nullsafety.3
+  google_maps_flutter: ^2.1.12
+  geolocator: ^9.0.1
 
 dev_dependencies:
   flutter_test:

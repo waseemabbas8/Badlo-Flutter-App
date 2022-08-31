@@ -9,6 +9,8 @@ import 'package:badlo/presentation/page/home/home_bindings.dart';
 import 'package:badlo/presentation/page/home/home_page.dart';
 import 'package:badlo/presentation/page/inspection/packages/inspection_packages_bindings.dart';
 import 'package:badlo/presentation/page/inspection/packages/inspection_packages_page.dart';
+import 'package:badlo/presentation/page/map/place_picker_bindings.dart';
+import 'package:badlo/presentation/page/map/place_picker_page.dart';
 import 'package:badlo/presentation/page/offer/place_offer_bindings.dart';
 import 'package:badlo/presentation/page/offer/place_offer_page.dart';
 import 'package:badlo/presentation/page/offer/result/offer_result_bindings.dart';
@@ -93,6 +95,11 @@ class AppPages {
       name: Routes.profile,
       page: () => const ProfilePage(),
       binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: Routes.selectAddress,
+      page: () => const PlacePickerPage(),
+      binding: PlacePickerBindings(),
     )
   ];
 }

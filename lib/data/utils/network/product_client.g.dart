@@ -54,18 +54,46 @@ class _ProductClient implements ProductClient {
   }
 
   @override
-  Future<HttpResponse<String>> addProduct(product) async {
+  Future<HttpResponse<String>> addProduct(
+      {required categoryId,
+      required profileId,
+      required name,
+      required price,
+      required description,
+      required shortDescription,
+      required marketPlace,
+      required address,
+      required inspectionStatus,
+      required isInspection,
+      required latitude,
+      required longitude,
+      required images}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(product.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry('CategoryId', categoryId.toString()));
+    _data.fields.add(MapEntry('ProfileID', profileId.toString()));
+    _data.fields.add(MapEntry('ProductName', name));
+    _data.fields.add(MapEntry('Price', price.toString()));
+    _data.fields.add(MapEntry('Description', description));
+    _data.fields.add(MapEntry('ShortDescription', shortDescription));
+    _data.fields.add(MapEntry('MarketPlace', marketPlace.toString()));
+    _data.fields.add(MapEntry('Address', address));
+    _data.fields.add(MapEntry('InspectionStatus', inspectionStatus));
+    _data.fields.add(MapEntry('IsInspection', isInspection.toString()));
+    _data.fields.add(MapEntry('Latitude', latitude));
+    _data.fields.add(MapEntry('Longitude', longitude));
+    _data.files.addAll(images.map((i) => MapEntry('images', i)));
     final _result = await _dio.fetch<String>(
-        _setStreamType<HttpResponse<String>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Product/Add',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<String>>(Options(
+                method: 'POST',
+                headers: _headers,
+                extra: _extra,
+                contentType: 'multipart/form-data')
+            .compose(_dio.options, 'Product/Add',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!;
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;

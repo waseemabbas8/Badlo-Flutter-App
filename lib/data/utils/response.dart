@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:retrofit/retrofit.dart';
 import 'dart:developer' as dev_log;
+import 'package:dio/dio.dart';
 
 class Result {
   Result._();
@@ -55,14 +58,28 @@ abstract class ResponseHandler {
       final httpResponse = await apiRequest.call();
       if (httpResponse.response.statusCode == ResponseCode.ok) {
         return GenericResponse<T>(
-            result: Result.success('Success', ResponseCode.ok), data: httpResponse.data);
+          result: Result.success(httpResponse.response.statusMessage ?? 'Success', ResponseCode.ok),
+          data: httpResponse.data,
+        );
       }
       return GenericResponse<T>(
-          result: Result.error('Error', httpResponse.response.statusCode ?? ResponseCode.error),
-          data: null);
+        result: Result.error(
+          httpResponse.response.statusMessage ?? 'Error',
+          httpResponse.response.statusCode ?? ResponseCode.error,
+        ),
+        data: null,
+      );
     } catch (e) {
-      dev_log.log(e.toString(), name: AppLogs.networkLogs);
-      return GenericResponse<T>(result: Result.error('Error', ResponseCode.error), data: null);
+      final String msg;
+      if (e is DioError) {
+        final String errorMessage = e.response?.data?.toString() ?? '{"Message":"Some Error"}';
+        Map map = jsonDecode(errorMessage);
+        msg = map['Message'];
+      } else {
+        msg = e.toString();
+      }
+      dev_log.log(msg, name: AppLogs.networkLogs);
+      return GenericResponse<T>(result: Result.error(msg, ResponseCode.error), data: null);
     }
   }
 }

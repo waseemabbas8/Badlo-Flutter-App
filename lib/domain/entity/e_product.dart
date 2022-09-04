@@ -21,6 +21,8 @@ class EProduct {
   final List<ProductImage> images;
   @JsonKey(name: 'Description')
   final String description;
+  @JsonKey(name: 'ShortDescription')
+  final String shortDescription;
   @JsonKey(name: 'Owner')
   final ProductOwner? owner;
   @JsonKey(name: 'MarketPlace')
@@ -28,36 +30,37 @@ class EProduct {
   @JsonKey(name: 'Address')
   final String address;
   @JsonKey(name: 'BiddingTimeLimit')
-  final String biddingEndTime;
+  final String? biddingEndTime;
   @JsonKey(name: 'InspectionStatus')
   final String inspectionStatus;
   @JsonKey(name: 'IsInspection')
   final bool isInspection;
   @JsonKey(name: 'Latitude')
   final String latitude;
-  @JsonKey(name: 'longitude')
+  @JsonKey(name: 'Longitude')
   final String longitude;
   @JsonKey(name: 'PostingDate')
   final String postingDate;
 
-  EProduct(
-    this.id,
-    this.name,
-    this.price,
-    this.images,
-    this.description,
+  EProduct({
     this.owner,
-    this.market,
-    this.categoryId,
-    this.profileID,
-    this.address,
+    this.id = 0,
+    this.images = const [],
     this.biddingEndTime,
-    this.inspectionStatus,
-    this.isInspection,
-    this.latitude,
-    this.longitude,
-    this.postingDate,
-  );
+    this.postingDate = "",
+    required this.name,
+    required this.price,
+    required this.description,
+    required this.shortDescription,
+    required this.market,
+    required this.categoryId,
+    required this.profileID,
+    required this.address,
+    required this.inspectionStatus,
+    required this.isInspection,
+    required this.latitude,
+    required this.longitude,
+  });
 
   factory EProduct.fromJson(Map<String, dynamic> json) => _$EProductFromJson(json);
 

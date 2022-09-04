@@ -22,10 +22,23 @@ abstract class ProductClient {
     @Query('id') int id,
   );
 
+  @MultiPart()
   @POST('$_apiModule/Add')
-  Future<HttpResponse<String>> addProduct(
-    @Body() EProduct product,
-  );
+  Future<HttpResponse<String>> addProduct({
+    @Part(name: 'CategoryId') required int categoryId,
+    @Part(name: 'ProfileID') required int profileId,
+    @Part(name: 'ProductName') required String name,
+    @Part(name: 'Price') required double price,
+    @Part(name: 'Description') required String description,
+    @Part(name: 'ShortDescription') required String shortDescription,
+    @Part(name: 'MarketPlace') required int marketPlace,
+    @Part(name: 'Address') required String address,
+    @Part(name: 'InspectionStatus') required String inspectionStatus,
+    @Part(name: 'IsInspection') required bool isInspection,
+    @Part(name: 'Latitude') required String latitude,
+    @Part(name: 'Longitude') required String longitude,
+    @Part() required List<MultipartFile> images,
+  });
 
   @PUT('$_apiModule/Edit')
   Future<HttpResponse<String>> updateProduct(

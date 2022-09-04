@@ -13,6 +13,6 @@ class AddProductBindings extends Bindings {
     Get.lazyPut(() => CategoryClient.create(Get.find()));
     Get.lazyPut(() => CategoryRemoteDataSource(Get.find()));
     Get.lazyPut<CategoryRepository>(() => CategoryRepositoryImpl(Get.find()));
-    Get.lazyPut(() => AddProductController(Get.find(), Get.find(), Get.find()));
+    Get.lazyPut(() => AddProductController(Get.find(), Get.find(), Get.find(), Get.find()));
   }
 }

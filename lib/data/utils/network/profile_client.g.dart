@@ -76,7 +76,7 @@ class _ProfileClient implements ProfileClient {
   @override
   Future<HttpResponse<UserProfile?>> getByAuthId(authId) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'authId': authId};
+    final queryParameters = <String, dynamic>{r'id': authId};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>?>(

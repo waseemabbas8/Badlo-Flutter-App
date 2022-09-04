@@ -1,11 +1,13 @@
 import 'dart:io';
 
+import 'package:badlo/data/utils/date_provider.dart';
 import 'package:badlo/data/utils/response.dart';
 import 'package:badlo/domain/entity/category.dart';
+import 'package:badlo/domain/entity/e_product.dart';
 import 'package:badlo/domain/entity/market_place.dart';
 import 'package:badlo/domain/repository/category_repository.dart';
+import 'package:badlo/domain/repository/preference_repository.dart';
 import 'package:badlo/domain/repository/product_repository.dart';
-import 'package:badlo/domain/utils/constants.dart';
 import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +15,18 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddProductController extends BaseController {
+class AddProductController extends BaseController with DateProvider {
   final ProductRepository productRepository;
   final CategoryRepository _categoryRepository;
+  final PreferenceRepository _preferenceRepository;
   final ImagePicker _imagePicker;
 
-  AddProductController(this.productRepository, this._categoryRepository, this._imagePicker);
+  AddProductController(
+    this.productRepository,
+    this._categoryRepository,
+    this._imagePicker,
+    this._preferenceRepository,
+  );
 
   final RxList<File> _images = RxList([File('')]);
   List<File> get images => _images;
@@ -29,7 +37,7 @@ class AddProductController extends BaseController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-  TextEditingController longDescriptionController = TextEditingController();
+  TextEditingController shortDescriptionController = TextEditingController();
   TextEditingController priceTextController = TextEditingController();
   TextEditingController addressTextController = TextEditingController();
   TextEditingController bidingDateTextController = TextEditingController();
@@ -50,6 +58,8 @@ class AddProductController extends BaseController {
     final response = await _categoryRepository.getCategories();
     _categories.value = response.data ?? [];
   }
+
+  int get _profileId => _preferenceRepository.getProfile()?.id ?? 0;
 
   void onImagePick() async {
     final xImages = await _imagePicker.pickMultiImage() ?? [];
@@ -83,5 +93,28 @@ class AddProductController extends BaseController {
     Get.toNamed(Routes.selectAddress);
   }
 
-  void onContinueButtonClick() {}
+  void onContinueButtonClick() async {
+    if (!formKey.currentState!.validate()) return;
+    final product = EProduct(
+      name: nameController.text,
+      price: double.parse(priceTextController.text),
+      description: descriptionController.text,
+      shortDescription: shortDescriptionController.text,
+      market: selectedMarketType!.id,
+      categoryId: selectedCategory!.id,
+      profileID: _profileId,
+      address: 'addressTextController.text',
+      inspectionStatus: "false",
+      isInspection: true,
+      latitude: selectedPosition?.latitude.toString() ?? "31.714579146710005",
+      longitude: selectedPosition?.longitude.toString() ?? "73.38043019320084",
+    );
+    final response = await productRepository.addProduct(product, images);
+    if (response.result is SuccessResult) {
+      Get.snackbar('Success', (response.result as SuccessResult).msg);
+      Get.back();
+    } else {
+      Get.snackbar('Error', (response.result as ErrorResult).msg);
+    }
+  }
 }

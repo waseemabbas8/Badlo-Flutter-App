@@ -7,26 +7,28 @@ part of 'e_product.dart';
 // **************************************************************************
 
 EProduct _$EProductFromJson(Map<String, dynamic> json) => EProduct(
-      json['ID'] as int,
-      json['ProductName'] as String,
-      (json['Price'] as num).toDouble(),
-      (json['ProdImages'] as List<dynamic>)
-          .map((e) => ProductImage.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      json['Description'] as String,
-      json['Owner'] == null
+      owner: json['Owner'] == null
           ? null
           : ProductOwner.fromJson(json['Owner'] as Map<String, dynamic>),
-      json['MarketPlace'] as int,
-      json['CategoryId'] as int,
-      json['ProfileID'] as int,
-      json['Address'] as String,
-      json['BiddingTimeLimit'] as String,
-      json['InspectionStatus'] as String,
-      json['IsInspection'] as bool,
-      json['Latitude'] as String,
-      json['longitude'] as String,
-      json['PostingDate'] as String,
+      id: json['ID'] as int? ?? 0,
+      images: (json['ProdImages'] as List<dynamic>?)
+              ?.map((e) => ProductImage.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      biddingEndTime: json['BiddingTimeLimit'] as String?,
+      postingDate: json['PostingDate'] as String? ?? "",
+      name: json['ProductName'] as String,
+      price: (json['Price'] as num).toDouble(),
+      description: json['Description'] as String,
+      shortDescription: json['ShortDescription'] as String,
+      market: json['MarketPlace'] as int,
+      categoryId: json['CategoryId'] as int,
+      profileID: json['ProfileID'] as int,
+      address: json['Address'] as String,
+      inspectionStatus: json['InspectionStatus'] as String,
+      isInspection: json['IsInspection'] as bool,
+      latitude: json['Latitude'] as String,
+      longitude: json['Longitude'] as String,
     );
 
 Map<String, dynamic> _$EProductToJson(EProduct instance) => <String, dynamic>{
@@ -37,6 +39,7 @@ Map<String, dynamic> _$EProductToJson(EProduct instance) => <String, dynamic>{
       'Price': instance.price,
       'ProdImages': instance.images,
       'Description': instance.description,
+      'ShortDescription': instance.shortDescription,
       'Owner': instance.owner,
       'MarketPlace': instance.market,
       'Address': instance.address,
@@ -44,6 +47,6 @@ Map<String, dynamic> _$EProductToJson(EProduct instance) => <String, dynamic>{
       'InspectionStatus': instance.inspectionStatus,
       'IsInspection': instance.isInspection,
       'Latitude': instance.latitude,
-      'longitude': instance.longitude,
+      'Longitude': instance.longitude,
       'PostingDate': instance.postingDate,
     };

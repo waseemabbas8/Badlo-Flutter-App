@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:badlo/data/source/product_remote_date_source.dart';
 import 'package:badlo/data/utils/response.dart';
 import 'package:badlo/domain/entity/e_product.dart';
@@ -9,8 +11,8 @@ class ProductRepositoryImpl extends ProductRepository {
   ProductRepositoryImpl(this._productRemoteDataSource);
 
   @override
-  Future<GenericResponse<String>> addProduct(EProduct product) =>
-      ResponseHandler.handle(() => _productRemoteDataSource.addProduct(product));
+  Future<GenericResponse<String>> addProduct(EProduct product, List<File> images) =>
+      ResponseHandler.handle(() => _productRemoteDataSource.addProduct(product, images));
 
   @override
   Future<GenericResponse<List<EProduct>>> getProducts() =>

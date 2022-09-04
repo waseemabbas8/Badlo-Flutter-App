@@ -25,7 +25,7 @@ class SignUpController extends BaseController {
         await _profileRepository.getByAuthId(response.data!.authId);
         Get.offAllNamed(Routes.home);
       } else {
-        responseMessage.value = 'Invalid Email & Password';
+        responseMessage.value = 'Invalid Email or Password';
       }
       isLoading = false;
     }

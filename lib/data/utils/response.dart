@@ -72,8 +72,7 @@ abstract class ResponseHandler {
     } catch (e) {
       final String msg;
       if (e is DioError) {
-        final String errorMessage = e.response?.data?.toString() ?? '{"Message":"Some Error"}';
-        Map map = jsonDecode(errorMessage);
+        Map map = e.response?.data ?? {'Message': 'Some Error'};
         msg = map['Message'];
       } else {
         msg = e.toString();

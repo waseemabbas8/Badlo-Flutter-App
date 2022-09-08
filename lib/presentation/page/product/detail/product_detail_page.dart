@@ -28,11 +28,11 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Leather Sofa',
+                    controller.product.name,
                     style: Get.textTheme.headline6,
                   ),
                   Text(
-                    'Worth PKR 18,000',
+                    'Worth PKR ${controller.product.price}',
                     style: Get.textTheme.headline6!.copyWith(color: colorPrimary),
                   )
                 ],
@@ -42,7 +42,7 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
             Padding(
               padding: Margin.h16,
               child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                controller.product.description,
                 style: Get.textTheme.bodyText2!.copyWith(color: colorGrey),
               ),
             ),
@@ -66,10 +66,9 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
             Spacing.v40,
             Center(
               child: ContainedButton(
-                  text: labelSwapNow,
-                  onPressed: () {
-                    controller.onPressedSwapNow();
-                  }),
+                text: labelSwapNow,
+                onPressed: controller.onPressedSwapNow,
+              ),
             ),
             Spacing.v30,
           ],

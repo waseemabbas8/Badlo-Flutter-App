@@ -34,6 +34,7 @@ class Margin {
   static final h8v32 = CustomEdgeInsets().symmetric(horizontal: 8, vertical: 32);
   static final h8v16 = CustomEdgeInsets().symmetric(horizontal: 8, vertical: 16);
   static final v16 = CustomEdgeInsets().symmetric(vertical: 16);
+  static final v16h20 = CustomEdgeInsets().symmetric(vertical: 16, horizontal: 20);
 }
 
 class BorderRadii {

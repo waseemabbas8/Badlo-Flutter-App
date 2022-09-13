@@ -23,6 +23,8 @@ import 'package:badlo/presentation/page/product/add/add_product_bindings.dart';
 import 'package:badlo/presentation/page/product/add/add_product_page.dart';
 import 'package:badlo/presentation/page/product/detail/product_detail_bindings.dart';
 import 'package:badlo/presentation/page/product/detail/product_detail_page.dart';
+import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_bindings.dart';
+import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_page.dart';
 import 'package:badlo/presentation/page/profile/profile_bindings.dart';
 import 'package:badlo/presentation/page/profile/profile_page.dart';
 import 'package:badlo/presentation/page/splash/splash_bindings.dart';
@@ -95,6 +97,11 @@ class AppPages {
       name: Routes.profile,
       page: () => const ProfilePage(),
       binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: Routes.profileDashboard,
+      page: () => const ProfileDashboardPage(),
+      binding: ProfileDashboardBindings(),
     ),
     GetPage(
       name: Routes.selectAddress,

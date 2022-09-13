@@ -15,4 +15,5 @@ class Routes {
   static const String inspectionPackages = '/inspection_packages';
   static const String selectAddress = '/select_address';
   static const String profile = '/profile';
+  static const String profileDashboard = '/profile_dashboard';
 }

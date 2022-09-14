@@ -15,8 +15,9 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
     return Scaffold(
       body: Column(
         children: [
+          Spacing.statusBarHeight,
           AppbarWidget(
-            title: 'Profile',
+            title: '',
             leading: InkWell(
               onTap: controller.onEditClick,
               child: const Icon(Icons.edit),
@@ -29,25 +30,26 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                   padding: Margin.h20,
                   child: Row(
                     children: [
-                      Icon(Icons.phone, color: Colors.blueGrey, size: 16.toWidth),
+                      const CircleAvatar(
+                        radius: 30.0,
+                        backgroundImage: NetworkImage(
+                            'https://cdn.dribbble.com/users/2364329/screenshots/5930135/aa.jpg'),
+                        backgroundColor: Colors.transparent,
+                      ),
                       Spacing.h16,
-                      Text(
-                        '(92)-303-1888898',
-                        style: Get.textTheme.bodyText2?.copyWith(color: Colors.blueGrey),
-                      )
-                    ],
-                  ),
-                ),
-                Spacing.v16,
-                Padding(
-                  padding: Margin.h20,
-                  child: Row(
-                    children: [
-                      Icon(Icons.email_outlined, color: Colors.blueGrey, size: 16.toWidth),
-                      Spacing.h16,
-                      Text(
-                        'engr.waseemabbas8@gmail.com',
-                        style: Get.textTheme.bodyText2?.copyWith(color: Colors.blueGrey),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'controller.profile.name',
+                            style: Get.textTheme.headline6!.copyWith(color: Colors.black),
+                          ),
+                          Spacing.v2,
+                          Text(
+                            controller.user.userName,
+                            style: Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight),
+                          ),
+                        ],
                       )
                     ],
                   ),
@@ -94,8 +96,8 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                 _line,
                 Spacing.v16,
                 Spacing.v16,
-                _optionWidget(() {}, Icons.favorite_border, 'Your Favorites'),
-                _optionWidget(() {}, Icons.supervisor_account, 'Tell your friends'),
+                _optionWidget(() {}, Icons.dashboard, 'Your Products'),
+                _optionWidget(() {}, Icons.shopping_cart, 'Your Orders'),
                 _optionWidget(() {}, Icons.settings, 'Settings'),
                 _line,
                 InkWell(
@@ -143,11 +145,11 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
           padding: Margin.v16h20,
           child: Row(
             children: [
-              Icon(iconData, size: 20.toWidth, color: Colors.blue),
+              Icon(iconData, size: 20.toWidth, color: Colors.blueGrey),
               Spacing.h16,
               Text(
                 title,
-                style: Get.textTheme.bodyText1?.copyWith(color: colorPrimaryLight),
+                style: Get.textTheme.bodyText1?.copyWith(color: Colors.blueGrey),
               ),
             ],
           ),

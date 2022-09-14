@@ -2,7 +2,6 @@ import 'package:badlo/presentation/core/route/pages.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/theme/light_theme.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
-import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
 import 'package:badlo/presentation/page/splash/splash_bindings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

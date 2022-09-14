@@ -58,7 +58,7 @@ class HomeController extends BaseController {
   }
 
   void onProfileClick() {
-    Get.toNamed(Routes.profile);
+    Get.toNamed(Routes.profileDashboard);
   }
 
   void onProductItemClick(EProduct product) {

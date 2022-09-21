@@ -18,18 +18,34 @@ class _ProfileClient implements ProfileClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<UserProfile?>> add(profile) async {
+  Future<HttpResponse<UserProfile?>> add(
+      {required authId,
+      required name,
+      required nic,
+      required address,
+      required contactNumber,
+      required description,
+      required image}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(profile.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry('AuthId', authId.toString()));
+    _data.fields.add(MapEntry('Name', name));
+    _data.fields.add(MapEntry('NIc', nic));
+    _data.fields.add(MapEntry('Address', address));
+    _data.fields.add(MapEntry('ContactNumber', contactNumber));
+    _data.fields.add(MapEntry('Description', description));
+    _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<UserProfile>>(
-            Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Profile/Add',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<UserProfile>>(Options(
+                method: 'POST',
+                headers: _headers,
+                extra: _extra,
+                contentType: 'multipart/form-data')
+            .compose(_dio.options, 'Profile/Add',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
@@ -37,18 +53,36 @@ class _ProfileClient implements ProfileClient {
   }
 
   @override
-  Future<HttpResponse<UserProfile?>> edit(profile) async {
+  Future<HttpResponse<UserProfile?>> edit(
+      {required profileId,
+      required authId,
+      required name,
+      required nic,
+      required address,
+      required contactNumber,
+      required description,
+      required image}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(profile.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry('ID', profileId.toString()));
+    _data.fields.add(MapEntry('AuthId', authId.toString()));
+    _data.fields.add(MapEntry('Name', name));
+    _data.fields.add(MapEntry('NIc', nic));
+    _data.fields.add(MapEntry('Address', address));
+    _data.fields.add(MapEntry('ContactNumber', contactNumber));
+    _data.fields.add(MapEntry('Description', description));
+    _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<UserProfile>>(
-            Options(method: 'PUT', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Profile/Edit',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<UserProfile>>(Options(
+                method: 'PUT',
+                headers: _headers,
+                extra: _extra,
+                contentType: 'multipart/form-data')
+            .compose(_dio.options, 'Profile/Edit',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);

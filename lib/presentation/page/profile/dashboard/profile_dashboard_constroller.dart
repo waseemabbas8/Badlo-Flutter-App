@@ -23,4 +23,18 @@ class ProfileDashboardController extends BaseController {
   void onEditClick() {
     Get.toNamed(Routes.profile);
   }
+
+  void onProductsOptionClick() {
+    ///TODO navigate to products list screen
+  }
+
+  void onOrdersOptionClick() {
+    ///TODO navigate to orders list screen
+  }
+
+  void onLogoutClick() {
+    _preferenceRepository.deleteUser();
+    _preferenceRepository.deleteProfile();
+    Get.offAllNamed(Routes.signUp);
+  }
 }

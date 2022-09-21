@@ -13,15 +13,30 @@ abstract class ProfileClient {
 
   static const _apiModule = 'Profile';
 
+  @MultiPart()
   @POST('$_apiModule/Add')
-  Future<HttpResponse<UserProfile?>> add(
-    @Body() UserProfile profile,
-  );
+  Future<HttpResponse<UserProfile?>> add({
+    @Part(name: 'AuthId') required int authId,
+    @Part(name: 'Name') required String name,
+    @Part(name: 'NIc') required String nic,
+    @Part(name: 'Address') required String address,
+    @Part(name: 'ContactNumber') required String contactNumber,
+    @Part(name: 'Description') required String description,
+    @Part() required List<MultipartFile> image,
+  });
 
+  @MultiPart()
   @PUT('$_apiModule/Edit')
-  Future<HttpResponse<UserProfile?>> edit(
-    @Body() UserProfile profile,
-  );
+  Future<HttpResponse<UserProfile?>> edit({
+    @Part(name: 'ID') required int profileId,
+    @Part(name: 'AuthId') required int authId,
+    @Part(name: 'Name') required String name,
+    @Part(name: 'NIc') required String nic,
+    @Part(name: 'Address') required String address,
+    @Part(name: 'ContactNumber') required String contactNumber,
+    @Part(name: 'Description') required String description,
+    @Part() required List<MultipartFile> image,
+  });
 
   @GET('$_apiModule/ProfilbyId')
   Future<HttpResponse<UserProfile?>> get(

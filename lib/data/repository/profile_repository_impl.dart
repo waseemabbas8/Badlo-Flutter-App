@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:badlo/data/source/preference_data_source.dart';
 import 'package:badlo/data/source/profile_remote_data_source.dart';
 import 'package:badlo/data/utils/response.dart';
@@ -11,12 +13,12 @@ class ProfileRepositoryImpl extends ProfileRepository {
   ProfileRepositoryImpl(this._profileRemoteDataSource, this._preferenceDataSource);
 
   @override
-  Future<GenericResponse<UserProfile?>> add(UserProfile profile) =>
-      ResponseHandler.handle(() => _profileRemoteDataSource.add(profile));
+  Future<GenericResponse<UserProfile?>> add(UserProfile profile, File image) =>
+      ResponseHandler.handle(() => _profileRemoteDataSource.add(profile, image));
 
   @override
-  Future<GenericResponse<UserProfile?>> edit(UserProfile profile) =>
-      ResponseHandler.handle(() => _profileRemoteDataSource.edit(profile));
+  Future<GenericResponse<UserProfile?>> edit(UserProfile profile, File image) =>
+      ResponseHandler.handle(() => _profileRemoteDataSource.edit(profile, image));
 
   @override
   Future<GenericResponse<UserProfile?>> get(int profileId) async =>

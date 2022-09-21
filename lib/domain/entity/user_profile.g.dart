@@ -7,7 +7,7 @@ part of 'user_profile.dart';
 // **************************************************************************
 
 UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => UserProfile(
-      json['ID'] as int,
+      json['ProfileID'] as int,
       json['AuthId'] as int,
       json['Name'] as String,
       json['NIC'] as String,
@@ -19,7 +19,7 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => UserProfile(
 
 Map<String, dynamic> _$UserProfileToJson(UserProfile instance) =>
     <String, dynamic>{
-      'ID': instance.id,
+      'ProfileID': instance.id,
       'AuthId': instance.authId,
       'Name': instance.name,
       'NIC': instance.nic,

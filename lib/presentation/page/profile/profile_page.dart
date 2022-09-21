@@ -1,14 +1,10 @@
-import 'dart:io';
-
 import 'package:badlo/presentation/core/constants.dart';
 import 'package:badlo/presentation/core/utils/extensions/strings_ext.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/page/profile/profile_controller.dart';
 import 'package:badlo/presentation/widget/app_bar_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 
 import '../../core/base/base_page.dart';
 import '../../core/values/strings.dart';
@@ -26,7 +22,7 @@ class ProfilePage extends BasePage<ProfileController> {
         width: profileImageSize,
         height: profileImageSize,
         fit: BoxFit.cover,
-        image: NetworkImage(placeholderImage),
+        image: NetworkImage('https://cdn.dribbble.com/users/2364329/screenshots/5930135/aa.jpg'),
         placeholder: AssetImage(ImagesPath.facebook),
       ),
     );
@@ -36,7 +32,7 @@ class ProfilePage extends BasePage<ProfileController> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Spacing.statusBarHeight,
-          const AppbarWidget(title: 'Profile'),
+          const AppbarWidget(title: 'Edit Profile'),
           Obx(
             () => Expanded(
               child: SingleChildScrollView(
@@ -56,8 +52,7 @@ class ProfilePage extends BasePage<ProfileController> {
                               ),
                             ),
                           )
-                        : GestureDetector(
-                            onTap: controller.onImagePick, child: profileImage),
+                        : GestureDetector(onTap: controller.onImagePick, child: profileImage),
                     Spacing.v16,
                     _buildForm()
                   ],
@@ -79,7 +74,7 @@ class ProfilePage extends BasePage<ProfileController> {
           children: [
             LabeledTextField(
               label: 'Name',
-              hint: 'Enter a Name',
+              hint: 'Enter your Name',
               keyboardType: TextInputType.name,
               controller: controller.nameController,
               textInputAction: TextInputAction.next,
@@ -88,7 +83,7 @@ class ProfilePage extends BasePage<ProfileController> {
             Spacing.v16,
             LabeledTextField(
               label: 'NIC',
-              hint: 'Enter a NIC',
+              hint: 'Enter your NIC',
               keyboardType: TextInputType.number,
               controller: controller.nicController,
               textInputAction: TextInputAction.next,
@@ -97,7 +92,7 @@ class ProfilePage extends BasePage<ProfileController> {
             Spacing.v16,
             LabeledTextField(
               label: 'Contact #',
-              hint: 'Enter a Contact',
+              hint: 'Enter your phone number',
               keyboardType: TextInputType.number,
               controller: controller.contactController,
               textInputAction: TextInputAction.next,
@@ -106,7 +101,7 @@ class ProfilePage extends BasePage<ProfileController> {
             Spacing.v16,
             LabeledTextField(
               label: 'Address',
-              hint: 'Enter a Address',
+              hint: 'Enter your Address',
               keyboardType: TextInputType.text,
               controller: controller.addressController,
               textInputAction: TextInputAction.next,

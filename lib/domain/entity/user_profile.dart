@@ -4,7 +4,7 @@ part 'user_profile.g.dart';
 
 @JsonSerializable()
 class UserProfile {
-  @JsonKey(name: 'ID')
+  @JsonKey(name: 'ProfileID')
   final int id;
   @JsonKey(name: 'AuthId')
   final int authId;

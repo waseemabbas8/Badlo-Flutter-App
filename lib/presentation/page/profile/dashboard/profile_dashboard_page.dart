@@ -96,12 +96,12 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                 _line,
                 Spacing.v16,
                 Spacing.v16,
-                _optionWidget(() {}, Icons.dashboard, 'Your Products'),
-                _optionWidget(() {}, Icons.shopping_cart, 'Your Orders'),
-                _optionWidget(() {}, Icons.settings, 'Settings'),
+                _optionWidget(controller.onProductsOptionClick, Icons.dashboard, 'Your Products'),
+                _optionWidget(controller.onOrdersOptionClick, Icons.shopping_cart, 'Your Orders'),
+                _optionWidget(controller.onProductsOptionClick, Icons.settings, 'Settings'),
                 _line,
                 InkWell(
-                  onTap: () {},
+                  onTap: controller.onLogoutClick,
                   child: Padding(
                     padding: Margin.v16h20,
                     child: Row(

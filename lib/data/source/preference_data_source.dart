@@ -13,7 +13,7 @@ class PreferenceDataSource extends DataSource {
   static const _keyOnboarding = 'badlo_onboarding';
 
   void saveUser(User user) {
-    _getStorage.write(_keyUser, user);
+    _getStorage.write(_keyUser, user.toJson());
   }
 
   void deleteUser() {
@@ -27,7 +27,7 @@ class PreferenceDataSource extends DataSource {
   }
 
   void saveProfile(UserProfile userProfile) {
-    _getStorage.write(_keyProfile, userProfile);
+    _getStorage.write(_keyProfile, userProfile.toJson());
   }
 
   void deleteProfile() {

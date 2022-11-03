@@ -19,7 +19,6 @@ jobs:
           flutter-version: '3.5.0-12.0.pre.94'
           channel: master
       - run: flutter pub get
-      - run: flutter analyze
       - run: flutter test
       - run: flutter build apk --release
       - uses: ncipollo/release-action@v2

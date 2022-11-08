@@ -16,4 +16,5 @@ class Routes {
   static const String selectAddress = '/select_address';
   static const String profile = '/profile';
   static const String profileDashboard = '/profile_dashboard';
+  static const String productsList = '/products';
 }

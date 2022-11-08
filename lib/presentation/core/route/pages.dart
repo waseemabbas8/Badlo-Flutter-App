@@ -23,6 +23,8 @@ import 'package:badlo/presentation/page/product/add/add_product_bindings.dart';
 import 'package:badlo/presentation/page/product/add/add_product_page.dart';
 import 'package:badlo/presentation/page/product/detail/product_detail_bindings.dart';
 import 'package:badlo/presentation/page/product/detail/product_detail_page.dart';
+import 'package:badlo/presentation/page/product/list/products_list_bindings.dart';
+import 'package:badlo/presentation/page/product/list/products_list_page.dart';
 import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_bindings.dart';
 import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_page.dart';
 import 'package:badlo/presentation/page/profile/profile_bindings.dart';
@@ -107,6 +109,11 @@ class AppPages {
       name: Routes.selectAddress,
       page: () => const PlacePickerPage(),
       binding: PlacePickerBindings(),
-    )
+    ),
+    GetPage(
+      name: Routes.productsList,
+      page: () => const ProductsListPage(),
+      binding: ProductsListBindings(),
+    ),
   ];
 }

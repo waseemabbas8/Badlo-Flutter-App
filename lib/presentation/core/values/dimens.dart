@@ -11,7 +11,7 @@ const spacing20 = 20.0;
 const pageMargin = spacing20;
 
 const cardElevation = spacing4;
-const cardRadius = spacing16;
+const cardRadius = spacing10;
 
 const imagePickerHeight = 242.0;
 
@@ -39,10 +39,10 @@ class Margin {
 
 class BorderRadii {
   BorderRadii._();
-
   static final all16 = BorderRadius.circular(16);
   static final all20 = BorderRadius.circular(20);
   static final all27 = BorderRadius.circular(27);
+  static final cardRadius = BorderRadius.circular(10);
 }
 
 class Spacing {

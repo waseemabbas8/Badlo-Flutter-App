@@ -1,5 +1,4 @@
 import 'package:badlo/presentation/core/constants.dart';
-import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:badlo/presentation/core/utils/CommonWidgets.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
 import 'package:badlo/presentation/core/values/colors.dart';
@@ -51,15 +50,15 @@ class HomePage extends BasePage<HomeController> {
             Column(
               children: [
                 topMenuBar,
-                // const SizedBox(height: spacing8,),
                 Expanded(
                     child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       getSearchBarUI(),
+                      Spacing.v16,
                       Padding(
-                        padding: Margin.all20,
+                        padding: Margin.h20,
                         child: Obx(
                           () => ListHeaderBar(
                             textTitle: 'Swapping Marketplace',
@@ -67,9 +66,10 @@ class HomePage extends BasePage<HomeController> {
                           ),
                         ),
                       ),
+                      Spacing.v10,
                       SizedBox(
                         width: Get.width,
-                        height: 185.toHeight,
+                        height: 228.toHeight,
                         child: Obx(
                           () => ListView.separated(
                             shrinkWrap: true,
@@ -81,14 +81,16 @@ class HomePage extends BasePage<HomeController> {
                           ),
                         ),
                       ),
+                      Spacing.v16,
                       Padding(
-                        padding: Margin.all20,
+                        padding: Margin.h20,
                         child: const ListHeaderBar(
                             textTitle: 'Auction Marketplace', itemCount: '12 items'),
                       ),
+                      Spacing.v10,
                       SizedBox(
                         width: Get.width,
-                        height: 227.toHeight,
+                        height: 228.toHeight,
                         child: ListView.separated(
                           shrinkWrap: true,
                           padding: Margin.h16,
@@ -144,79 +146,71 @@ class HomePage extends BasePage<HomeController> {
       child: Padding(
         padding: const EdgeInsets.only(bottom: spacing4),
         child: Card(
-          elevation: cardElevation,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadii.all16,
-          ),
-          child: Padding(
-            padding: Margin.all8,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadii.all16,
-                      child: Image.network(placeholderImage,
-                          width: Get.width, height: 144.toHeight, fit: BoxFit.cover),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadii.cardRadius,
+                    child: Image.network(placeholderImage,
+                        width: Get.width, height: 144.toHeight, fit: BoxFit.cover),
+                  ),
+                  Padding(
+                    padding: Margin.all8,
+                    child: Row(
+                      children: [
+                        Image.asset(ImagesPath.accessTime),
+                        Spacing.h8,
+                        Text(
+                          "2h 34m left",
+                          style: Get.textTheme.bodyText1!
+                              .copyWith(fontSize: 10.toFont, color: Colors.black),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: Margin.all8,
-                      child: Row(
-                        children: [
-                          Image.asset(ImagesPath.accessTime),
-                          Spacing.h8,
-                          Text(
-                            "2h 34m left",
-                            style: Get.textTheme.bodyText1!
-                                .copyWith(fontSize: 10.toFont, color: Colors.black),
-                          )
-                        ],
-                      ),
+                  ),
+                ],
+              ),
+              Spacing.v8,
+              Padding(
+                padding: Margin.l8,
+                child: Text(
+                  'Vespa',
+                  style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
+                ),
+              ),
+              Spacing.v4,
+              Padding(
+                padding: Margin.l8,
+                child: Text(
+                  'Current Bid: Rs. 78,000',
+                  style: Get.textTheme.bodyText2!
+                      .copyWith(color: colorPrimaryLight, fontSize: 10.toFont),
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Spacing.h8,
+                    Image.asset(
+                      ImagesPath.bid,
+                      height: 14.toWidth,
+                      width: 14.toWidth,
+                      color: colorGreen,
+                    ),
+                    Spacing.h4,
+                    Text(
+                      'Bid Now',
+                      style: Get.textTheme.bodyText2!
+                          .copyWith(color: colorPrimary, fontSize: 10.toFont),
                     ),
                   ],
                 ),
-                Spacing.v8,
-                Padding(
-                  padding: Margin.l8,
-                  child: Text(
-                    'Vespa',
-                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
-                  ),
-                ),
-                Spacing.v4,
-                Padding(
-                  padding: Margin.l8,
-                  child: Text(
-                    'Current Bid: Rs. 78,000',
-                    style: Get.textTheme.bodyText2!
-                        .copyWith(color: colorPrimaryLight, fontSize: 10.toFont),
-                  ),
-                ),
-                Spacing.v4,
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Spacing.h8,
-                      Image.asset(
-                        ImagesPath.bid,
-                        height: 14.toWidth,
-                        width: 14.toWidth,
-                        color: colorGreen,
-                      ),
-                      Spacing.h4,
-                      Text(
-                        'Bid Now',
-                        style: Get.textTheme.bodyText2!
-                            .copyWith(color: colorPrimary, fontSize: 10.toFont),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -228,71 +222,69 @@ class HomePage extends BasePage<HomeController> {
     return GestureDetector(
       onTap: () => controller.onProductItemClick(product),
       child: SizedBox(
-        width: 179.toWidth,
-        height: 195.toHeight,
+        width: 158.toWidth,
         child: Padding(
           padding: Margin.b4,
           child: Card(
-            elevation: cardElevation,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadii.all16,
-            ),
-            child: Padding(
-              padding: Margin.all8,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(cardRadius),
-                    child: Image.network(placeholderImage,
-                        width: Get.width, height: 102, fit: BoxFit.cover),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(cardRadius),
+                  child: Image.network(placeholderImage,
+                      width: Get.width, height: 144.toHeight, fit: BoxFit.cover),
+                ),
+                Spacing.v8,
+                Padding(
+                  padding: Margin.l8,
+                  child: Text(
+                    product.name,
+                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
                   ),
-                  Spacing.v8,
-                  Padding(
-                    padding: Margin.l8,
-                    child: Text(
-                      product.name,
-                      style: Get.textTheme.bodyText2!.copyWith(color: Colors.black, fontSize: 12),
+                ),
+                Spacing.v4,
+                Padding(
+                  padding: Margin.l8,
+                  child: Text(
+                    'Worth PKR ${product.price}',
+                    style:
+                        Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
+                  ),
+                ),
+                Spacing.v4,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Spacing.h8,
+                    Image.asset(
+                      ImagesPath.place,
+                      height: 14.toWidth,
+                      width: 14.toWidth,
+                      color: colorGreen,
                     ),
-                  ),
-                  Spacing.v4,
-                  Padding(
-                    padding: Margin.l8,
-                    child: Text(
-                      'Worth PKR ${product.price}',
-                      style:
-                          Get.textTheme.bodyText2!.copyWith(color: colorPrimaryLight, fontSize: 10),
+                    Spacing.h4,
+                    Text(
+                      '1.9 km away',
+                      style: Get.textTheme.bodyText2!.copyWith(color: colorGreen, fontSize: 10),
                     ),
-                  ),
-                  Spacing.v4,
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Spacing.h8,
-                        Image.asset(
-                          ImagesPath.place,
-                          height: 14.toWidth,
-                          width: 14.toWidth,
-                          color: colorGreen,
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: spacing10),
+                          child: Image.asset(
+                            ImagesPath.swapNow,
+                            width: 14,
+                            height: 14,
+                          ),
                         ),
-                        Spacing.h4,
-                        Text(
-                          '1.9 km away',
-                          style: Get.textTheme.bodyText2!.copyWith(color: colorGreen, fontSize: 10),
-                        ),
-                        Expanded(
-                            child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                    padding: const EdgeInsets.only(right: spacing4),
-                                    child: Image.asset(ImagesPath.swapNow))))
-                      ],
+                      ),
                     ),
-                  )
-                ],
-              ),
+                  ],
+                )
+              ],
             ),
           ),
         ),
@@ -300,9 +292,7 @@ class HomePage extends BasePage<HomeController> {
     );
   }
 
-  Widget separatorBuilder(BuildContext context, int index) => const SizedBox(
-        width: spacing8,
-      );
+  Widget separatorBuilder(BuildContext context, int index) => Spacing.h8;
 
   Widget getSearchBarUI() {
     return Padding(

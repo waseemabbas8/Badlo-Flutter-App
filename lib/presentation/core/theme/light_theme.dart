@@ -3,7 +3,6 @@ import 'package:badlo/presentation/core/values/colors.dart';
 import 'package:badlo/presentation/core/values/dimens.dart';
 import 'package:badlo/presentation/core/values/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final lightTheme = ThemeData(
@@ -14,6 +13,7 @@ final lightTheme = ThemeData(
   scaffoldBackgroundColor: colorWindowBackground,
   appBarTheme: _appBarTheme,
   inputDecorationTheme: _inputDecorationTheme,
+  cardTheme: _cardTheme,
 );
 
 final _textTheme = TextTheme(
@@ -28,7 +28,6 @@ final _textTheme = TextTheme(
   overline: TextStyle(fontSize: 9.5.toFont, fontWeight: FontWeight.w500),
   button: TextStyle(fontSize: 16.toFont, fontWeight: FontWeight.w500),
 );
-
 
 ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
       style: ButtonStyles.elevatedButtonStyle,
@@ -52,8 +51,14 @@ InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
         borderRadius: BorderRadii.all27,
         borderSide: BorderSide.none,
       ),
-      contentPadding:
-          const EdgeInsets.only(left: 20, right: 20, top: 11, bottom: 10),
+      contentPadding: const EdgeInsets.only(left: 20, right: 20, top: 11, bottom: 10),
       filled: true,
       fillColor: Colors.white,
+    );
+
+CardTheme get _cardTheme => CardTheme(
+      elevation: cardElevation,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadii.cardRadius,
+      ),
     );

@@ -19,7 +19,7 @@ class ListHeaderBar extends StatelessWidget {
       children: [
         Text(
           textTitle,
-          style: Get.textTheme.headline6!
+          style: Get.textTheme.subtitle1!
               .copyWith(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 18),
         ),
         Row(

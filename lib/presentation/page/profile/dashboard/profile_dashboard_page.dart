@@ -103,7 +103,7 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                   Icons.notifications_active_outlined,
                   'Notifications',
                 ),
-                _optionWidget(controller.onOrdersOptionClick, Icons.chat, 'Chats'),
+                _optionWidget(controller.onChatsOptionClick, Icons.chat, 'Chats'),
                 _optionWidget(controller.onProductsOptionClick, Icons.settings, 'Settings'),
                 _optionWidget(
                     controller.onProductsOptionClick, Icons.support_agent_outlined, 'Support'),

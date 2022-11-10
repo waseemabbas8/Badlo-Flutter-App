@@ -5,6 +5,8 @@ import '../../page/auth/signup/sign_up_bindings.dart';
 import '../../page/auth/signup/sign_up_page.dart';
 import '../../page/chat/chat_bindings.dart';
 import '../../page/chat/chat_page.dart';
+import '../../page/chat/conversation/conversations_bindings.dart';
+import '../../page/chat/conversation/conversations_page.dart';
 import '../../page/chat/owner_contact_bindings.dart';
 import '../../page/chat/owner_contact_page.dart';
 import '../../page/home/home_bindings.dart';
@@ -122,6 +124,11 @@ class AppPages {
       name: Routes.notifications,
       page: () => const NotificationsPage(),
       binding: NotificationsBindings(),
+    ),
+    GetPage(
+      name: Routes.conversations,
+      page: () => const ConversationsPage(),
+      binding: ConversationsBindings(),
     ),
   ];
 }

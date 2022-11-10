@@ -1,5 +1,4 @@
 import 'package:badlo/presentation/core/utils/screen_util.dart';
-import 'package:badlo/presentation/widget/circular_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

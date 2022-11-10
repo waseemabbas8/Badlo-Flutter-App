@@ -36,6 +36,10 @@ class ProfileDashboardController extends BaseController {
     Get.toNamed(Routes.notifications);
   }
 
+  void onChatsOptionClick() {
+    Get.toNamed(Routes.conversations);
+  }
+
   void onLogoutClick() {
     _preferenceRepository.deleteUser();
     _preferenceRepository.deleteProfile();

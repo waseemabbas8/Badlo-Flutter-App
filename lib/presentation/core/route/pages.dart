@@ -1,37 +1,40 @@
-import 'package:badlo/presentation/core/route/routes.dart';
-import 'package:badlo/presentation/page/auth/signup/sign_up_bindings.dart';
-import 'package:badlo/presentation/page/auth/signup/sign_up_page.dart';
-import 'package:badlo/presentation/page/chat/chat_bindings.dart';
-import 'package:badlo/presentation/page/chat/chat_page.dart';
-import 'package:badlo/presentation/page/chat/owner_contact_bindings.dart';
-import 'package:badlo/presentation/page/chat/owner_contact_page.dart';
-import 'package:badlo/presentation/page/home/home_bindings.dart';
-import 'package:badlo/presentation/page/home/home_page.dart';
-import 'package:badlo/presentation/page/inspection/packages/inspection_packages_bindings.dart';
-import 'package:badlo/presentation/page/inspection/packages/inspection_packages_page.dart';
-import 'package:badlo/presentation/page/map/place_picker_bindings.dart';
-import 'package:badlo/presentation/page/map/place_picker_page.dart';
-import 'package:badlo/presentation/page/offer/place_offer_bindings.dart';
-import 'package:badlo/presentation/page/offer/place_offer_page.dart';
-import 'package:badlo/presentation/page/offer/result/offer_result_bindings.dart';
-import 'package:badlo/presentation/page/offer/result/offer_result_page.dart';
-import 'package:badlo/presentation/page/offer/view_offer/view_offer_bindings.dart';
-import 'package:badlo/presentation/page/offer/view_offer/view_offer_page.dart';
-import 'package:badlo/presentation/page/onboarding/onboarding_bindings.dart';
-import 'package:badlo/presentation/page/onboarding/onboarding_page.dart';
-import 'package:badlo/presentation/page/product/add/add_product_bindings.dart';
-import 'package:badlo/presentation/page/product/add/add_product_page.dart';
-import 'package:badlo/presentation/page/product/detail/product_detail_bindings.dart';
-import 'package:badlo/presentation/page/product/detail/product_detail_page.dart';
-import 'package:badlo/presentation/page/product/list/products_list_bindings.dart';
-import 'package:badlo/presentation/page/product/list/products_list_page.dart';
-import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_bindings.dart';
-import 'package:badlo/presentation/page/profile/dashboard/profile_dashboard_page.dart';
-import 'package:badlo/presentation/page/profile/profile_bindings.dart';
-import 'package:badlo/presentation/page/profile/profile_page.dart';
-import 'package:badlo/presentation/page/splash/splash_bindings.dart';
-import 'package:badlo/presentation/page/splash/splash_page.dart';
 import 'package:get/get.dart';
+
+import '../../core/route/routes.dart';
+import '../../page/auth/signup/sign_up_bindings.dart';
+import '../../page/auth/signup/sign_up_page.dart';
+import '../../page/chat/chat_bindings.dart';
+import '../../page/chat/chat_page.dart';
+import '../../page/chat/owner_contact_bindings.dart';
+import '../../page/chat/owner_contact_page.dart';
+import '../../page/home/home_bindings.dart';
+import '../../page/home/home_page.dart';
+import '../../page/inspection/packages/inspection_packages_bindings.dart';
+import '../../page/inspection/packages/inspection_packages_page.dart';
+import '../../page/map/place_picker_bindings.dart';
+import '../../page/map/place_picker_page.dart';
+import '../../page/notifications/notifications_page.dart';
+import '../../page/offer/place_offer_bindings.dart';
+import '../../page/offer/place_offer_page.dart';
+import '../../page/offer/result/offer_result_bindings.dart';
+import '../../page/offer/result/offer_result_page.dart';
+import '../../page/offer/view_offer/view_offer_bindings.dart';
+import '../../page/offer/view_offer/view_offer_page.dart';
+import '../../page/onboarding/onboarding_bindings.dart';
+import '../../page/onboarding/onboarding_page.dart';
+import '../../page/product/add/add_product_bindings.dart';
+import '../../page/product/add/add_product_page.dart';
+import '../../page/product/detail/product_detail_bindings.dart';
+import '../../page/product/detail/product_detail_page.dart';
+import '../../page/product/list/products_list_bindings.dart';
+import '../../page/product/list/products_list_page.dart';
+import '../../page/profile/dashboard/profile_dashboard_bindings.dart';
+import '../../page/profile/dashboard/profile_dashboard_page.dart';
+import '../../page/profile/profile_bindings.dart';
+import '../../page/profile/profile_page.dart';
+import '../../page/splash/splash_bindings.dart';
+import '../../page/splash/splash_page.dart';
+import '../../page/notifications/notifications_bindings.dart';
 
 class AppPages {
   static final pages = [
@@ -114,6 +117,11 @@ class AppPages {
       name: Routes.productsList,
       page: () => const ProductsListPage(),
       binding: ProductsListBindings(),
+    ),
+    GetPage(
+      name: Routes.notifications,
+      page: () => const NotificationsPage(),
+      binding: NotificationsBindings(),
     ),
   ];
 }

@@ -32,6 +32,10 @@ class ProfileDashboardController extends BaseController {
     ///TODO navigate to orders list screen
   }
 
+  void onNotificationsOptionClick() {
+    Get.toNamed(Routes.notifications);
+  }
+
   void onLogoutClick() {
     _preferenceRepository.deleteUser();
     _preferenceRepository.deleteProfile();

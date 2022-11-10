@@ -19,6 +19,7 @@ class Margin {
   Margin._();
 
   static final all8 = CustomEdgeInsets().all(8);
+  static final all10 = CustomEdgeInsets().all(10);
   static final all16 = CustomEdgeInsets().all(16);
   static final all20 = CustomEdgeInsets().all(20);
   static final all40 = CustomEdgeInsets().all(40);
@@ -39,6 +40,7 @@ class Margin {
 
 class BorderRadii {
   BorderRadii._();
+  static final all8 = BorderRadius.circular(8);
   static final all16 = BorderRadius.circular(16);
   static final all20 = BorderRadius.circular(20);
   static final all27 = BorderRadius.circular(27);

@@ -98,8 +98,11 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                 Spacing.v16,
                 _optionWidget(controller.onProductsOptionClick, Icons.dashboard, 'Your Products'),
                 _optionWidget(controller.onOrdersOptionClick, Icons.shopping_cart, 'Your Orders'),
-                _optionWidget(controller.onOrdersOptionClick, Icons.notifications_active_outlined,
-                    'Notifications'),
+                _optionWidget(
+                  controller.onNotificationsOptionClick,
+                  Icons.notifications_active_outlined,
+                  'Notifications',
+                ),
                 _optionWidget(controller.onOrdersOptionClick, Icons.chat, 'Chats'),
                 _optionWidget(controller.onProductsOptionClick, Icons.settings, 'Settings'),
                 _optionWidget(

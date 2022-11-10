@@ -17,4 +17,5 @@ class Routes {
   static const String profile = '/profile';
   static const String profileDashboard = '/profile_dashboard';
   static const String productsList = '/products';
+  static const String notifications = '/notifications';
 }

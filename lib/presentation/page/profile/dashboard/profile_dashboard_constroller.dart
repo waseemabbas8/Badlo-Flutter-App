@@ -25,7 +25,7 @@ class ProfileDashboardController extends BaseController {
   }
 
   void onProductsOptionClick() {
-    ///TODO navigate to products list screen
+    Get.toNamed(Routes.productsList);
   }
 
   void onOrdersOptionClick() {

@@ -45,6 +45,7 @@ dependencies:
   image_picker: ^0.8.6
   google_maps_flutter: ^2.1.12
   geolocator: ^9.0.1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

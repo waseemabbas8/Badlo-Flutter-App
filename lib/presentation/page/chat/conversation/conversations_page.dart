@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../core/base/base_page.dart';
 import '../../../core/values/dimens.dart';
 import '../../../widget/app_bar_widget.dart';
+import '../../../widget/badge.dart';
 import 'conversations_controller.dart';
 
 class ConversationsPage extends BasePage<ConversationsController> {
@@ -53,16 +54,35 @@ class ConversationsPage extends BasePage<ConversationsController> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    conversation.senderName,
-                    style: Get.textTheme.bodyText2,
-                    overflow: TextOverflow.ellipsis,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          conversation.senderName,
+                          style: Get.textTheme.bodyText2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        conversation.lastMessageTime,
+                        style: Get.textTheme.caption,
+                      )
+                    ],
                   ),
                   Spacing.v4,
-                  Text(
-                    conversation.lastMessageBody,
-                    style: Get.textTheme.caption,
-                    overflow: TextOverflow.ellipsis,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          conversation.lastMessageBody,
+                          style: Get.textTheme.bodySmall,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      conversation.unreadCount > 0
+                          ? CountBadge(text: conversation.unreadCount.toString())
+                          : Container(),
+                    ],
                   ),
                 ],
               ),

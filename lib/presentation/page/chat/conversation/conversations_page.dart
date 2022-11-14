@@ -35,59 +35,62 @@ class ConversationsPage extends BasePage<ConversationsController> {
 
   Widget _itemBuilder(BuildContext context, int index) {
     final conversation = controller.conversations[index];
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadii.all8,
-        color: Colors.white,
-      ),
-      child: Padding(
-        padding: Margin.all10,
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(conversation.senderImage),
-              radius: 20.toWidth,
-            ),
-            Spacing.h8,
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          conversation.senderName,
-                          style: Get.textTheme.bodyText2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      Text(
-                        conversation.lastMessageTime,
-                        style: Get.textTheme.caption,
-                      )
-                    ],
-                  ),
-                  Spacing.v4,
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          conversation.lastMessageBody,
-                          style: Get.textTheme.bodySmall,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      conversation.unreadCount > 0
-                          ? CountBadge(text: conversation.unreadCount.toString())
-                          : Container(),
-                    ],
-                  ),
-                ],
+    return GestureDetector(
+      onTap: () => controller.onConversationClick(conversation),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadii.all8,
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: Margin.all10,
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(conversation.senderImage),
+                radius: 20.toWidth,
               ),
-            )
-          ],
+              Spacing.h8,
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            conversation.senderName,
+                            style: Get.textTheme.bodyText2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        Text(
+                          conversation.lastMessageTime,
+                          style: Get.textTheme.caption,
+                        )
+                      ],
+                    ),
+                    Spacing.v4,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            conversation.lastMessageBody,
+                            style: Get.textTheme.bodySmall,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        conversation.unreadCount > 0
+                            ? CountBadge(text: conversation.unreadCount.toString())
+                            : Container(),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

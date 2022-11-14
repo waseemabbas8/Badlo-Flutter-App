@@ -1,3 +1,4 @@
+import 'package:badlo/domain/entity/chat_conversation.dart';
 import 'package:badlo/domain/repository/chat_repository.dart';
 import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
@@ -9,7 +10,16 @@ class OwnerContactController extends BaseController {
   OwnerContactController(this._chatRepository);
 
   void onContactOwnerClick() {
-    Get.toNamed(Routes.chat);
+    const conversation = ChatConversation(
+      id: 1,
+      senderId: 2,
+      senderName: 'Rian',
+      senderImage: 'http://shorturl.at/drHTZ',
+      lastMessageBody: 'I want to swap my honda car.',
+      lastMessageTime: '07:00 PM',
+      unreadCount: 0,
+    );
+    Get.toNamed(Routes.chat, arguments: [conversation]);
   }
 
   void onViewAllOfferClick() {

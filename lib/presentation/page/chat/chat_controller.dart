@@ -1,3 +1,4 @@
+import 'package:badlo/domain/entity/chat_conversation.dart';
 import 'package:badlo/domain/repository/chat_repository.dart';
 import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,12 @@ class ChatController extends BaseController {
 
   final TextEditingController messageBodyController = TextEditingController();
 
+  late ChatConversation conversation;
+
   @override
   void onInit() async {
     super.onInit();
+    conversation = Get.arguments[0];
     _suggestions.addAll(await _chatRepository.getSuggestedMessages());
   }
 

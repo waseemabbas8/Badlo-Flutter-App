@@ -1,11 +1,12 @@
-import 'package:badlo/presentation/core/base/base_page.dart';
 import 'package:badlo/presentation/core/utils/screen_util.dart';
-import 'package:badlo/presentation/core/values/colors.dart';
-import 'package:badlo/presentation/core/values/dimens.dart';
-import 'package:badlo/presentation/page/chat/chat_controller.dart';
-import 'package:badlo/presentation/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../core/base/base_page.dart';
+import '../../core/values/colors.dart';
+import '../../core/values/dimens.dart';
+import '../../widget/text_field.dart';
+import 'chat_controller.dart';
 
 class ChatPage extends BasePage<ChatController> {
   const ChatPage({Key? key}) : super(key: key);
@@ -17,12 +18,12 @@ class ChatPage extends BasePage<ChatController> {
         children: [
           Container(
             height: Get.mediaQuery.viewPadding.top + 10.toHeight,
-            color: colorPrimary,
+            color: Colors.white,
           ),
           _appbar,
           Container(
             height: 10.toHeight,
-            color: colorPrimary,
+            color: Colors.white,
           ),
           Expanded(child: Container()),
           SizedBox(
@@ -68,13 +69,23 @@ class ChatPage extends BasePage<ChatController> {
   }
 
   Widget get _appbar => Container(
-        color: colorPrimary,
+        color: Colors.white,
         child: Row(
           children: [
             Spacing.h20,
+            InkWell(
+              onTap: () {
+                Get.back();
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                color: colorAppBarTitle,
+              ),
+            ),
+            Spacing.h16,
             CircleAvatar(
               radius: 25.toWidth,
-              backgroundImage: const NetworkImage('https://via.placeholder.com/150'),
+              backgroundImage: NetworkImage(controller.conversation.senderImage),
             ),
             Spacing.h16,
             Expanded(
@@ -83,13 +94,13 @@ class ChatPage extends BasePage<ChatController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Abid Ali",
-                    style: Get.textTheme.headline6!.copyWith(color: Colors.white),
+                    controller.conversation.senderName,
+                    style: Get.textTheme.headline6,
                   ),
                   Spacing.v2,
                   Text(
                     "Online",
-                    style: Get.textTheme.bodyText2!.copyWith(color: Colors.white),
+                    style: Get.textTheme.bodyText2!,
                   ),
                 ],
               ),

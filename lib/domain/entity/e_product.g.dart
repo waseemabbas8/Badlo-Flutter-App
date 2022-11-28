@@ -16,7 +16,11 @@ EProduct _$EProductFromJson(Map<String, dynamic> json) => EProduct(
               .toList() ??
           const [],
       biddingEndTime: json['BiddingTimeLimit'] as String?,
-      postingDate: json['PostingDate'] as String? ?? "",
+      postingDate: json['PostingDate'] as String? ?? '',
+      biddingEndDate: json['BiddingEndDate'] as String? ?? '',
+      reviewStatus:
+          $enumDecodeNullable(_$ReviewStatusEnumMap, json['ReviewStatus']) ??
+              ReviewStatus.approved,
       name: json['ProductName'] as String,
       price: (json['Price'] as num).toDouble(),
       description: json['Description'] as String,
@@ -49,4 +53,12 @@ Map<String, dynamic> _$EProductToJson(EProduct instance) => <String, dynamic>{
       'Latitude': instance.latitude,
       'Longitude': instance.longitude,
       'PostingDate': instance.postingDate,
+      'BiddingEndDate': instance.biddingEndDate,
+      'ReviewStatus': _$ReviewStatusEnumMap[instance.reviewStatus]!,
     };
+
+const _$ReviewStatusEnumMap = {
+  ReviewStatus.pending: 1,
+  ReviewStatus.approved: 2,
+  ReviewStatus.rejected: 3,
+};

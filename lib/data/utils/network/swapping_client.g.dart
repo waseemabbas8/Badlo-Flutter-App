@@ -6,10 +6,13 @@ part of 'swapping_client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _SwappingClient implements SwappingClient {
-  _SwappingClient(this._dio, {this.baseUrl}) {
+  _SwappingClient(
+    this._dio, {
+    this.baseUrl,
+  }) {
     baseUrl ??= 'https://admin.learnnex.net/api/';
   }
 
@@ -24,11 +27,18 @@ class _SwappingClient implements SwappingClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<EProduct>>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'swapping/products',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<List<EProduct>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'swapping/products',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
         .map((dynamic i) => EProduct.fromJson(i as Map<String, dynamic>))
         .toList();

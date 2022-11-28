@@ -6,10 +6,13 @@ part of 'profile_client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _ProfileClient implements ProfileClient {
-  _ProfileClient(this._dio, {this.baseUrl}) {
+  _ProfileClient(
+    this._dio, {
+    this.baseUrl,
+  }) {
     baseUrl ??= 'https://admin.learnnex.net/api/';
   }
 
@@ -18,33 +21,57 @@ class _ProfileClient implements ProfileClient {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<UserProfile?>> add(
-      {required authId,
-      required name,
-      required nic,
-      required address,
-      required contactNumber,
-      required description,
-      required image}) async {
+  Future<HttpResponse<UserProfile?>> add({
+    required authId,
+    required name,
+    required nic,
+    required address,
+    required contactNumber,
+    required description,
+    required image,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.fields.add(MapEntry('AuthId', authId.toString()));
-    _data.fields.add(MapEntry('Name', name));
-    _data.fields.add(MapEntry('NIc', nic));
-    _data.fields.add(MapEntry('Address', address));
-    _data.fields.add(MapEntry('ContactNumber', contactNumber));
-    _data.fields.add(MapEntry('Description', description));
+    _data.fields.add(MapEntry(
+      'AuthId',
+      authId.toString(),
+    ));
+    _data.fields.add(MapEntry(
+      'Name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'NIc',
+      nic,
+    ));
+    _data.fields.add(MapEntry(
+      'Address',
+      address,
+    ));
+    _data.fields.add(MapEntry(
+      'ContactNumber',
+      contactNumber,
+    ));
+    _data.fields.add(MapEntry(
+      'Description',
+      description,
+    ));
     _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _result = await _dio.fetch<Map<String, dynamic>?>(
         _setStreamType<HttpResponse<UserProfile>>(Options(
-                method: 'POST',
-                headers: _headers,
-                extra: _extra,
-                contentType: 'multipart/form-data')
-            .compose(_dio.options, 'Profile/Add',
-                queryParameters: queryParameters, data: _data)
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'Profile/Add',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
@@ -53,35 +80,62 @@ class _ProfileClient implements ProfileClient {
   }
 
   @override
-  Future<HttpResponse<UserProfile?>> edit(
-      {required profileId,
-      required authId,
-      required name,
-      required nic,
-      required address,
-      required contactNumber,
-      required description,
-      required image}) async {
+  Future<HttpResponse<UserProfile?>> edit({
+    required profileId,
+    required authId,
+    required name,
+    required nic,
+    required address,
+    required contactNumber,
+    required description,
+    required image,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.fields.add(MapEntry('ID', profileId.toString()));
-    _data.fields.add(MapEntry('AuthId', authId.toString()));
-    _data.fields.add(MapEntry('Name', name));
-    _data.fields.add(MapEntry('NIc', nic));
-    _data.fields.add(MapEntry('Address', address));
-    _data.fields.add(MapEntry('ContactNumber', contactNumber));
-    _data.fields.add(MapEntry('Description', description));
+    _data.fields.add(MapEntry(
+      'ID',
+      profileId.toString(),
+    ));
+    _data.fields.add(MapEntry(
+      'AuthId',
+      authId.toString(),
+    ));
+    _data.fields.add(MapEntry(
+      'Name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'NIc',
+      nic,
+    ));
+    _data.fields.add(MapEntry(
+      'Address',
+      address,
+    ));
+    _data.fields.add(MapEntry(
+      'ContactNumber',
+      contactNumber,
+    ));
+    _data.fields.add(MapEntry(
+      'Description',
+      description,
+    ));
     _data.files.addAll(image.map((i) => MapEntry('image', i)));
     final _result = await _dio.fetch<Map<String, dynamic>?>(
         _setStreamType<HttpResponse<UserProfile>>(Options(
-                method: 'PUT',
-                headers: _headers,
-                extra: _extra,
-                contentType: 'multipart/form-data')
-            .compose(_dio.options, 'Profile/Edit',
-                queryParameters: queryParameters, data: _data)
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'Profile/Edit',
+              queryParameters: queryParameters,
+              data: _data,
+            )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
@@ -96,11 +150,18 @@ class _ProfileClient implements ProfileClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<UserProfile>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Profile/ProfilbyId',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<UserProfile>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Profile/ProfilbyId',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
@@ -114,11 +175,18 @@ class _ProfileClient implements ProfileClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<UserProfile>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Profile/ProfileByAuthId',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<UserProfile>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Profile/ProfileByAuthId',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
         _result.data == null ? null : UserProfile.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
@@ -132,11 +200,18 @@ class _ProfileClient implements ProfileClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<UserProfile>>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Profile/ProfileList',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+        _setStreamType<HttpResponse<List<UserProfile>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Profile/ProfileList',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
         .map((dynamic i) => UserProfile.fromJson(i as Map<String, dynamic>))
         .toList();

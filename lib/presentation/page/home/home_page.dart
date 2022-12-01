@@ -59,6 +59,30 @@ class HomePage extends BasePage<HomeController> {
                       Spacing.v16,
                       Padding(
                         padding: Margin.h20,
+                        child: ListHeaderBar(
+                          textTitle: 'Brows Categories',
+                          itemCount: 'View All',
+                          onViewAllTap: controller.onBrowsCategories,
+                        ),
+                      ),
+                      Spacing.v10,
+                      SizedBox(
+                        width: Get.width,
+                        height: 50.toHeight,
+                        child: Obx(
+                          () => ListView.separated(
+                            shrinkWrap: true,
+                            padding: Margin.h16,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: _itemCategoryBuilder,
+                            separatorBuilder: separatorBuilder,
+                            itemCount: controller.categories.length,
+                          ),
+                        ),
+                      ),
+                      Spacing.v16,
+                      Padding(
+                        padding: Margin.h20,
                         child: Obx(
                           () => ListHeaderBar(
                             textTitle: 'Swapping Marketplace',
@@ -217,6 +241,16 @@ class HomePage extends BasePage<HomeController> {
     );
   }
 
+  Widget _itemCategoryBuilder(BuildContext context, int index) {
+    final category = controller.categories[index];
+    return GestureDetector(
+      child: Chip(
+        label: Text(category.name),
+      ),
+      onTap: controller.onCategoryItemClick,
+    );
+  }
+
   Widget itemSwappingBuilder(BuildContext context, int index) {
     final product = controller.swappingProducts[index];
     return GestureDetector(
@@ -296,7 +330,7 @@ class HomePage extends BasePage<HomeController> {
 
   Widget getSearchBarUI() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: pageMargin),
+      padding: Margin.h20,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -305,13 +339,11 @@ class HomePage extends BasePage<HomeController> {
                 right: 8,
               ),
               child: SizedBox(
-                height: 43,
+                height: 40,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(38.0),
-                    ),
+                    borderRadius: BorderRadii.cardRadius,
                     boxShadow: <BoxShadow>[
                       BoxShadow(
                           color: Colors.grey.withOpacity(0.2),
@@ -325,7 +357,7 @@ class HomePage extends BasePage<HomeController> {
                     child: TextField(
                       onChanged: (String txt) {},
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 13,
                       ),
                       cursorColor: Colors.blue,
                       decoration: InputDecoration(
@@ -333,16 +365,14 @@ class HomePage extends BasePage<HomeController> {
                           hintText: 'Search',
                           prefixIcon: Padding(
                               padding: const EdgeInsets.only(top: spacing8),
-                              child: Image.asset(ImagesPath.search))),
+                              child: Icon(Icons.search))),
                     ),
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            width: spacing16,
-          ),
+          Spacing.h16,
           Image.asset(ImagesPath.tune),
         ],
       ),

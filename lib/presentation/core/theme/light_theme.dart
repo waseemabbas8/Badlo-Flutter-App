@@ -14,6 +14,7 @@ final lightTheme = ThemeData(
   appBarTheme: _appBarTheme,
   inputDecorationTheme: _inputDecorationTheme,
   cardTheme: _cardTheme,
+  chipTheme: _chipThemeData,
 );
 
 final _textTheme = TextTheme(
@@ -35,8 +36,8 @@ ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
 
 AppBarTheme get _appBarTheme => AppBarTheme(
       backgroundColor: Colors.transparent,
-      iconTheme: IconThemeData(color: colorAppBarTitle),
-      actionsIconTheme: IconThemeData(color: colorAppBarTitle),
+      iconTheme: const IconThemeData(color: colorAppBarTitle),
+      actionsIconTheme: const IconThemeData(color: colorAppBarTitle),
       elevation: 0,
       centerTitle: true,
       titleTextStyle: TextStyle(
@@ -61,4 +62,10 @@ CardTheme get _cardTheme => CardTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadii.cardRadius,
       ),
+    );
+
+ChipThemeData get _chipThemeData => ChipThemeData(
+      backgroundColor: colorPrimaryLight,
+      selectedColor: colorPrimaryLight,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadii.all8),
     );

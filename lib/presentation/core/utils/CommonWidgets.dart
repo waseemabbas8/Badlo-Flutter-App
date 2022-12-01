@@ -1,15 +1,17 @@
-import 'package:badlo/presentation/core/constants.dart';
-import 'package:badlo/presentation/core/values/colors.dart';
-import 'package:badlo/presentation/core/values/dimens.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../constants.dart';
+import '../values/colors.dart';
+import '../values/dimens.dart';
 
 class ListHeaderBar extends StatelessWidget {
   final String textTitle;
   final String itemCount;
+  final VoidCallback? onViewAllTap;
 
-  const ListHeaderBar({Key? key, required this.textTitle, required this.itemCount})
+  const ListHeaderBar(
+      {Key? key, this.onViewAllTap, required this.textTitle, required this.itemCount})
       : super(key: key);
 
   @override
@@ -24,9 +26,12 @@ class ListHeaderBar extends StatelessWidget {
         ),
         Row(
           children: [
-            Text(
-              itemCount,
-              style: Get.textTheme.bodyText2!.copyWith(color: colorPrimary, fontSize: 14),
+            GestureDetector(
+              child: Text(
+                itemCount,
+                style: Get.textTheme.bodyText2!.copyWith(color: colorPrimary, fontSize: 14),
+              ),
+              onTap: onViewAllTap,
             ),
             Spacing.h8,
             Image.asset(ImagesPath.greaterSymbol),

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import '../../core/route/routes.dart';
 import '../../page/auth/signup/sign_up_bindings.dart';
 import '../../page/auth/signup/sign_up_page.dart';
+import '../../page/category/categories_list_bindings.dart';
+import '../../page/category/categories_list_page.dart';
 import '../../page/chat/chat_bindings.dart';
 import '../../page/chat/chat_page.dart';
 import '../../page/chat/conversation/conversations_bindings.dart';
@@ -129,6 +131,11 @@ class AppPages {
       name: Routes.conversations,
       page: () => const ConversationsPage(),
       binding: ConversationsBindings(),
+    ),
+    GetPage(
+      name: Routes.categories,
+      page: () => const CategoriesListPage(),
+      binding: CategoriesListBindings(),
     ),
   ];
 }

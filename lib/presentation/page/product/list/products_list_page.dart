@@ -127,11 +127,6 @@ class ProductsListPage extends BasePage<ProductsListController> {
       Widget item = FilterChip(
         label: Text(filter.title),
         selected: filter.isSelected,
-        backgroundColor: colorPrimaryLight,
-        selectedColor: colorPrimaryLight,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
         onSelected: (bool value) => controller.onFilterSelected(value, i),
       );
       chips.add(item);

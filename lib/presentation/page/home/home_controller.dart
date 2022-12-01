@@ -7,12 +7,18 @@ import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:get/get.dart';
 import 'dart:developer' as dev_log;
 
+import '../../../domain/entity/category.dart';
+import '../../../domain/repository/category_repository.dart';
 import '../../core/base/base_controller.dart';
 
 class HomeController extends BaseController {
   final ProductRepository _productsRepository;
+  final CategoryRepository _categoryRepository;
 
-  HomeController(this._productsRepository);
+  HomeController(this._productsRepository, this._categoryRepository);
+
+  final RxList<Category> _categories = RxList();
+  List<Category> get categories => _categories;
 
   final RxList<EProduct> _swappingProducts = RxList();
 
@@ -29,11 +35,19 @@ class HomeController extends BaseController {
   @override
   void onInit() {
     super.onInit();
+    _getCategories();
     _getProducts();
   }
 
-  void _getProducts() async {
+  void _getCategories() async {
     isLoading = true;
+    final response = await _categoryRepository.getCategories();
+    if (response.result is SuccessResult) {
+      _categories.value = response.data!;
+    }
+  }
+
+  void _getProducts() async {
     final response = await _productsRepository.getProducts();
     if (response.result is SuccessResult) {
       _swappingProducts.value =
@@ -60,6 +74,13 @@ class HomeController extends BaseController {
   void onProfileClick() {
     Get.toNamed(Routes.profileDashboard);
   }
+
+  void onBrowsCategories() {
+    if (categories.isEmpty) return;
+    Get.toNamed(Routes.categories);
+  }
+
+  void onCategoryItemClick() {}
 
   void onProductItemClick(EProduct product) {
     Get.toNamed(Routes.eProductDetail, arguments: [product]);

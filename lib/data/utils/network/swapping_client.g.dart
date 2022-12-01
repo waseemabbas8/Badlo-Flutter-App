@@ -13,7 +13,7 @@ class _SwappingClient implements SwappingClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://admin.learnnex.net/api/';
+    baseUrl ??= 'https://badlo.pk/api/';
   }
 
   final Dio _dio;

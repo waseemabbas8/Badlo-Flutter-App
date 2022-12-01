@@ -1,7 +1,8 @@
-import 'package:badlo/data/utils/data_constants.dart';
-import 'package:badlo/domain/entity/comment.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+
+import '../../../domain/entity/comment.dart';
+import '../data_constants.dart';
 
 part 'comment_client.g.dart';
 

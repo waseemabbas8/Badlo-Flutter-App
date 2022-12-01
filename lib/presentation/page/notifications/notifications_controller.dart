@@ -1,10 +1,16 @@
 import 'package:get/get.dart';
 
 import '../../../domain/entity/app_notification.dart';
+import '../../../domain/repository/notifications_repository.dart';
 import '../../core/base/base_controller.dart';
 
 class NotificationsController extends BaseController {
+  final NotificationsRepository _notificationsRepository;
+
+  NotificationsController(this._notificationsRepository);
+
   final RxList<AppNotification> _notifications = RxList();
+
   List<AppNotification> get notifications => _notifications;
 
   @override

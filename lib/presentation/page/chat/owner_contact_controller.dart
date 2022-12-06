@@ -12,9 +12,9 @@ class OwnerContactController extends BaseController {
   void onContactOwnerClick() {
     const conversation = ChatConversation(
       id: 1,
-      senderId: 2,
-      senderName: 'Rian',
-      senderImage: 'http://shorturl.at/drHTZ',
+      participantId: 2,
+      participantName: 'Rian',
+      participantImage: 'http://shorturl.at/drHTZ',
       lastMessageBody: 'I want to swap my honda car.',
       lastMessageTime: '07:00 PM',
       unreadCount: 0,

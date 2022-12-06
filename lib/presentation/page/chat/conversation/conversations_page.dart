@@ -47,7 +47,7 @@ class ConversationsPage extends BasePage<ConversationsController> {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage(conversation.senderImage),
+                backgroundImage: NetworkImage(conversation.participantImage),
                 radius: 20.toWidth,
               ),
               Spacing.h8,
@@ -60,7 +60,7 @@ class ConversationsPage extends BasePage<ConversationsController> {
                       children: [
                         Expanded(
                           child: Text(
-                            conversation.senderName,
+                            conversation.participantName,
                             style: Get.textTheme.bodyText2,
                             overflow: TextOverflow.ellipsis,
                           ),

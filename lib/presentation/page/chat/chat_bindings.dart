@@ -11,6 +11,6 @@ class ChatBindings extends Bindings {
     Get.lazyPut(() => ChatClient.create(Get.find()));
     Get.lazyPut(() => ChatRemoteDataSource(Get.find()));
     Get.lazyPut<ChatRepository>(() => ChatRepositoryImpl(Get.find()));
-    Get.lazyPut(() => ChatController(Get.find()));
+    Get.lazyPut(() => ChatController(Get.find(), Get.find()));
   }
 }

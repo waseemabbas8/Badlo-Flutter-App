@@ -25,7 +25,16 @@ class ChatPage extends BasePage<ChatController> {
             height: 10.toHeight,
             color: Colors.white,
           ),
-          Expanded(child: Container()),
+          Expanded(
+            child: Obx(
+              () => ListView.builder(
+                itemCount: controller.messages.length,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 10, bottom: 10),
+                itemBuilder: _messageItemBuilder,
+              ),
+            ),
+          ),
           SizedBox(
             height: 25.toHeight,
             child: Obx(
@@ -85,7 +94,7 @@ class ChatPage extends BasePage<ChatController> {
             Spacing.h16,
             CircleAvatar(
               radius: 25.toWidth,
-              backgroundImage: NetworkImage(controller.conversation.senderImage),
+              backgroundImage: NetworkImage(controller.conversation.participantImage),
             ),
             Spacing.h16,
             Expanded(
@@ -94,7 +103,7 @@ class ChatPage extends BasePage<ChatController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    controller.conversation.senderName,
+                    controller.conversation.participantName,
                     style: Get.textTheme.headline6,
                   ),
                   Spacing.v2,
@@ -110,6 +119,41 @@ class ChatPage extends BasePage<ChatController> {
           ],
         ),
       );
+
+  Widget _messageItemBuilder(BuildContext context, int index) {
+    final message = controller.messages[index];
+
+    ///TODO: replace 1 with actual user id;
+    final bool isReceivedMessage = message.senderId != 1;
+    final double marginLeft = isReceivedMessage ? 20 : 70;
+    final double marginRight = isReceivedMessage ? 70 : 20;
+
+    const topEdgesBorder = Radius.circular(8);
+    final Radius bottomLeftRadius = isReceivedMessage ? Radius.zero : topEdgesBorder;
+    final Radius bottomRightRadius = isReceivedMessage ? topEdgesBorder : Radius.zero;
+    return Container(
+      padding: EdgeInsets.only(left: marginLeft, right: marginRight, top: 10, bottom: 10),
+      child: Align(
+        alignment: (isReceivedMessage ? Alignment.topLeft : Alignment.topRight),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: topEdgesBorder,
+              topRight: topEdgesBorder,
+              bottomLeft: bottomLeftRadius,
+              bottomRight: bottomRightRadius,
+            ),
+            color: isReceivedMessage ? Colors.grey.shade200 : colorPrimaryLight,
+          ),
+          padding: Margin.all16,
+          child: Text(
+            message.body,
+            style: Get.textTheme.bodyLarge,
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget indexedWidgetBuilder(BuildContext context, int index) => InkWell(
         onTap: () => controller.onSuggestedMessageClicked(index),

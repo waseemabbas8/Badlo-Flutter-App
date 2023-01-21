@@ -18,6 +18,7 @@ class OwnerContactController extends BaseController {
       lastMessageBody: 'I want to swap my honda car.',
       lastMessageTime: '07:00 PM',
       unreadCount: 0,
+      createdAt: '',
     );
     Get.toNamed(Routes.chat, arguments: [conversation]);
   }

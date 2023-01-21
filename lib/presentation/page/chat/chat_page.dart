@@ -124,32 +124,48 @@ class ChatPage extends BasePage<ChatController> {
     final message = controller.messages[index];
 
     ///TODO: replace 1 with actual user id;
-    final bool isReceivedMessage = message.senderId != 1;
+    final bool isReceivedMessage = message.senderId != controller.profile.id;
     final double marginLeft = isReceivedMessage ? 20 : 70;
     final double marginRight = isReceivedMessage ? 70 : 20;
 
     const topEdgesBorder = Radius.circular(8);
     final Radius bottomLeftRadius = isReceivedMessage ? Radius.zero : topEdgesBorder;
     final Radius bottomRightRadius = isReceivedMessage ? topEdgesBorder : Radius.zero;
+    final bool showMessageNotSent = controller.messageSendingFailed && index == controller.messages.length - 1;
     return Container(
       padding: EdgeInsets.only(left: marginLeft, right: marginRight, top: 10, bottom: 10),
       child: Align(
         alignment: (isReceivedMessage ? Alignment.topLeft : Alignment.topRight),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: topEdgesBorder,
-              topRight: topEdgesBorder,
-              bottomLeft: bottomLeftRadius,
-              bottomRight: bottomRightRadius,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: topEdgesBorder,
+                  topRight: topEdgesBorder,
+                  bottomLeft: bottomLeftRadius,
+                  bottomRight: bottomRightRadius,
+                ),
+                color: isReceivedMessage ? Colors.grey.shade200 : colorPrimaryLight,
+              ),
+              padding: Margin.all16,
+              child: Text(
+                message.message,
+                style: Get.textTheme.bodyLarge,
+              ),
             ),
-            color: isReceivedMessage ? Colors.grey.shade200 : colorPrimaryLight,
-          ),
-          padding: Margin.all16,
-          child: Text(
-            message.body,
-            style: Get.textTheme.bodyLarge,
-          ),
+            showMessageNotSent ? Spacing.v8 : const SizedBox(height: 0),
+            Visibility(
+              visible: controller.messageSendingFailed,
+              child: GestureDetector(
+                child: Text(
+                  'Could not send, try again',
+                  style: Get.textTheme.bodySmall?.copyWith(color: Colors.red),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

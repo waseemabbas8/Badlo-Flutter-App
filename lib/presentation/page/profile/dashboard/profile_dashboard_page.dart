@@ -41,7 +41,7 @@ class ProfileDashboardPage extends BasePage<ProfileDashboardController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'controller.profile.name',
+                            controller.profile.name,
                             style: Get.textTheme.headline6!.copyWith(color: Colors.black),
                           ),
                           Spacing.v2,

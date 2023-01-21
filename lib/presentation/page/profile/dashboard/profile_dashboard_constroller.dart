@@ -16,7 +16,7 @@ class ProfileDashboardController extends BaseController {
   @override
   void onInit() {
     user = _preferenceRepository.getUser()!;
-    // profile = _preferenceRepository.getProfile()!;
+    profile = _preferenceRepository.getProfile()!;
     super.onInit();
   }
 

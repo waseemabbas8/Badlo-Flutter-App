@@ -1,3 +1,4 @@
+import 'package:badlo/data/api/send_message_request_body.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -18,17 +19,14 @@ abstract class ChatClient {
     @Query('profileID') int profileId,
   );
 
-  @GET('chat/messages')
+  @GET('chat/getChatHistory')
   Future<HttpResponse<List<ChatMessage>>> getMessages(
-    @Query('senderId') int senderId,
-    @Query('receiverId') int receiverId,
+    @Query('chatid') int chatId,
   );
 
-  @POST('chat/send')
+  @POST('chat/sendMessage')
   Future<HttpResponse<String>> sendMessage(
-    @Field('senderId') int senderId,
-    @Field('receiverId') int receiverId,
-    @Field('body') String body,
+    @Body() SendMessageRequestBody sendMessageRequestBody,
   );
 
   @DELETE('chat/DeleteChat')

@@ -49,15 +49,9 @@ class _ChatClient implements ChatClient {
   }
 
   @override
-  Future<HttpResponse<List<ChatMessage>>> getMessages(
-    senderId,
-    receiverId,
-  ) async {
+  Future<HttpResponse<List<ChatMessage>>> getMessages(chatId) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'senderId': senderId,
-      r'receiverId': receiverId,
-    };
+    final queryParameters = <String, dynamic>{r'chatid': chatId};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -68,7 +62,7 @@ class _ChatClient implements ChatClient {
     )
             .compose(
               _dio.options,
-              'chat/messages',
+              'chat/getChatHistory',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -81,19 +75,12 @@ class _ChatClient implements ChatClient {
   }
 
   @override
-  Future<HttpResponse<String>> sendMessage(
-    senderId,
-    receiverId,
-    body,
-  ) async {
+  Future<HttpResponse<String>> sendMessage(sendMessageRequestBody) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {
-      'senderId': senderId,
-      'receiverId': receiverId,
-      'body': body,
-    };
+    final _data = <String, dynamic>{};
+    _data.addAll(sendMessageRequestBody.toJson());
     final _result =
         await _dio.fetch<String>(_setStreamType<HttpResponse<String>>(Options(
       method: 'POST',
@@ -102,7 +89,7 @@ class _ChatClient implements ChatClient {
     )
             .compose(
               _dio.options,
-              'chat/send',
+              'chat/sendMessage',
               queryParameters: queryParameters,
               data: _data,
             )

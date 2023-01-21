@@ -4,7 +4,7 @@ part 'chat_conversation.g.dart';
 
 @JsonSerializable()
 class ChatConversation {
-  @JsonKey(name: 'ChatID')
+  @JsonKey(name: 'ChatId')
   final int id;
   @JsonKey(name: 'ParticipantID')
   final int participantId;
@@ -14,10 +14,11 @@ class ChatConversation {
   final String participantImage;
   @JsonKey(name: 'LastMessage')
   final String lastMessageBody;
-  @JsonKey(name: 'LastMessageTime')
+  @JsonKey(name: 'LastMessageDateTime')
   final String lastMessageTime;
-  @JsonKey(name: 'UnreadCount')
   final int unreadCount;
+  @JsonKey(name: 'CreatedAt')
+  final String createdAt;
 
   const ChatConversation({
     required this.id,
@@ -27,6 +28,7 @@ class ChatConversation {
     required this.lastMessageBody,
     required this.lastMessageTime,
     required this.unreadCount,
+    required this.createdAt,
   });
 
   factory ChatConversation.fromJson(Map<String, dynamic> json) => _$ChatConversationFromJson(json);
@@ -42,6 +44,7 @@ class ChatConversation {
       lastMessageBody: 'How are you sir?',
       lastMessageTime: '09:34 PM',
       unreadCount: 1,
+      createdAt: '',
     ),
     ChatConversation(
       id: 1,
@@ -51,6 +54,7 @@ class ChatConversation {
       lastMessageBody: 'How are you sir?',
       lastMessageTime: '09:34 PM',
       unreadCount: 1,
+      createdAt: '',
     ),
     ChatConversation(
       id: 2,
@@ -60,6 +64,7 @@ class ChatConversation {
       lastMessageBody: 'I want to sell it in 4000 PKR.',
       lastMessageTime: '06:05 AM',
       unreadCount: 0,
+      createdAt: '',
     ),
     ChatConversation(
       id: 3,
@@ -69,6 +74,7 @@ class ChatConversation {
       lastMessageBody: 'Yaar woh plot ka kaam kahan tak huwa?',
       lastMessageTime: '12:00 AM',
       unreadCount: 3,
+      createdAt: '',
     ),
     ChatConversation(
       id: 8,
@@ -78,6 +84,7 @@ class ChatConversation {
       lastMessageBody: 'Flutter developer with frontend and backend strong grip',
       lastMessageTime: '12:45 AM',
       unreadCount: 0,
+      createdAt: '',
     ),
     ChatConversation(
       id: 23,
@@ -87,6 +94,7 @@ class ChatConversation {
       lastMessageBody: 'Started learning Flutter and Inshallah will achieve my goals soon.',
       lastMessageTime: '12:45 AM',
       unreadCount: 0,
+      createdAt: '',
     ),
   ];
 }

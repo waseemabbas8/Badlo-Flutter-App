@@ -26,7 +26,7 @@ class ScreenUtil {
   }
 
   static Future<void> ensureScreenSize([
-    FlutterWindow? window,
+    SingletonFlutterWindow? window,
     Duration duration = const Duration(milliseconds: 10),
   ]) async {
     final binding = WidgetsFlutterBinding.ensureInitialized();

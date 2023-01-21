@@ -14,7 +14,7 @@ class UserProfile {
   final String nic;
   @JsonKey(name: 'Address')
   final String address;
-  @JsonKey(name: 'Image')
+  @JsonKey(name: 'ProfileImage')
   final String image;
   @JsonKey(name: 'ContactNumber')
   final String contactNumber;

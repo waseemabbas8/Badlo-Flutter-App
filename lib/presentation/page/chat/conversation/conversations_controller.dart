@@ -20,17 +20,17 @@ class ConversationsController extends BaseController {
 
   @override
   void onInit() {
-    // _profile = _preferenceRepository.getProfile()!;
+    _profile = _preferenceRepository.getProfile()!;
     _getChatConversation();
     super.onInit();
   }
 
   void _getChatConversation() async {
-    // final response = await _chatRepository.getConversations(_profile.id);
-    // if(response.result is SuccessResult) {
-    //   _conversations.value = response.data!;
-    // }
-    _conversations.value = ChatConversation.chatConversations;
+    final response = await _chatRepository.getConversations(_profile.id);
+    if(response.result is SuccessResult) {
+      _conversations.value = response.data!;
+    }
+    // _conversations.value = ChatConversation.chatConversations;
   }
 
   void onConversationClick(ChatConversation conversation) {

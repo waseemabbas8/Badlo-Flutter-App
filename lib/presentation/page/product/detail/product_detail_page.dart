@@ -61,8 +61,6 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
                         children: _exchangeChips(),
                       ),
                       Spacing.v16,
-                      profileBar(),
-                      Spacing.v16,
                       Row(
                         children: [
                           const Icon(Icons.location_on_rounded, size: 16),
@@ -73,6 +71,8 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
                           ),
                         ],
                       ),
+                      Spacing.v16,
+                      profileBar(),
                       Spacing.v20,
                     ],
                   ),

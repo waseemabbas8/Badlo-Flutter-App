@@ -1,7 +1,8 @@
-import 'package:badlo/domain/entity/product_image.dart';
-import 'package:badlo/domain/entity/product_owner.dart';
-import 'package:badlo/domain/utils/constants.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'market_place.dart';
+import 'product_image.dart';
+import 'product_owner.dart';
 
 part 'e_product.g.dart';
 
@@ -26,13 +27,13 @@ class EProduct {
   @JsonKey(name: 'Owner')
   final ProductOwner? owner;
   @JsonKey(name: 'MarketPlace')
-  final int market;
+  final MarketType market;
   @JsonKey(name: 'Address')
   final String address;
   @JsonKey(name: 'BiddingTimeLimit')
   final String? biddingEndTime;
   @JsonKey(name: 'InspectionStatus')
-  final String inspectionStatus;
+  final String? inspectionStatus;
   @JsonKey(name: 'IsInspection')
   final bool isInspection;
   @JsonKey(name: 'Latitude')
@@ -43,8 +44,10 @@ class EProduct {
   final String postingDate;
   @JsonKey(name: 'BiddingEndDate')
   final String biddingEndDate;
-  @JsonKey(name: 'ReviewStatus')
-  final ReviewStatus reviewStatus;
+  @JsonKey(name: 'Status')
+  final ReviewStatus status;
+  @JsonKey(name: 'ExchangeFor')
+  final String? exchangeFor;
 
   EProduct({
     this.owner,
@@ -53,7 +56,8 @@ class EProduct {
     this.biddingEndTime,
     this.postingDate = '',
     this.biddingEndDate = '',
-    this.reviewStatus = ReviewStatus.approved,
+    this.status = ReviewStatus.approved,
+    this.exchangeFor,
     required this.name,
     required this.price,
     required this.description,
@@ -72,23 +76,15 @@ class EProduct {
 
   Map<String, dynamic> toJson() => _$EProductToJson(this);
 
-  MarketType get marketType {
-    switch (market) {
-      case 1:
-        return MarketType.swapping;
-      case 2:
-        return MarketType.auction;
-      case 3:
-        return MarketType.donation;
-    }
-    throw Exception('invalid value for market prop.');
-  }
-
   bool get hasExpired => DateTime.now().isAfter(DateTime.parse(biddingEndDate)) && !isPending;
 
-  bool get isActive => reviewStatus == ReviewStatus.approved && !hasExpired;
+  bool get isActive => status == ReviewStatus.approved && !hasExpired;
 
-  bool get isPending => reviewStatus == ReviewStatus.pending;
+  bool get isPending => status == ReviewStatus.pending;
+
+  int get marketIntValue => _$MarketTypeEnumMap[market]!;
+
+  List<String> get exchangeForList => exchangeFor?.split(',') ?? ['Anything'];
 
   ///Sample data
   static final List<EProduct> products = [
@@ -99,7 +95,7 @@ class EProduct {
           'The Yamaha YBR 125 is a light motorcycle made by Yamaha that succeeds its previous model for this segment, the Yamaha SR125.',
       shortDescription:
           'Introduced in 2005, it comes in naked, faired and variants. It has a single-cylinder, air-cooled, four-stroke engine, displacing 124 cc.',
-      market: 1,
+      market: MarketType.swapping,
       categoryId: 1,
       profileID: 1,
       address: 'address',
@@ -114,7 +110,7 @@ class EProduct {
       price: 5500,
       description: 'Water resistant, 15 days battery, free service for 2 years',
       shortDescription: 'Dual time zone watch by Navy Force.',
-      market: 2,
+      market: MarketType.auction,
       categoryId: 2,
       profileID: 1,
       address: 'address line 2',
@@ -123,14 +119,14 @@ class EProduct {
       latitude: '34.567854',
       longitude: '-45.45355',
       biddingEndDate: '2022-11-23',
-      reviewStatus: ReviewStatus.pending,
+      status: ReviewStatus.pending,
     ),
     EProduct(
       name: 'Abc',
       price: 6540,
       description: 'Water resistant, 15 days battery, free service for 2 years',
       shortDescription: 'Dual time zone watch by Navy Force.',
-      market: 12,
+      market: MarketType.swapping,
       categoryId: 2,
       profileID: 1,
       address: 'address line 2',
@@ -145,10 +141,14 @@ class EProduct {
 
 @JsonEnum()
 enum ReviewStatus {
-  @JsonValue(1)
+  @JsonValue('0')
   pending,
-  @JsonValue(2)
+  @JsonValue('1')
   approved,
-  @JsonValue(3)
-  rejected;
+  @JsonValue('-1')
+  rejected,
+  @JsonValue('2') //product not swapped yet
+  open,
+  @JsonValue('3') //product has been swapped
+  closed;
 }

@@ -23,7 +23,7 @@ class ProductDetailController extends BaseController {
 
   @override
   void onInit() {
-    _getProductDetail();
+    //_getProductDetail();
     _getProductOwnerProfile();
     super.onInit();
   }

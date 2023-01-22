@@ -45,8 +45,8 @@ class AddProductController extends BaseController with DateProvider {
 
   final Rx<Category?> _selectedCategory = Rx(null);
   Category? get selectedCategory => _selectedCategory.value;
-  final Rx<MarketPlace?> _selectedMarketType = Rx(null);
-  MarketPlace? get selectedMarketType => _selectedMarketType.value;
+  final Rx<MarketType?> _selectedMarketType = Rx(null);
+  MarketType? get selectedMarketType => _selectedMarketType.value;
 
   @override
   void onInit() {
@@ -72,7 +72,7 @@ class AddProductController extends BaseController with DateProvider {
     _selectedCategory.value = category;
   }
 
-  void onMarketTypeChanged(MarketPlace? marketPlace) {
+  void onMarketTypeChanged(MarketType? marketPlace) {
     if (marketPlace == null) return;
     _selectedMarketType.value = marketPlace;
   }
@@ -100,7 +100,7 @@ class AddProductController extends BaseController with DateProvider {
       price: double.parse(priceTextController.text),
       description: descriptionController.text,
       shortDescription: shortDescriptionController.text,
-      market: selectedMarketType!.id,
+      market: selectedMarketType!,
       categoryId: selectedCategory!.id,
       profileID: _profileId,
       address: 'addressTextController.text',

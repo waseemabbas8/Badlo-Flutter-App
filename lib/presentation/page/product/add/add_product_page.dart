@@ -123,11 +123,11 @@ class AddProductPage extends BasePage<AddProductController> {
             ),
             Spacing.v16,
             Obx(
-              () => LabeledDropdown<MarketPlace>(
+              () => LabeledDropdown<MarketType>(
                 newValue: controller.selectedMarketType,
                 label: 'Market Place',
                 hint: 'Select market place',
-                items: marketPlaces,
+                items: MarketType.values,
                 onChange: controller.onMarketTypeChanged,
               ),
             ),

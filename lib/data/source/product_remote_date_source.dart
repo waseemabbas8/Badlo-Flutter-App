@@ -4,6 +4,7 @@ import 'package:badlo/data/source/data_source.dart';
 import 'package:badlo/data/utils/file_utils.dart';
 import 'package:badlo/data/utils/network/product_client.dart';
 import 'package:badlo/domain/entity/e_product.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -32,9 +33,9 @@ class ProductRemoteDataSource extends DataSource {
       price: product.price,
       description: product.description,
       shortDescription: product.shortDescription,
-      marketPlace: product.market,
+      marketPlace: product.marketIntValue,
       address: product.address,
-      inspectionStatus: product.inspectionStatus,
+      inspectionStatus: 'true',
       isInspection: product.isInspection,
       latitude: product.latitude,
       longitude: product.longitude,

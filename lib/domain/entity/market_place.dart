@@ -1,9 +1,15 @@
-class MarketPlace {
-  final int id;
-  final String name;
+import 'package:badlo/presentation/core/utils/extensions/strings_ext.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-  MarketPlace(this.id, this.name);
+@JsonEnum()
+enum MarketType {
+  @JsonValue(1)
+  swapping,
+  @JsonValue(2)
+  auction,
+  @JsonValue(3)
+  donation;
 
   @override
-  String toString() => name;
+  String toString() => name.capitalize();
 }

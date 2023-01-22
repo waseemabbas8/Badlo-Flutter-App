@@ -13,3 +13,9 @@ extension StringValidator on String? {
 
   bool isNullOrEmpty() => (this == null || this?.isEmpty == true) ? true : false;
 }
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+  }
+}

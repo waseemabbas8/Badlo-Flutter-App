@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'dart:developer' as dev_log;
 
 import '../../../domain/entity/category.dart';
+import '../../../domain/entity/market_place.dart';
 import '../../../domain/repository/category_repository.dart';
 import '../../core/base/base_controller.dart';
 
@@ -51,11 +52,11 @@ class HomeController extends BaseController {
     final response = await _productsRepository.getProducts();
     if (response.result is SuccessResult) {
       _swappingProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.swapping).toList();
+          response.data!.where((element) => element.market == MarketType.swapping).toList();
       _auctionProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.auction).toList();
+          response.data!.where((element) => element.market == MarketType.auction).toList();
       _donationProducts.value =
-          response.data!.where((element) => element.marketType == MarketType.donation).toList();
+          response.data!.where((element) => element.market == MarketType.donation).toList();
     } else {
       ///TODO handle error
     }

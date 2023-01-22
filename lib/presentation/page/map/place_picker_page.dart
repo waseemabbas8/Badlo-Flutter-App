@@ -1,12 +1,13 @@
-import 'package:badlo/presentation/core/base/base_page.dart';
-import 'package:badlo/presentation/core/constants.dart';
-import 'package:badlo/presentation/core/utils/screen_util.dart';
-import 'package:badlo/presentation/core/values/dimens.dart';
-import 'package:badlo/presentation/page/map/place_picker_controller.dart';
-import 'package:badlo/presentation/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../core/base/base_page.dart';
+import '../../core/constants.dart';
+import '../../core/utils/screen_util.dart';
+import '../../core/values/dimens.dart';
+import '../../page/map/place_picker_controller.dart';
+import '../../widget/button.dart';
 
 class PlacePickerPage extends BasePage<PlacePickerController> {
   const PlacePickerPage({Key? key}) : super(key: key);

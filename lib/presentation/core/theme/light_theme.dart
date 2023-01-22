@@ -10,6 +10,7 @@ final lightTheme = ThemeData(
   fontFamily: GoogleFonts.inter().fontFamily,
   textTheme: _textTheme,
   elevatedButtonTheme: _elevatedButtonTheme,
+  outlinedButtonTheme: _outlinedButtonTheme,
   scaffoldBackgroundColor: colorWindowBackground,
   appBarTheme: _appBarTheme,
   inputDecorationTheme: _inputDecorationTheme,
@@ -69,3 +70,7 @@ ChipThemeData get _chipThemeData => ChipThemeData(
       selectedColor: colorPrimaryLight,
       shape: RoundedRectangleBorder(borderRadius: BorderRadii.all8),
     );
+
+OutlinedButtonThemeData get _outlinedButtonTheme => OutlinedButtonThemeData(
+  style: ButtonStyles.outlinedButton,
+);

@@ -7,6 +7,8 @@ import 'package:badlo/presentation/core/base/base_controller.dart';
 import 'package:badlo/presentation/core/route/routes.dart';
 import 'package:get/get.dart';
 
+import '../../../../domain/entity/chat_conversation.dart';
+
 class ProductDetailController extends BaseController {
   final ProductRepository _productRepository;
   final ProfileRepository _profileRepository;
@@ -50,5 +52,23 @@ class ProductDetailController extends BaseController {
 
   void onPressedSwapNow() {
     Get.toNamed(Routes.placeAnOffer);
+  }
+
+  void onChatButtonClick() {
+    final conversation = ChatConversation(
+      id: 1,
+      participantId: 1,
+      participantName: productOwnerProfile!.name,
+      participantImage: productOwnerProfile!.image,
+      lastMessageBody: '',
+      lastMessageTime: '',
+      unreadCount: 0,
+      createdAt: '',
+    );
+    Get.toNamed(Routes.chat, arguments: [conversation]);
+  }
+
+  void onCallButtonClick() {
+    
   }
 }

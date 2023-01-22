@@ -12,4 +12,9 @@ class ButtonStyles {
         ),
         primary: colorPrimary,
       );
+
+  static ButtonStyle get outlinedButton => OutlinedButton.styleFrom(
+    primary: colorPrimary,
+    side: const BorderSide(color: colorPrimary, width: 1.5),
+  );
 }

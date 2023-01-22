@@ -50,6 +50,26 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
                         style: Get.textTheme.bodyText2!.copyWith(color: colorGrey),
                       ),
                       Spacing.v10,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: OutlinedButtonSmall(
+                              text: 'Call Now',
+                              iconData: Icons.call,
+                              onPressed: controller.onCallButtonClick,
+                            ),
+                          ),
+                          Spacing.h16,
+                          Expanded(
+                            child: OutlinedButtonSmall(
+                              text: 'Chat',
+                              iconData: Icons.chat,
+                              onPressed: controller.onChatButtonClick,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacing.v10,
                       Text(
                         'Exchange For',
                         style: Get.textTheme.subtitle1,
@@ -174,7 +194,7 @@ class ProductDetailPage extends BasePage<ProductDetailController> {
             ),
             Padding(
               padding: Margin.h8v32,
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+              child: IconButton(onPressed: controller.onBackPressed, icon: const Icon(Icons.arrow_back)),
             ),
             Align(
               alignment: Alignment.bottomCenter,
